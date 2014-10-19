@@ -1,0 +1,32 @@
+###从a到b截取字符串slice、substring、substr{
+    substring如果是负数的话，就会从0开始，另外两个是从最后往会算
+    substr两个参数里面带有负数的话，就会返回空值
+    当参数是负值情况下，slice将传入负值与字符串长度(string.length)相加，
+        substr会将负的第一个参数加上字符串长度，第二个转换为0，substring会将所有负值都转换成0。
+
+    var stringValue = “hello world”;
+    alert(stringValue.slice(3));               //”lo world”
+    alert(stringValue.substring(3));           //”lo world”
+    alert(stringValue.substr(3));              //”lo world”
+    alert(stringValue.slice(3,7));             //”lo w”
+    alert(stringValue.substring(3,7));         //”lo w”
+%%  alert(stringValue.substr(3,7));            //”lo worl”
+    alert(stringValue.slice(-3));              //”rld”
+    alert(stringValue.substr(-3));             //”rld”
+%%  alert(stringValue.substring(-3));          //”hello world”
+    alert(stringValue.slice(3,-4));            //”lo w”
+%%  alert(stringValue.substring(3,-4));        //”hel”
+%%  alert(stringValue.substr(3,-4));           //”"(空字符串)
+}
+###大小写转换{
+    toLowerCase和toUpperCase
+}
+###判断是否相等{
+    ==相对来说比较宽容，如果是不同类型的话，它会尝试转换成相同类型
+    ==相对来说比较不宽容，如果是不同类型的话，它们便不相等
+}
+###判断是否存在{
+    strObj.indexOf(subString,[startIndex])
+    strObj为要进行判断的字符串，subString为要在strObj查找的子字符串，
+        startIndex是可选的，表示查找的开始位置(基于0的 索引)，如果startIndex省略，则从strObj开始处查找，如果startIndex小于0，则从0开始，如果startIndex大于最大索 引，则从最大索引处开始。
+}
