@@ -1,0 +1,226 @@
+##8 bom{
+    #8.1 window对象{
+        window既是通过JavaScript访问浏览器窗口的一个接口，又是ECMAScript规定的Global对象
+        #8.1.1全局作用域{
+            //定义了变量name和函数showName都会自动归在window对象中
+            var name = "dowson";        
+            function showName(){
+                return this.name;
+            }
+            alert(window.name);     //"dowson"
+            alert(window.showName());      //"dowson"
+            alert(showName());      //"dowson"
+
+            //定义全局变量和在window上定义变量有什么区别：定义全局变量不能通过delete删除，而window变量可以通过delete删除
+            //ie<9delete删除window属性的语句时，不管该属性最初是如何创建的，都会抛出错误
+            var name = "dowson";
+            window.color = "blue";
+            delete(name);       //在ie<9时，抛出错误，其他浏览器都是false
+            delete(window.color);       //在ie<9时，抛出错误，其他浏览器都是true
+            alert(name);        //"dowson"
+            alert(window.color);    //"undefined"
+
+            //尝试访问未定义的变量抛出异常，通过window对象，可知某个对象是否存在
+            var newValue = oldValue;    //抛出错误，没有oldValue定义
+            var newValue = window.oldValue;     //没有错误，这是一次属性查询"undefined"
+        }
+        #8.1.2窗口关系及框架{
+            可以用window.frame[0] 或者window.frame["topFrame"]访问，
+            但是最好是通过top.frame[0]来访问，top对象始终指向最高层的框架，即浏览器窗口
+            parent框架的父框架、self框架本身
+        }
+        #8.1.3窗口位置{
+            var topPos = (typeof window.screenTop == "number")?window.screenTop:window.screenY;
+            var leftPos = (typeof window.screenLeft == "number")?window.screenLeft:window.screenX;
+
+            ie,opera使用screenTop、screenLeft是浏览器工具栏为标准的，ie、opera页面中的框架则是它自己的标准 
+            chrome,safari,firefox则使用screenX、screenY是浏览器为标准的，而且页面中所有框架的screenX,screenY都一样
+            //用moveTo、moveBy倒是可以把窗口移动到某个位置,但是ie>7默认都是禁用的，这两个方法只适用window
+            window.moveTo(0,0);     //移动到0，0位置
+            window.moveBy(10,0);     //向右移动10像素
+        }
+        #8.1.4窗口的大小{
+            ie9，firefox中outWidth，outHeight都是浏览器的尺寸
+            chrome中outWidth,innerWidth,outHeight,innerHeight都是视口的尺寸
+            ie,firefore,chrome中用document.documentElement.clientWidth和document.documentElement.clientHeight来表示页面视口的大小
+            ie在标准模式下才是用上面documentElement来表示视口，混杂模式下是用document.body.clientWidth来表示的
+            var pageWidth = window.innerWidth;
+            var pageHeight = window.innerHeight;
+            if(typeof pageWidth == "number"){
+                if(document.compatMode == "CSS1Compat"){
+                    pageWidth = document.documentElement.clientWidth;
+                    pageHeight = document.documentElement.clientHeight;
+                }
+                else {
+                    pageWidth = document.body.clientWidth;
+                    pageHeight = document.body.clientHeight;
+                }
+            }
+        }
+        #8.1.5导航和打开窗口{
+            window.open(url,窗口目标,窗口属性,取代当前页面在历史记录中的)
+                如果窗口目标项是有的话，则取代它，没有的话，则打开一个新窗口
+                最后一项只有当窗口目标原先存在才会有这一项
+            //弹出的窗口的opener是原来打开它的窗口，而原本那个窗口并没有指针指向打开的窗口
+            var tempWin = window.open("#","tempWin","height = 400,width = 100");
+            alert(tempWin.opener);      //弹出的窗口的原始窗口对象 
+            tempWin.close();        //可以关闭新开的窗口，但是窗口的引用还在
+            alert(tempWin.close);       //true
+
+            浏览器是用独立的进程去运行每个窗口，这个这些窗口之间就可以进行通讯，如果想让弹出窗口与原始窗口断绝联系，可以把它的opener置为
+            null
+            var tempWin = window.open("#","tempWin","height = 400,width = 100");
+            tempWin.opener = null;      //断绝了与原始窗口的联系
+            
+            //检测是否有拦截弹出框
+            var blocked = false;
+            try{
+                var tempWin = window.open("#","tempWin","height = 400,width = 100");
+                if(tempWin == null){
+                    blocked = true;
+                } 
+            }catch{
+                blocked = true;
+            }
+            if(blocked){
+                alert("was blocked");
+            }
+        }
+        #8.1.6间歇调用和超时调用{
+            setTimeout();     
+
+            setTimeout("alert('dowson')",100);
+            setTimeout(function(){
+                alert("dowson");
+            },100);
+            //以上两个函数都可以实现同样功能，但是由于传递字符串有可能导致性能损失
+            setInterval
+        }
+        #8.1.7系统对话框{
+            
+        }
+    }
+    #8.2 location对象{
+        location 既是window的属性，也是document的属性
+        #8.2.1查询字符串参数{
+            //获取问号后面的所有内容
+            function getQueryStringArgs(){
+                var qs = (document.location.search.length > 0) ? document.location.search.substring(1) : "",
+                    args = {},
+                    items = qs.length ? qs.split("&") : [],
+                    item = null,
+                    name = null,
+                    value = null,
+                    i = 0,
+                    len = items.length;
+
+                    for(i = 0; i < len; i++){
+                        item = items[i].split("=");
+                        name = decodeURIComponent(item[0]);
+                        value = decodeURIComponent(item[1]);
+                        if(name.length){
+                            args[name] = value;
+                        }
+                    }
+                return args; 
+            }
+        }
+        #8.2.2位置操作{
+            location.href = "";
+            location.reload();      //从缓存中加载
+            location.reload(true);      //从数据库中重新加载
+        }
+    }
+    #8.3 navigator对象{
+        #8.3.1检测插件
+        #8.3.2注册处理程序
+    }
+    #8.4 screen对象
+    #8.5 history对象{
+        history.back();
+        history.forward();
+        if(history.length == 0){
+            return firstPage;
+        }
+    }
+}
+##9 客户端检测{
+    #9.1能力检测{
+        if(document.getElementById){
+            return document.getElementById(id);
+        }else if(document.all){
+            return  document.all(id);
+        }else{
+            alert("no way to select element!!")
+        }
+        #先检测最先达到目标的常用属性
+        #必须测试实际用到的属性，一个特性存在，不一定另一个特性就存在
+
+        #9.1.1更加可靠地能力检测{
+            使用typeof来表示
+            function isHostMethod(obj,property){
+                return typeof obj[property] == "function"
+            }
+        }
+        #9.1.2能力检测不是浏览器检测{
+            //下面得到的boolean值以后也可以用上
+            var hasDom1 = (document.getElementById && document.getElementsByTagName);
+        }
+    }
+    #9.2怪癖检测{
+        
+    }
+}
+##10   DOM{
+    #10.1   节点层次{
+        #10.1.1 Node类型{
+            DOM1中定义了Node接口，由所有节点类型实现，在javascript中由Node类型
+            实现，ie不能访问这个类型
+            2、节点关系{
+                NodeList是类数组对象，不是Array实例，
+                NodeList的独特之处在于他是基于DOM的动态执行查询结果，DOM结构的变化能够自动反映到NodeList中
+                
+                //把nodelist转变成数组
+                function convertToArray(nodes){
+                    var array = null;
+                    try{
+                        Array.prototype.slice(nodes,0);     //检测非ie浏览器
+                    }catch(ex){
+                        //nodes.length会动态改变，所以一开始就把它付给len
+                        for(var i = 0,len = nodes.length;i < len;i ++){
+                            array.push(nodes[i]);
+                        }
+                    }
+                    return array;
+                }
+
+                #parentNode childNodes previousSibling nextSibling
+                #hasChildNodes   ownerDocument 整个文档的文档节点
+            }
+            3、操作节点{
+                appendChild添加的节点从原来的的地方变到新节点下
+                insertBefore(插入的节点,参照的节点);
+                replaceChild(插入的节点,替换的节点);
+                removeChild(删除的节点);
+                cloneChild(true);       //深复制，连它的子节点都复制了
+                cloneChild(false);       //浅复制
+                normalize();        //用于处理文档树中的文本节点
+            }
+        }
+        #10.1.2 Document类型{
+            作为HTMLDocument实例的document对象
+            1、文档的子节点{
+                document.doctype
+                    ie<8 document.doctype = null;把它解释为comment节点
+                    ie9+ firefox document.doctype是一个DocumentType节点，document.firstChild或者document.childNodes[0]访问的是同个节点
+                    safari、chrome document.doctype是一个DocumentType节点，该节点不会出现在document.childNodes中
+                注释、<html>、注释
+                    ie < 8 chrome
+                    只为第一个注释创建节点，不为第二个注释创建节点,
+            }
+        }
+    }
+}
+
+COM对象是什么呢？
+##page 253 ie<= 8 对于空白字符的方式不一样，ie9之前不会为空白符创建节点

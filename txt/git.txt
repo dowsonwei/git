@@ -1,0 +1,14 @@
+##获取文件的不同点
+git diff readme.txt 
+##获取提交日志
+git log --pretty=oneline --abbrev-commit
+
+
+##版本回退
+git reset --hard HEAD^
+git reset --hard 编号
+##在Git中，总是有后悔药可以吃的。当你用$ git reset --hard HEAD^回退到“add distributed”版本时，再想恢复到“append GPL”，就必须找到“append GPL”的commit id。Git提供了一个命令git reflog用来记录你的每一次命令：
+git relog
+git checkout -- readme.txt
+config --global user.email "328286804@qq.com"
+git config --global user.name "dowson"

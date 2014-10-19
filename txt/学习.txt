@@ -1,0 +1,57 @@
+line-height:百分比的行高
+box-shadow: h-shadow v-shadow blur spread color inset;
+						水平阴影	垂直阴影	阴影长度	
+transition: property duration timing-function delay;
+						css属性		完成时间	速度曲线			从何时开始变化
+transtion:border-color ease-in-out .15s,box-shadow ease-in-out .15s
+use-select:none  字体不可选择
+						-moz-all除了input其他地方都可以选择
+						-moz-none除了input其他地方都不可以选择
+border-collapse 是边界合并问题
+overflow:hidden 动画应用  定义一个框 滑动其他地方全部隐藏
+
+link是link的颜色
+visited 点击过的设置
+hover  鼠标悬置上面
+active  点击设置
+var myDate=new Date();
+		getYear()获取当前年份2位
+		getFullYear()完全年份4位
+		toLocaleDateString()当前日期
+		toLocaleTimeString()获取
+
+parseInt(a,b);可以通过b确定进制数
+parseFloat(a)只有一个系数，只有第一个小数点有意义
+
+
+var num=10
+alert(num.toString(2))    2进制的方式转换
+alert(num.toString(8))    8进制的方式转换
+
+for(var proName in window)
+列举出所有的window进程，不用for()是因为他可以确定他是局部变量
+
+javascript没有重载
+
+transform:rotate(50deg); 物体旋转
+					scale   物体缩放
+					transform 物体移
+
+display:flex
+				flex-flow:row wrap   row按照是从左到右还是从右到左
+														 wrap满行就换行
+				align-items:fix-start  排在上面
+										fix-end
+				justify-content:space-between  横向上每个单元有一个相同间隔
+				order:1   越大越往后边  一开始所有的元素都是
+				order:1   越大越往后边  一开始所有的元素都是00
+scoll		判断是不是可以滚动
+
+placeholder 可以通过css修改其属性，要强调他是用
+input::-webkit-input-placeholder{}从这里面修改属性
+
+
+
+#TODO
+为什么内部属性会给外部属性覆盖掉
+为什么一开始点之前，hover有用，点了之后hover就没有用了呢

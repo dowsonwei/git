@@ -1,0 +1,98 @@
+###
+类对象
+优秀的OOP设计通常关系到小心地架构对象与它周遭的环境代码
+
+###在写代码之前或者边写代码边写注释，因为以后可能没有时间来这样写
+#解释性注释在开发过程创建，提示性注释在代码完成之后创建
+#某些功能结束，也来个注释
+HQL详情5
+##count只有一列数据时
+sum计算总数分
+max min select 11,max(grade),min(grade) from StuCourse where course.cid=11
+表的名字后面添加一个下划线
+懒加载
+分页
+setFirstResult
+setMaxResult
+order by asc
+uniqueResult
+
+
+or 1='1'万能条件
+
+HQL详情5
+参数绑定案例
+#可读性提高
+#效率高
+#防止sql注入漏洞
+List<Student> list=session.createQuery("from Student where sdept=:sdept and
+sage>:sage).setString('sdept','ghjkl').setString('sage','11')").list();
+
+List<Student> list=session.createQuery("from Student where sdept=? and
+sage=?).setString(0,'fghjk').setString(1,'11').list();
+
+Query query = session.createQuery("from Student where sdept=:sdept and
+sage>:sage");
+query.setString();
+List<Student> list=query.list();
+@@自己设计工具类
+@@统一的方法带分页
+@@统一的添加修改删除
+executeUpdate返回修改删除的行数
+###需要查看eclipse运行hibernate
+
+HQL详解6
+把HQL语句添加到映射文件中(用得比较少)
+<query name="myQuery">
+	<![CDATA[select sname,ssex from Student where sage>22]]>
+</query>
+List list= session.getNamedQuery("myQuery").list();
+禁用懒加载
+子查询
+模糊查询like  %百分号是随便多个字符  _是随便一个字符 
+
+
+第8讲getCurrentSession   
+openSession 获取的是不同的session
+而getCurrentSession同一线程获取的session是相同的它更加利于事务的控制
+getCurrentSession 在commit时，它会自动close
+，genCurrentSession必须要要有transtion
+而openSession 在commit时，需要自己手动close
+1全新2关闭3查询时需要一个事务
+<property name="hibernate.current_session_context_class">thread</property>
+全局事务  局部事务jta配置时有用 的区别
+1load先到缓存中找，没有的话，使用代理对象，等用时才到DB用，默认情况下支持延迟加载
+get则直接到先到缓存找，找不到，直接到db中找
+2get直接获取实体对象，而load使用代理对象，当用时没有找到实体对象，则直接出现错误
+
+
+
+hibernate虽然是三个表，但是只需要两个类
+unsaved-value="null" 
+cascade="all" outer-join="false"
+reserve="true"
+
+ <set name="course" table="student_course_link" cascade="all" outer-join="false">
+            <key column="sid"/>
+            <many-to-many class="com.test.Course" column="cid"/>
+        </set>
+
+<set name="student" table="student_course_link" lazy="false" cascade="all">
+            <key column="cid"/>
+            <many-to-many class="com.test.Student" column="sid"/>
+        </set>
+
+unsave-value=null 判断是不是持久化，如果是的话，则update，否则用save
+unsave-value=none 默认考虑了所有的对象，所以每次只能是更新update
+unsave-value=any 默认考虑操作的对象都不在队列中，所以每次只能用save
+
+
+###添加时用了load的话，这样涉及到用save或者update
+###主键生成策略
+###load 还有get的区别
+
+1、有可能跟级联有关系，employee去找department
+，而department汇过来找employee如此循环下去（它允许为null）
+2、saveorupdate更改了话，得先save后才能用update（是新建的一个元素）
+3、session.flush()清除缓存
+

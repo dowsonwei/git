@@ -1,0 +1,47 @@
+##减缓代码下载时间{
+    1、包含的长变量名、注释、空格和换行等多余字符{
+        对于布尔型的值true和false、true都可以用1来代替,而false可以用0来代替。对于true节省了3个字节、而false则节省了4个字节
+        很多条件非的判断就判断某个变量是否为"undefined"、"null"、或者"false",逻辑非操作符"!"也可以有
+            if(myValue != false)    if(!myValue)
+    }
+    2、合理声明变量{
+        全局变量只有在浏览器关闭才释放。而JavaScript也有局部变量、通常在function中执行完毕就会立即被释放。
+        因此在函数体中要尽可能使用var关键字来声明变量：
+        局部变量的速度要比全局变量的访问速度更快，因为全局变量其实是全局对象的成员，而局部变量是放在函数的栈当中的。
+    }
+    3、使用内置函数缩短编译时间
+    4、合理书写if语句{
+        在用if语句和多个else语句时、一定要把最有可能的情况放在第一个、然后是可能性第二的
+    }
+    5、最少语句数量{
+        最少语句数量    
+            var     temp,
+                    wzc;
+    }
+    6、节约使用DOM{
+        var oUl = document.getElementById("ulItem");  
+                for(var i=0;i<10;i++){  
+                    var oLi = document.createElement("li");  
+                    oUl.appendChild(oLi);  
+                    oLi.appendChild(document.createTextNode("Item "+i));  
+                }  
+         以上代码在循环中调用oUl.appendChild(oLi)、每次执行这条语句后、浏览器就会重新渲染页面、
+         其次给列表添加文本节点oLi.appendChild(document.createTextNode("Item "+i))、这也会造成页面被重新渲染。
+         因此每次运行都会造成两次重新渲染页面、共20次。
+       改进版： 
+        var oUl = document.getElementById("ulItem");  
+                var oTemp = document.createDocumentFragment();  
+                for(var i=0;i<10;i++){  
+                    var oLi = document.createElement("li");  
+                    oLi.appendChild(document.createTextNode("Item "+i));  
+                    oTemp.appendChild(oLi);  
+                }  
+                oUl.appendChild(oTemp);  
+    }
+    7、如果要与数组的长度作比较，应该事先把数组的length属性放入一个局部变量中，减少查询次数。{
+        举例，假设arr是一个数组，最佳的遍历元素方式为：
+        for(var i=0, len = arr.length;i
+        或者，如果无所谓顺序的话：
+        for(var i=arr.length;i>0;i--){...}
+    }
+}

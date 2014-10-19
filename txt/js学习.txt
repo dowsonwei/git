@@ -1,0 +1,247 @@
+###javascript运行机制{
+    http://bbs.html5cn.org/thread-79649-1-1.html
+    代码块  <script>标签分开{
+        //代码一
+        <script type="text/javascript">
+            alert(temp);     //报错
+            alert(str);     //不会运行到这里
+            var str="dowson";
+        </script>
+        //代码二
+        <script type="text/javascript">
+            alert(str);     //运行正确
+        </script>
+
+        ##//代码一运行出错，代码二运行正常，说明代码块间独立性，而代码二运行正常说明str变量的共享，说明代码块间共享性
+    }
+    声明式函数、赋值式函数{
+        //函数之间的重载 
+        <script type="text/javascript">
+            fn();   //执行函数2
+            function fn(){
+                alert("执行函数1");
+            }
+            function fn(){
+                alert("执行函数2");
+            }
+        </script>
+        ##//执行函数2，函数1给函数2重载了
+        <script type="text/javascript">
+            fn();   //执行函数1
+            function fn(){
+                alert("执行函数1");
+            }
+            var fn = function(){
+                alert("执行函数2");
+            }
+        </script>
+        ##//声明式函数是在预处理时候执行的，而赋值式函数是在预处理以后加载的
+    ##在JS的预处理期，声明式函数将会先被提取出来，然后才按顺序执行js代码。
+    }
+    预处理期与执行期{
+        //代码一
+        <script type="text/javascript">
+            alert(str);     //undefined
+            var str="dowson";
+        </script>
+        ##//这里str在预处理中声明，但是预处理只是声明，并没有进行初始化、赋值
+        //代码二
+        <script type="text/javascript">
+            fn();   //报错
+        </script>
+        <script type="text/javascript">
+            function fn(){
+                alert("函数");
+            }
+        </script>
+        ##//其中预处理是执行过的代码块才会预处理，未加载代码块的话，不会进入预处理中
+    }
+    总结{
+        step 1.  读入第一个代码块。
+    　　step 2.  做语法分析，有错则报语法错误（比如括号不匹配等），并跳转到step5。
+    　　step 3.  对var变量和function定义做“预编译处理”（永远不会报错的，因为只解析正确的声明）。
+    　　step 4.  执行代码段，有错则报错（比如变量未定义）。
+    　　step 5.  如果还有下一个代码段，则读入下一个代码段，重复step2。
+    　　step6. 结束。
+    }
+}
+
+###Scope作用范围
+###函数的闭包
+###创建“原生”方法
+###声明提升
+###this在javascript中如何工作
+###call()和apply()、extend()
+###内存管理技巧：如何避免javascript的内存泄露
+###javascript中匿名函数和命名函数的性能差异
+###合并javascript数组的N中方法
+###前置逗号是不好的javascript代码书写习惯
+
+###
+this的话，js是会冒泡的  event.stopPropagation()可以让js不冒泡
+event.target的话，js不会冒泡的
+相同的是$(this)$(event.target)都能得到dom元素
+###为什么用event.target时，点了第一个标题后，会弹出两次，而且再点击“第一行”时，“第一行”不会变蓝
+	http://www.cnblogs.com/12go/archive/2011/12/28/2304502.html
+###
+moveover 是当鼠标移动到上面时的事件
+moveout  是当鼠标移离开上面时的事件
+
+###
+setInterval  animate是基于这个函数来实现的
+
+###
+prototype 原型
+处理“.”和[keyname]时，先对实例（this）中找，如果没有找到，才会跳到prototyp中区查看，如果还是没有找到，则直接返回undefined或者runtime
+error，这样我们才可以给系统内部对象添加prototype属性和方法
+#无论实例多少个对象，其中的prototype只有一个
+Blog.prototype.toHTML()=function
+
+###
+RegExp中的leftContext
+$1 $2中的区别
+setTimeOut
+
+
+###静态私有变量
+	(function(){
+	var name = "";
+	Person = function(value){
+		name = value;
+	};
+	Person.prototype.getName = function(){
+		return name;
+	};
+	Person.prototype.setName = function(value){
+		name = value;
+	};
+	})();
+
+	var person1 = new Person("dowson");
+	console.log(person1.getName());
+	person1.setName("wzc");
+	console.log(person1.getName());
+
+	var person2 = new Person("dowsonwei");
+	console.log(person1.getName());
+	console.log(person2.getName());
+
+
+
+####模块模式
+	var singleton = function(){
+		var privateVariable = 10;
+		function privateFunction(){
+			return false;
+		}
+		return {
+			publicProperty: true,
+			publicMethod : function(){
+				privateVariable ++;
+				return privateFunction();
+			}
+		};
+	}();	
+	
+###BOM全局变量
+	var age = 29;
+	function sayAge(){
+		return this.age;
+	}
+
+	console.log(window.age);
+	console.log(sayAge());
+
+
+	//可以delete window变量，不能delete其他变量
+	var age = 20;
+	window.color = "red";
+	delete age;
+	delete window.color;
+	console.log(age);
+	console.log(window.color);
+
+	//可以访问未声明的window变量
+	var newValue = oldValue;
+	var newWindow = window.oldValue;
+
+###间歇性操作
+	var num = 0;
+	var max = 10;
+	function incrementNum(){
+		num ++;
+		if(num<max){
+			console.log(num);
+			setTimeout(incrementNum,1000);
+		}
+		else {
+			console.log("done");
+		}
+	}
+
+	setTimeout(incrementNum,1000);
+
+
+###获取URL中的键值对
+
+	function getQueryStringArgs(){
+		var qs = (location.search.length > 0? location.search[1] : "");
+		args = {};
+		items = qs.length ? qs.split("&") : [];
+		item = null;
+		name = null;
+		value = null;
+		
+		i = 0;
+		len = items.length;
+		for(i = 0; i<len; i++){
+			item = items.split("=");
+			name = decodeURIComponent(item[0]);
+			value = decodeURIComponent(item[1]);
+
+			if(name.length){
+				args[name] = value;
+			}
+		}
+		return args;
+	}
+
+###Node 
+    nodeType == 1表示是一个element类型
+    nodeName nodeValue
+  #节点关系
+   childNodes 
+   获取NodeList 动态执行查询的结果 不是Array类型 childNodes[i]
+   childNodes.item(i)
+   Array.prototype.slice.call(someNode.childNodes,0);   把NodeList转变成数组
+   ie8前会有出错
+   hasChildNodes()
+   ownerDocument()
+   cloneNode(true) 直接就有parentNode cloneNode(false) 则没有parentNode
+###Document类型
+    #document.documentElement = document.firstChild = html
+    #body = document.body;
+        document.URL    
+        document.domain
+        domain.referrer     取得来源页面的URL
+    document.getElementsByTagName("*")表示取得全部
+    images.namedItem("myImage") = images["myImage"]
+    
+###Element
+    tagName     获得的都是大写的
+    getAttribute
+    不能setAttribute属性
+    
+    #attributes属性
+    getNameItem
+    removeNamedItem
+    setNamedItem
+    item(pos)
+
+    document.createElement("");
+
+    element.nomalize()  就可以全部合并
+    element.splitText(num)     分开text
+
+    DocumentFragment    类型
+    document.createDocumentFragment();

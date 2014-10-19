@@ -1,0 +1,50 @@
+###
+is() 根据选择器、元素或 jQuery 对象来检测匹配元素集合，如果这些元素中至少有一个元素匹配给定的参数，则返回 true。
+###$('strong',this).length 找出this中strong的长度
+		http://www.w3school.com.cn/jquery/traversing_is.asp
+###
+find找到所有子树，不会搜到同级的树枝
+children找到一级子树的类
+其中$('strong',this) 同$(this).find('strong')一样，所以解决了上面is的问题
+	var item=$('item')[0];
+	$('li.item-ii').find(item).css();
+	##这样可以找到单一个元素
+###
+each(obj,fn,arg) obj是操作的对象，一般是数组 fn是操作的function arg操作的参数
+ ##$.each(array,function(index,item){})
+ http://www.jb51.net/article/22626.htm
+###
+focus可以通过鼠标或者通过tab来使元素成为焦点
+click只有通过鼠标来点击才能实现
+blur当元素失去焦点时就会触发一个事件
+##实现placeholder效果的js
+	$("input").focus(function(){
+		var oldval=$("input").val("");
+		if(oldval==this.defaultValue){
+			$("input").val("");
+		}
+	})
+	$("input").blur(function(){
+		var oldval=$("input").val();
+		if(oldval==""){
+			$("input").val(this.defaultValue);
+		}
+	})
+####
+	select元素，其中有optionx选项
+	$("select").chang(function)是select发生选择
+	$("select").find("option:selected").text()选中的项目字
+	##实现select下拉框既可以输入又可以下拉选择
+		http://wenku.baidu.com/view/c9ebc10190c69ec3d5bb755f.html这里有完整的需求分析
+
+###
+attr 设置属性
+$(selector).attr(width,function(index,value)其中value是它的属性值
+$(selector).attr({width:value,height:value})
+
+###
+animate 设置动画
+$(selector).animate(style,speed,easing,callback)
+进阶讲解http://www.cnblogs.com/yixiaoheng/p/jquery-animate-0.html
+queue如果定义为false的话，就是未等前面执行完，它就动了.animate({},{queue:false})
+

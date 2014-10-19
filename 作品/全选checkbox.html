@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        //该程序是使用vim编辑
+        //工具函数对象
+        var tool = {
+            //添加事件到onload上面的工具函数
+            addEvent : function(c){
+                            var tempFn = window.onload;
+                            if(typeof tempFn == "function"){
+                                window.onload = function(){
+                                    tempFn();
+                                    c();
+                                }
+                            }
+                            else{
+                                window.onload = c;
+                            }
+                       },
+            //通过id获取dom对象的工具函数
+            gel : function(id){
+                        return document.getElementById(id);
+                  },
+            //跨浏览器事件处理程序
+            EventUtil :  {
+                            addHandle : function(element,type,handle){
+                                //DOM2级事件处理程序
+                                if(element.addEventListener){
+                                    element.addEventListener(type,handle,false);
+                                }
+                                //IE事件处理程序
+                                else if(element.attachEvent){
+                                    element.attachEvent("on" + type,handle);
+                                }
+                                //DOM0事件处理程序
+                                else {
+                                    element["on" + type] = handle;
+                                }
+                            },
+                         }
+        };
+        //利用闭包的思想，建立一个对象
+        var  selectAllCheckbox = {
+            //初始化
+            init : function(){
+                        selectAllCheckbox.bindEvent();
+                   },
+            //绑定事件
+            bindEvent : function(){
+                            tool.EventUtil.addHandle(tool.gel("cAll"),"click",selectAllCheckbox.clickFn);
+                        },
+            //点击cAll事件
+            clickFn : function(){
+                        //通过document.querySelectorAll获取所有input Dom对象
+                        var allCheckbox = document.querySelectorAll("input");
+                        //如果id="cAll"勾选了，则把其他所有的checkbox也勾选
+                        if(tool.gel("cAll").checked){
+                            for(var i = 0;i < allCheckbox.length;i ++){
+                                allCheckbox[i].checked = true;
+                            }
+                        }
+                        //如果id="cAll"未勾选了，则把其他所有的checkbox勾选去掉
+                        else{
+                            for(var i = 0;i < allCheckbox.length;i ++){
+                                allCheckbox[i].checked = false;
+                            }
+                        }
+                  } 
+        }
+        tool.addEvent(selectAllCheckbox.init); 
+    </script>
+</head>
+<body>
+    <div id="box">
+        <input type="checkbox" id="cAll" />
+        <input type="checkbox" id="c2" name="C" />
+        <input type="checkbox" id="c3" name="C" />
+        <input type="checkbox" id="c4" name="C" />
+        <input type="checkbox" id="c5" name="C" />
+    </div>
+</body>
+</html>

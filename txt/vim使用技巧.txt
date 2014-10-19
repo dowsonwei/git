@@ -1,0 +1,197 @@
+vim学习
+@@@@搜索的使用技巧
+##f命令 可以进行行内搜索。输入fx可以找到下一个x字符。
+	F命令可以在反方向进行行内搜索，输入Fx可以找到上一个x字符。
+	t命令同样是进行行内搜索，但是光标停留在符合条件的字符的前面。输入tx使光标停留在下一个x字符的前面。
+	T命令可以在反方向进行行内搜索，但是光标停留在符合条件的字符的下一个字符上。输入tx使光标停留在上一个x的后面的字符上。
+##你在命令模式下敲斜杆(/)这时在状态栏（也就是屏幕左下脚）就出现了
+“/”然后输入你要查找的关键字，按n往下走，按N往上走
+
+##查找当前词。一个简单的方法可以让你查找下一个和当前词一样的词，你不比输入/currentword，你可以直接按下*就可以查找下一个currentword。#可以让你向上查找同一个单词。
+
+@@@替换技巧
+##	：s/str1/str2/ 用字符串 str2 替换行中首次出现的字符串 str1 
+		：s/str1/str2/g 用字符串 str2 替换行中所有出现的字符串 str1 
+		：n，$s/vivian/sky/ 替换第 n 行开始到最后一行中每一行的第一个 vivian 为 sky 
+		：n，$s/vivian/sky/g 替换第 n 行开始到最后一行中每一行所有 vivian 为 sky
+@@@@vim的寄存器
+## "3yy 复制当前行到3寄存器
+	 其中字母寄存器才能保存多行内容
+	 同样用"3p可以粘贴3寄存器中的内容
+		
+@@@@标记
+		m	创建标记
+		'	移动到标记的文本行首
+		:marks	列示所有标记
+		:delmarks	删除指定标记
+		:delmarks!	删除所有标记
+
+@@@@智能提示
+	##ctrl + p可以智能提示
+
+@@@@	vsp中的产生竖列
+			sp中出现横排
+			按下ctrl + w 后，上下左右跳转
+
+
+@@@@	数字 + G 可以跳到相应的行首
+			: + 数字可以跳到相应的行数
+			ctrl + f 往上翻页
+			ctrl + b 往下翻页
+			ctrl + u 往上翻半页
+			ctrl + d 往下翻半页
+
+@@@@ 颜色  喜欢以下的三种颜色
+		:color even
+		:color desert
+		:color ko
+
+@@@@目录
+		wm 就可以跳出左边的文件目录
+
+
+@@@@屏幕滑动
+	建议用 nmap 将^f/^b/^d/^u/^e/^y 分别替换为空格键、Shift+空格键、Enter键、Backspace键、下方向键、上方向键。
+	mswin.vim文件中去掉这两行即可
+	" CTRL-Y is Redo (although not repeat); not in cmdline though
+	noremap <C-Y> <C-R>
+	inoremap <C-Y> <C-O><C-R>
+@@@@折叠
+
+
+@@@@跳转
+	% 可以切换到匹配的符号
+
+@@@@创建文件标题栏
+	:tabnew		新建文件
+	:tabn		文件间的切换
+	:tabp 		文件间的切换
+@@@@ 
+	u是后退
+	ctrl + r是前进
+
+@@@@
+	通过github使用vundle管理自己的vim
+	第一步学习github
+	第二步再看吧
+
+	git工厂不要建立在c盘里面
+	git config --global --unset http.proxy修改代理可以解决端口8080问题
+	git remote add origin https://github.com/dowsonwei/git.git
+	git push -u origin master是把本机仓库同步到远程仓库中
+
+
+@@@@
+    shift + ^ 跳到行首
+    daw     可以去掉光标所在的单词
+
+@@@@注释多行
+    选择模式
+    ctrl + q
+    上下移动
+    I(行首) /A(行尾)
+    然后输入字符
+    esc
+
+@@@@    .是重复刚才的操作
+
+@@@@ 在{}上面输入zf%可以折叠
+
+Github学习
+d:github便可以跳到库文件中
+****创建库
+    初始化一个Git仓库，使用git init命令。
+    添加文件到Git仓库，分两步：
+        第一步，使用命令git add ，注意，可反复多次使用，添加多个文件；
+        第二步，使用命令git commit，完成。
+    其中-m后面是说明
+    $ git commit -m "wrote a readme file"   
+
+****时光穿梭机
+    命令可以让我们时刻掌握仓库当前的状态
+    git status
+    顾名思义就是查看difference
+    git diff
+
+****版本回退
+    查看提交日志
+    git log --pretty=oneline
+    查看所有的日志
+    git reflog
+    变到上一个版本
+    git reset --hard HEAD^  HEAD^^回到上上部
+    变到某个编号的位置
+    git reset --hard （对应的编号）
+    查看文件内容
+    cat readme.txt  
+
+****暂存区
+    工作区
+    stage 暂存区
+    master自动生成的分支
+    HEAD指针
+
+****返回版本
+    用“git diff HEAD -- readme.txt”命令可以查看工作区和版本库里面最新版本的区别
+    $ git diff HEAD -- readme.txt 
+
+****撤销修改
+    让这个文件回到最近一次git commit或git add时的状态。
+    git checkout -- 文件名
+    场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
+    场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景
+            1，第二步按场景1操作。
+    场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交
+
+****删除文件
+    确实要从版本库中删除该文件，那就用命令git rm删掉，并且commit：
+    $ git rm test.txt
+    确实要从版本库中删除该文件
+    $ git checkout -- test.txt
+
+****添加远程库
+    添加到远程库中
+    $git remoter add origin git@github.com:dowsonwei/git.git    
+
+    更新文件
+    $git pull
+
+    由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地
+        的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
+    $git push -u origin master  
+
+    以后就能直接添加到远程库
+    $ git push origin master
+
+****从远程仓库克隆到本地
+    git clone git@github.com:dowsonwei/Vim.git  
+        
+****创建与合并分支
+    查看分支
+    git branch
+    创建分支
+    git branch name
+    切换分支
+    git checkout name
+    创建+切换分支
+    git checkout -b name
+    合并某个分支到当前分支
+    git merge name
+    删除分支
+    git branch -d name
+
+****分支管理策略
+    --no-ff参数，表示禁用“Fast forward”
+    $ git merge --no-ff -m "merge with no-ff" dev
+
+****多人协作
+    指定本地dev分支与远程origin/dev分支的链接
+    $ git branch --set-upstream dev origin/dev
+
+****创建标签
+    $ git tag v1.0
+    $ git log --pretty=oneline --abbrev-commit
+    $ git tag v0.9 commitid
+    $ git show 版本号
+    创建带有说明的标签，用-a指定标签名，-m指定说明文字：
+    $ git tag -a v0.1 -m "version 0.1 released" 3628164
