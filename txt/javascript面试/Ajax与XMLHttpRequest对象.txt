@@ -1,0 +1,23 @@
+var http_request = false;
+//IE 浏览器中创建
+http_request = new ActiveXObject("Msxml2.XMLHTTP");//旧版ie
+http_request = new ActiveXObject("Microsoft.XMLHTTP");//新版ie
+//Netscope浏览器中创建
+http_request = new XMLHttpRequest();
+    在微软最新的　IE7.0版本浏览器中也已经支持了XMLHttpRequest,
+    也就是说在IE7.0中同时支持以及上二种创建方式
+onreadystatechange:指定当readyState属性改变时的事件处理句柄，属性只写。
+    如上：http_request.onreadystatechange = processRequest;processRequest作为事件处理函数，
+        并在processRequest函数体内在readyState状态为4时开始执行。
+readyState：返回当前请求的状态，属性只读。
+    这些状态用长度为４的整形数据表示，其属性的状态含义如下：
+    0：未初始化（对象已经建立，但是未初始化，即尚未调用open方法创建http请求）
+    1：初始化（对象已经建立，但是未调用send方法发送http请求）
+    2：发送数据（send方法已经被调用，但是当前的状态以及http头未知）
+    3：数据传送中（已经接收部分数据，因为响应及http头不全，这时通过response系统方法获取部分数据会出现错误）
+    4：传送完成（数据完毕，此时可以通过response系统方法获取完整的回应数据）
+responseBody:将回应信息正文以unsigned byte 数组形式返回，属性只读。
+responseText:以字符串的形式返回服务器响应信息，属性只读。
+responseXML:将响应信息格式化为XML Document对象返回，属性只读。
+
+status:返回当前HTTP请求的状态码，属性只读。如：404＝“文件未找到”，200＝“成功”
