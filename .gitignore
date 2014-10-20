@@ -3,3 +3,10 @@
 *.gitignore~
 *.gitignore.swpt
 *.swp
+#文件
+*.前端面试问题.txt.swm
+*.前端面试问题.txt.swn
+*.前端面试问题.txt.swo
+*.JavaScript高级程序设计 总结.txt.swp
+*.已做.txt.swp
+*.待做.txt.swp
