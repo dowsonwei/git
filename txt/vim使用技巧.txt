@@ -106,13 +106,11 @@ d:github便可以跳到库文件中
         第二步，使用命令git commit，完成。
     其中-m后面是说明
     $ git commit -m "wrote a readme file"   
-
 ****时光穿梭机
     命令可以让我们时刻掌握仓库当前的状态
     git status
     顾名思义就是查看difference
     git diff
-
 ****版本回退
     查看提交日志
     git log --pretty=oneline
@@ -124,17 +122,14 @@ d:github便可以跳到库文件中
     git reset --hard （对应的编号）
     查看文件内容
     cat readme.txt  
-
 ****暂存区
     工作区
     stage 暂存区
     master自动生成的分支
     HEAD指针
-
 ****返回版本
     用“git diff HEAD -- readme.txt”命令可以查看工作区和版本库里面最新版本的区别
     $ git diff HEAD -- readme.txt 
-
 ****撤销修改
     让这个文件回到最近一次git commit或git add时的状态。
     git checkout -- 文件名
@@ -142,30 +137,23 @@ d:github便可以跳到库文件中
     场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景
             1，第二步按场景1操作。
     场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交
-
 ****删除文件
     确实要从版本库中删除该文件，那就用命令git rm删掉，并且commit：
     $ git rm test.txt
     确实要从版本库中删除该文件
     $ git checkout -- test.txt
-
 ****添加远程库
     添加到远程库中
     $git remoter add origin git@github.com:dowsonwei/git.git    
-
     更新文件
     $git pull
-
     由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地
         的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
     $git push -u origin master  
-
     以后就能直接添加到远程库
     $ git push origin master
-
 ****从远程仓库克隆到本地
     git clone git@github.com:dowsonwei/Vim.git  
-        
 ****创建与合并分支
     查看分支
     git branch
@@ -179,15 +167,15 @@ d:github便可以跳到库文件中
     git merge name
     删除分支
     git branch -d name
-
 ****分支管理策略
     --no-ff参数，表示禁用“Fast forward”
     $ git merge --no-ff -m "merge with no-ff" dev
-
+    master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活,
+    dev干活都在dev分支上，也就是说，dev分支是不稳定的
+    bug是
 ****多人协作
     指定本地dev分支与远程origin/dev分支的链接
     $ git branch --set-upstream dev origin/dev
-
 ****创建标签
     $ git tag v1.0
     $ git log --pretty=oneline --abbrev-commit
