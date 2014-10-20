@@ -375,24 +375,99 @@
     　　step 5.  如果还有下一个代码段，则读入下一个代码段，重复step2。
     　　step 6. 结束。
     }
-    ##请描述下事件冒泡机制。
-
-    ##"attribute"和"property"的区别是什么？
-
-    ##为什么扩展JavaScript内置对象是个坏做法？
-
-    ##为什么扩展JavaScript内置对象是个好做法？
-
-    ##请指出document load和document ready的区别。(这是个问题的问题）
-
+    ##请描述下事件冒泡机制。{
+        当一个元素上的事件被触发的时候，比如说鼠标点击了一个按钮，同样的事件将会在那个元素的所有祖先元素中被触发。这一过程被称为事件冒泡
+    }
+    dl和dt的区别{
+    }
+    event对象{
+        DOM{
+            event.bubbles:表明事件是否冒泡
+            event.defaultPrevented：取消一般情况
+            event.stopPropagation():取消进一步冒泡或捕获
+            event.currentTarget == this   //指当前的对象
+            event.target == document.getElementById(); //点击的对象
+        }
+        IE{
+            event.cancleBubble():跟DOM中的stopPropagation
+            event.returnValue：  跟DOM中的preventDefault
+            event.srcElement:    跟DOM中的Target
+        }
+        //事件对象event的一个用法
+        var handle = function(event){
+            switch(event.type){
+                case "click": clickFn();break;
+                case "mouseover": mouseoverFn();break;
+                case "mouseout": mouseoutFn();break;
+            }
+        }
+    }
+    内存和性能{
+        每个函数都是对象，都会占用内存
+        事件处理程序越多导致DOM访问次数更加多
+        事件委托{
+            因为有事件冒泡
+            在document对象设置添加事件处理程序
+                不用等到load，只要页面上面有这个元素，它便可以触发相应的功能
+                事件处理程序少，DOM引用更少
+                占用内存少，性能更加好
+        }
+    }
+    ##什么是"use strict"?使用它的好处和坏处分别是什么？{
+        启用JavaScript严格模式,它能帮你发现代码中未曾注意到的错误。
+        use strict{
+            去除WITH关键词
+            防止意外为全局变量赋值
+            函数中的THIS不再默认指向全局
+            防止重名
+            安全的 EVAL()
+            对只读属性修改时抛出异常
+        }
+    }
+    ##"attribute"和"property"的区别是什么？{
+        常见的attribute节点都有与之对应的property属性
+        自定义的attribute节点，或者自定义property，两者就没有关系
+        attribute节点都是在HTML代码中可见的，而property只是一个普通的名值对属性。
+    }
+    ##为什么扩展JavaScript内置对象的利弊？{
+        好处是调用方便，坏处是内置对象已有改动，它的适用性就得重新考虑，看prototypeJS失败的原因就知道了
+    }
+    ##请指出document load和document ready的区别。{
+        域名解析-加载html-加载js和css-加载图片等其他信息
+        Dom Ready是在dom加载完成后就可以直接对dom进行操作，
+            比如一张图片只要<img>标签完成，不用等这个图片加载完成，就可以设置图片的宽高的属性或样式等；
+        Dom Load是在整个document文档（包括了加载图片等其他信息）加载完成后就可以直接对dom进行操作，
+            比如一张图片要等这个图标加载完成之后才能设置图片的宽高的属性或样式等；
+    }
     ##'=='和'==='有什么不同？
+    ##你如何获取浏览器URL中查询字符串中的参数。{
+        //获取url问号后面的所有内容
+        function getQueryStringArgs(){
+            var qs = (document.location.search.length > 0) ? document.location.search.substring(1) : "",
+                args = {},
+                items = qs.length ? qs.split("&") : [],
+                item = null,
+                name = null,
+                value = null,
+                i = 0,
+                len = items.length;
 
-    ##你如何获取浏览器URL中查询字符串中的参数。
-
+                for(i = 0; i < len; i++){
+                    item = items[i].split("=");
+                    name = decodeURIComponent(item[0]);
+                    value = decodeURIComponent(item[1]);
+                    if(name.length){
+                        args[name] = value;
+                    }
+                }
+            return args; 
+        }
+    }
     ##请解释一下JavaScript的同源策略。
-
     ##请解释一下事件代理。
-
+    ##描述一种JavaScript memoization(避免重复运算)的策略。
+    ##什么是三元条件语句？
+    ##函数的参数元是什么？
     ##请描述一下JavaScript的继承模式。{
         继承模式一：原型链
         继承模式二：借用构造函数（也叫伪造对象或经典继承）
@@ -401,40 +476,26 @@
         继承模式五：寄生式继承
         继承模式六：寄生组合式继承
     }
-
-    ##如何实现下列代码：
-
-    ##[1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5] 
-    ##描述一种JavaScript memoization(避免重复运算)的策略。
-
-    ##什么是三元条件语句？
-
-    ##函数的参数元是什么？
-
-    ##什么是"use strict"?使用它的好处和坏处分别是什么？
-
-    ##JS代码示例：
-
-    ##~~3.14 
-    ##问题：上面的语句的返回值是什么？ 答案：3
-
-    ##"i'm a lasagna hog".split("").reverse().join(""); 
-    ##问题：上面的语句的返回值是什么？ 答案："goh angasal a m'i"
-
-    ##( window.foo || ( window.foo = "bar" ) ); 
-    ##问题：window.foo的值是什么？ 答案："bar" 只有window.foo为假时的才是上面答案，否则就是它本身的值。
-
-    ##var foo = "Hello"; (function() { var bar = " World"; alert(foo + bar); })(); alert(foo + bar); 
-    ##问题：上面两个alert的结果是什么？ 答案: "Hello World" & ReferenceError: bar is not defined
-
-    ##var foo = []; 
-    ##foo.push(1); 
-    ##foo.push(2); 
-    ##问题：foo.length的值是什么？ 答案：'2'
-
-    ##var foo = {}; 
-    ##foo.bar = 'hello'; 
-    ##问题：foo.length的值是什么？ **答案: undefined
+    ##如何实现下列代码：{
+        [1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5] 
+    }
+    ##JS代码示例：{
+        ~~3.14 
+        问题：上面的语句的返回值是什么？ 答案：3
+        "i'm a lasagna hog".split("").reverse().join(""); 
+        问题：上面的语句的返回值是什么？ 答案："goh angasal a m'i"
+        ( window.foo || ( window.foo = "bar" ) ); 
+        问题：window.foo的值是什么？ 答案："bar" 只有window.foo为假时的才是上面答案，否则就是它本身的值。
+        var foo = "Hello"; (function() { var bar = " World"; alert(foo + bar); })(); alert(foo + bar); 
+        问题：上面两个alert的结果是什么？ 答案: "Hello World" & ReferenceError: bar is not defined
+        var foo = []; 
+        foo.push(1); 
+        foo.push(2); 
+        问题：foo.length的值是什么？ 答案：'2'
+        var foo = {}; 
+        foo.bar = 'hello'; 
+        问题：foo.length的值是什么？ **答案: undefined
+    }
 }
 ###jquery相关问题{
     ##DOM对象与jquery对象有什么不同{
