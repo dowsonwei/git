@@ -1,9 +1,7 @@
-# Numerous always-ignore extensions
 *.txt~
 *.gitignore~
 *.gitignore.swpt
 *.swp
-#文件
 *.前端面试问题.txt.swm
 *.前端面试问题.txt.swn
 *.前端面试问题.txt.swo
