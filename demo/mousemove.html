@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var temp,ans;
+		function getDown(){
+			ff = document.getElementById("div1");
+			var e = window.event;
+			ox = e.clientX;
+			oy = e.clientY;
+			l = parseInt(ff.style.left,10);
+			t = parseInt(ff.style.top,10);
+			//当鼠标按下时，z为true
+			var z = true;
+			document.onmouseover = function(e){
+				e = e||window.event;
+				var x = e.clientX;
+				var y = e.clientY;
+				// if(y > 100) y = 100;
+				if(z == true){
+					ff.style.top = t + (y - oy) + "px";
+				}
+			}
+			//当鼠标起来时，z为false
+			document.onmouseup = function(e){
+				z = false;
+				goToBegin();
+			}
+		}
+		function goToBegin(){
+			ans = setInterval("setTime()",2);
+			// if(temp == 0){clearInterval(ans);console.log("dowson");return;} 
+			// else {
+			// 	ans = setInterval("setTime()",2);
+			// }
+			// goToBegin();
+		}
+		function setTime(){
+			temp = parseInt(ff.style.top);
+			temp -= Math.ceil((temp - t)/50);
+			ff.style.top = temp + "px";
+			if(temp == 0){
+				clearInterval(ans);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div1" style="position:absolute;top:0px;width:100px;height:100px;background-color:gray;margin-bottom:10px" onmousedown="getDown()"></div>
+	<!-- <div id="div2" style="clear:both;width:200px;height:100px;background-color:gray;"> -->
+</body>
+</html>
+

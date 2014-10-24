@@ -1,0 +1,78 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>	
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+</head>
+<body>
+	
+	<div class="page">
+		<table>
+			<tr class="first">
+				<td style="width: 150px;">角色名称</td>
+				<td style="width: 400px;">角色描述</td>
+				<td colspan="4">其他操作</td>
+			</tr>
+			<tr>
+				<td>系统管理员</td>
+				<td>拥有最高权限</td>
+				<td class="right"><a href="role-manage-form.html" class="btn">修改</a></td>
+				<td class="both"><a href="#" class="btn">删除</a></td>
+				<td class="left"><a href="role-manage-auth.html" class="btn">授权</a></td>
+			</tr>
+			<tr>
+				<td>系统管理员</td>
+				<td>拥有最高权限</td>
+				<td class="right"><a href="role-manage-form.html" class="btn">修改</a></td>
+				<td class="both"><a href="#" class="btn">删除</a></td>
+				<td class="left"><a href="role-manage-auth.html" class="btn">授权</a></td>
+			</tr>
+			<tr>
+				<td>系统管理员</td>
+				<td>拥有最高权限</td>
+				<td class="right"><a href="role-manage-form.html" class="btn">修改</a></td>
+				<td class="both"><a href="#" class="btn">删除</a></td>
+				<td class="left"><a href="role-manage-auth.html" class="btn">授权</a></td>
+			</tr>
+			<tr>
+				<td>系统管理员</td>
+				<td>拥有最高权限</td>
+				<td class="right"><a href="role-manage-form.html" class="btn">修改</a></td>
+				<td class="both"><a href="#" class="btn">删除</a></td>
+				<td class="left"><a href="role-manage-auth.html" class="btn">授权</a></td>
+			</tr>
+			<tr>
+				<td>系统管理员</td>
+				<td>拥有最高权限</td>
+				<td class="right"><a href="role-manage-form.html" class="btn">修改</a></td>
+				<td class="both"><a href="#" class="btn">删除</a></td>
+				<td class="left"><a href="role-manage-auth.html" class="btn">授权</a></td>
+			</tr>
+			<tr>
+				<td>系统管理员</td>
+				<td>拥有最高权限</td>
+				<td class="right"><a href="role-manage-form.html" class="btn">修改</a></td>
+				<td class="both"><a href="#" class="btn">删除</a></td>
+				<td class="left"><a href="role-manage-auth.html" class="btn">授权</a></td>
+			</tr>
+			<tr>
+				<td>系统管理员</td>
+				<td>拥有最高权限</td>
+				<td class="right"><a href="role-manage-form.html" class="btn">修改</a></td>
+				<td class="both"><a href="#" class="btn">删除</a></td>
+				<td class="left"><a href="role-manage-auth.html" class="btn">授权</a></td>
+			</tr>
+			<tr  class="last">
+				<td colspan="4">
+					<a href="role-manage-form.html" class="btn">增加</a>
+				</td>
+			</tr>
+		</table>	
+		<a href="" style="margin-right: 20px;">上一页</a>
+		<a href="">1</a>
+		<a href="">2</a>
+		<a href="">3</a>
+		<a href="" style="margin-left: 20px;">下一页</a>
+	</div>
+</body>
+</html>

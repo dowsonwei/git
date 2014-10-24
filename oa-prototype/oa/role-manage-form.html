@@ -1,0 +1,61 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" href="js/zTreeStyle/zTreeStyle.css" type="text/css" />
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ztree-2.5.js"></script>
+	<script type="text/javascript" src="js/priTree.js"></script>
+	<style type="text/css">
+		table {
+			border: none;
+		}
+		
+		table tr{
+			border: none;
+		}
+		
+		table tr td{
+			border: none;
+		}
+		
+		#tree{
+			margin-left: 80px;
+		}
+		
+		#subBtn{
+			margin-left: 100px;
+		}
+	</style>
+</head>
+<body>
+	<form action="role-manage.html" method="post">
+		<table>
+			<tr>
+				<td>角色名称</td>
+				<td>
+					<input type="text" placeholder="角色名称">
+				</td>
+			</tr>
+			<tr>
+				<td>角色描述</td>
+				<td>
+					<input type="text" placeholder="角色描述">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<ul id="tree" class="tree"></ul>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input id="subBtn" type="submit" value="提交">
+					<input onclick="javascript:window.history.go(-1);" type="button" value="返回">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

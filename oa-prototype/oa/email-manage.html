@@ -1,0 +1,67 @@
+<html ng-app="MyApp">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<script type="text/javascript" src="./js/angular.min.js"></script>
+</head>
+<body>
+	<div class="page" ng-controller="employeeModel">
+		<table>
+			标题:<input type="text" ng-model="titleFilter"/>
+			内容：<input type="text" ng-model="contentFilter" content-num/>
+			<tr class="first">
+				<td style="width: 150px;">邮件标题</td>
+				<td style="width: 400px;">邮件内容</td>
+				<td colspan="2">其他操作</td>
+			</tr>
+			<tr ng-repeat="item in items | filter:titleFilter | filter:contentFilter">
+				<td style="width: 150px;">{{item.title}}</td>
+				<td style="width: 400px;">{{item.content}}</td>
+				<td colspan="2">
+					<a href="email.html" class="btn">修改</a>
+					<a href="#" class="btn">删除</a>
+				</td>
+			</tr>
+		</table>	
+		<a href="" style="margin-right: 20px;">上一页</a>
+		<a href="">1</a>
+		<a href="">2</a>
+		<a href="">3</a>
+		<a href="" style="margin-left: 20px;">下一页</a>
+	</div>
+	<script type="text/javascript">
+		function employeeModel($scope){
+			$scope.items = [
+				{	title : "dowson",
+					content : "wzc"
+				},
+				{	title : "韦壮城",
+					content : "你好"
+				},
+				{	title : "ABC",
+					content : "abc"
+				},{
+					title : "你妹啊",
+					content : "哈利路亚"
+				}
+			];
+		}
+		var appModule = angular.module("MyApp",[],function(){console.log("started")});
+		appModule.directive('contentNum',function(){
+			return {
+				link : function(scope,elements,attrs,controller){
+					elements[0].onkeyup = function(){
+						if(!isNaN(this.value)){
+							this.style.borderColor = "red";
+						}
+						else {
+							this.style.borderColor = "";
+						}
+					}; 	
+				}
+			};
+		});
+	</script>
+</body>
+</html>

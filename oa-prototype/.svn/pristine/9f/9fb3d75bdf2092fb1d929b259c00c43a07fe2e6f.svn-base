@@ -1,0 +1,32 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" href="js/zTreeStyle/zTreeStyle.css" type="text/css" />
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ztree-2.5.js"></script>
+	<script type="text/javascript" src="js/document-priTree.js"></script>
+</head>
+<body>
+	<div id="priDiv" style="margin-top: 30px;">
+		<table id="hidden-line" style="margin: 0 auto;">
+			<tr>
+				<td>
+					请选择要授予的权限
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<ul id="tree" class="tree"></ul>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="department-document-sel.html" class="btn">选择人员</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

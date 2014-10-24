@@ -1,0 +1,76 @@
+.progress{
+			padding: 0px;
+			margin:0px;
+			outline: 0px;
+		text-align:center;
+			width:598px;
+			height:40px;
+			line-height: 40px;
+			font-weight: bold;
+		/* Firefox 3.6 */   
+    background-color: #ddd;
+
+
+		}
+
+		.agree{
+			display: inline-block;
+			padding:5px 15px;
+			color:#fff;
+			border-radius: 5px; /* 所有角都使用半径为5px的圆角，此属性为CSS3标准属性 */
+-moz-border-radius: 5px; /* Mozilla浏览器的私有属性 */
+-webkit-border-radius: 5px; /* Webkit浏览器的私有属性 */
+border-radius: 5px 5px 5px 5px; /* 四个半径值分别是左上角、右上角、右下角和左下角 
+			/* Firefox 3.6 */   
+    background-image: -moz-linear-gradient(top, #7AAFFF, #0066FF);    
+  
+    /* Safari & Chrome */   
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #0066FF),color-stop(1, #7AAFFF));    
+  
+     /* IE6 & IE7 */   
+    filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#7AAFFF', endColorstr='#0066FF');   
+  
+    /* IE8 */   
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#7AAFFF', endColorstr='#0066FF')";
+		}
+		.progress span{		
+
+         width:145px;
+         display: inline-block;
+         border-right: 1px solid #fff;
+		}
+		.progress_time{
+			padding: 0px;
+			margin:0px;
+			outline: 0px;
+		text-align:center;
+			width:598px;
+			height:40px;
+			line-height: 40px;
+			font-weight: bold;
+		}
+		.progress_time span{		
+         width:145px;
+         display: inline-block;
+        
+		}
+		.pro_curent{
+			 font-color:#fff;
+			border-radius: 5px; /* 所有角都使用半径为5px的圆角，此属性为CSS3标准属性 */
+-moz-border-radius: 5px; /* Mozilla浏览器的私有属性 */
+-webkit-border-radius: 5px; /* Webkit浏览器的私有属性 */
+border-radius: 5px 5px 5px 5px; /* 四个半径值分别是左上角、右上角、右下角和左下角 
+			/* Firefox 3.6 */   
+    background-image: -moz-linear-gradient(top, #7AAFFF, #0066FF);    
+  
+    /* Safari & Chrome */   
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, #0066FF),color-stop(1, #7AAFFF));    
+  
+     /* IE6 & IE7 */   
+    filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#7AAFFF', endColorstr='#0066FF');   
+  
+    /* IE8 */   
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#7AAFFF', endColorstr='#0066FF')";
+
+}
+		

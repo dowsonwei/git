@@ -1,0 +1,6 @@
+this=null;
+function $(which){
+	this=which;
+  return document.getElementById(which);
+}
+

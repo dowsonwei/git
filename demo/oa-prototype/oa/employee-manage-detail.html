@@ -1,0 +1,102 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<script type="text/javascript">
+		function selectUser(){
+			window.location.href = "employee-manage-select.html";
+		}
+	</script>
+	<style type="text/css">
+		table{
+			text-align:center;
+			width: 500px;
+			border:none;
+		}
+		table tr td{
+			height: 50px;
+			line-height: 50px;
+			border:none;
+			border-bottom: 1px solid #ccc;
+		}
+		div#pic{
+			position: absolute;
+			left: 20px;
+		}
+		
+		div#pic img{
+			width: 220px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<form action="employee-manage.html" method="post">
+		<div id="pic">
+			<img alt="" src="img/bz.png">
+		</div>
+		<table>
+			<tr>
+				<td>姓名</td>
+				<td>
+					王小二
+				</td>
+			</tr>
+			<tr>
+				<td>工号</td>
+				<td>
+					SCAU_0001
+				</td>
+			</tr>
+			<tr>
+				<td>出生年月</td>
+				<td>
+					2014-01-01
+				</td>
+			</tr>
+			<tr>
+				<td>登录名</td>
+				<td>
+					AAABBBCCC
+				</td>
+			</tr>
+			<tr>
+				<td>电话</td>
+				<td>
+					12312345678
+				</td>
+			</tr>
+			<tr>
+				<td>邮箱</td>
+				<td>
+					123456@163.COM
+				</td>
+			</tr>
+			<tr>
+				<td>直接领导</td>
+				<td>
+					张三
+				</td>
+			</tr>
+			<tr>
+				<td>部门</td>
+				<td>
+					技术部
+				</td>
+			</tr>
+			<tr>
+				<td>角色</td>
+				<td>
+					系统管理员
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style="border: none;">
+					<a href="javascript:window.history.go(-1);" class="btn">返回</a>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

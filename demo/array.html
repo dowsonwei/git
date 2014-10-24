@@ -1,0 +1,25 @@
+var nums = [];
+
+for(var i=0;i<10 ;i++){
+	nums[i]=(function(num){
+				return function(){
+					console.log(num);
+				}
+	})(i);
+}
+
+
+var nums = [];
+for(var i=0;i<10;i++){
+	num[i]=function(){
+		console.log(i);
+	}
+}
+
+
+
+var nums = [];
+for(var i=0;i<10;i++){
+	nums[i] = setTimeout(function(num){console.log(num)},1000);
+}
+nums[1]();

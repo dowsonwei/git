@@ -1,0 +1,89 @@
+<html ng-app="NewApp">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
+	<style type="text/css">
+		
+		div.search{
+			text-align:center;
+			margin-top: 30px;
+		}
+		
+		span{
+			margin-left: 30px;
+		}
+		a.a-detail{
+			color: blue;
+		}
+		a.a-detail:hover{
+			text-decoration:underline;
+			color: red;
+		}
+	</style>
+</head>
+<body  ng-controller="newListController">
+	
+
+	<div class="search">
+		内容   <input style="width: 200px;height: 30px;" type="text" ng-model="contentFilter"/>
+		<span></span>
+		时间   <input style="width: 200px;height: 30px;"
+							type="text" placeholder="发布时间"
+							class="Wdate validate[require]"  
+				    		onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+		<span></span>
+		<select ng-model="typeFilter">
+			<option>请选择类型</option>
+			<option>新闻</option>
+			<option>公告</option>
+		</select>
+		<span></span>
+		<a href="" class="btn">搜索</a>
+	</div>
+	<div class="page">
+		<table>
+			<tr class="first">
+				<td style="width: 150px;">标题</td>
+				<td style="width: 100px;">发布时间</td>
+				<td style="width: 230px;">内容</td>
+				<td style="width: 100px;">类型</td>
+				<td colspan="4">其他操作</td>
+			</tr>
+			<tr ng-repeat="new in news | filter:contentFilter | filter:typeFilter"> 
+				<td>{{new.newsTitle}}</td>
+				<td>{{new.publishTime}}</td>
+				<td><a class="a-detail" href="read-news-detail.html">{{new.newsContent}}</a></td>
+				<td>{{new.newsType}}</td>
+				<td class="right"><a href="news-form.html" class="btn">修改</a></td>
+				<td class="both"><a href="javascript:window.confirm('你确定将改新闻置顶吗?');" class="btn">置顶</a></td>
+				<td class="left"><a href="javascript:window.confirm('你确定要删除');" class="btn">删除</a></td>
+			</tr>
+			<tr ng-repeat="new in news | filter:query | orderBy:orderProp"  ng-hide="true"> 
+				<td>我是标题我是标题</td>
+				<td>2014-07-07</td>
+				<td><a class="a-detail" href="read-news-detail.html">我是内容我是内容</a></td>
+				<td>公告</td>
+				<td class="right"><a href="news-form.html" class="btn">修改</a></td>
+				<td class="both"><a href="javascript:window.confirm('你确定将改新闻置顶吗?');" class="btn">置顶</a></td>
+				<td class="left"><a href="javascript:window.confirm('你确定要删除');" class="btn">删除</a></td>
+			</tr>
+			<tr class="last">
+				<td colspan="7">
+					<a href="news-form.html" class="btn">增加</a>
+				</td>
+			</tr>
+		</table>
+		<a href="" style="margin-right: 20px;">上一页</a>
+		<a href="">1</a>
+		<a href="">2</a>
+		<a href="">3</a>
+		<a href="" style="margin-left: 20px;">下一页</a>
+	</div>
+	
+	 <script src="./js/angular.min.js"></script>
+     <script src="./js/controller/controllers.js"></script>
+</body>
+</html>

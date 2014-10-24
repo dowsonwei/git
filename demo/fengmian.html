@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	.temp::before{
+		position:absolute;
+		left:-21px;
+		top:0px;
+		content:'';
+		width: 50px;
+		height: 80px;
+		background-color:red;
+		border-top-right-radius:122px;
+		border-top-left-radius:122px;
+		transform:rotate(-45deg);
+	}
+	.temp::after{
+		position: absolute;
+		left:0px;
+		top:0px;
+		content:'';
+		width: 50px;
+		height: 80px;
+		background-color:red;
+		border-top-right-radius:122px;
+		border-top-left-radius:122px;
+		transform:rotate(45deg);
+	}
+	.temp{
+		position:relative;
+		left:100px;
+		top:100px;	
+		width: 30px;
+		height: 60px;
+	}
+	</style>
+</head>
+<body>
+	<div class="temp"></div>
+</body>
+</html>

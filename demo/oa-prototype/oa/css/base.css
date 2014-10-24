@@ -1,0 +1,117 @@
+body {
+	font-family: "Microsoft Yahei";
+	margin: 0;
+}
+a {
+	text-decoration: none;
+}
+.btn {
+	background: rgb(56, 108, 103);
+	color: white;
+	padding: 5px 20px;
+	text-align: center;
+	border-radius: 10px;
+	display: inline-block;
+}
+.btn2 {
+	background: rgb(191, 126, 114)
+}
+input[type="text"],input[type="password"] {
+	height: 40px;
+	width: 300px;
+	border: 1px solid #999;
+	outline: none;
+	font-size: 16px;
+	text-indent: 10px;
+	margin-bottom: 10px;
+	font-family: "Microsoft Yahei"
+}
+label {
+	display: block;
+}
+input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+	border: 1px solid #999;
+	outline: none;
+	background-color: #fff;
+	margin-top: 10px;
+}
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+	margin: 40px 0 0 80px;
+}
+form {
+	width:600px;
+	margin: 25px auto;
+}
+
+/* 去掉表格的边框 */
+table#hidden-line , table#hidden-line tr ,table#hidden-line td{
+	border: none;
+}
+
+td {
+	border: 1px solid #aaa;
+	padding: 5px 10px;
+}
+.page {
+	display: inline-block;
+	text-align: center;
+	margin: 0 auto;
+}
+
+/* page下table首行设置  */
+.page .first{
+	text-align: center;
+}
+
+/* page下table末行设置 */
+.page .last,.page .last td{
+	border: none;	
+}
+
+/* table下td左边距去掉 */
+.page td.left{
+	border-left: none;
+}
+
+/* table下td右边距去掉 */
+.page td.right{
+	border-right: none;
+}
+
+/* 去掉table下td左右边框 */
+.page td.both{
+	border-left: none;
+	border-right: none;
+}
+
+input[type="submit"],input[type="button"] {
+	height: 30px;
+	width: 80px;
+	margin-top: 10px;
+}
+select {
+	padding: 5px 10px;
+}
+.table-title {
+	margin-top: 20px;
+	text-align: left;
+	text-indent: 80px;
+	margin-bottom: -30px;
+}
+textarea {
+	display: block;
+	resize: none;
+	width: 400px;
+	height: 200px;
+	font-family: "Microsoft Yahei";
+	font-size: 14px;
+	padding: 10px 20px;
+	outline: none;
+}
+.detail {
+	padding: 20px 80px 0 80px;
+}

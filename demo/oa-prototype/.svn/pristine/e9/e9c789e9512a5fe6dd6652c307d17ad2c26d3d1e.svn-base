@@ -1,0 +1,29 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+</head>
+<body>
+	<div class="page">
+		<table>
+			<tr>
+				<td>部门名称</td>
+				<td>部门描述</td>
+				<td>部门负责人</td>
+				<td><a href="department-manage-1.html" class="btn">查看</a></td>
+				<td><a href="department-manage-form.html" class="btn">修改</a></td>
+				<td><a href="department-manage-form.html" class="btn">增加</a></td>
+				<td><a href="#" class="btn">删除</a></td>
+			</tr>
+		</table>	
+		<a href="">上一页</a>
+		&nbsp;&nbsp;	
+		<a href="">1</a>
+		<a href="">2</a>
+		<a href="">3</a>
+		&nbsp;&nbsp;
+		<a href="">上一页</a>
+	</div>
+</body>
+</html>

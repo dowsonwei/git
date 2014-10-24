@@ -1,0 +1,107 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript">
+		function selectUser(){
+			window.location.href = "employee-manage-select.html";
+		}
+	</script>
+	<style type="text/css">
+		table{
+			border: 1px solid red;
+		}
+		div#pic{
+			position: absolute;
+			left: 20px;
+		}
+		
+		div#pic img{
+			width: 220px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<form action="employee-manage.html" method="post">
+		<div id="pic">
+			<img alt="" src="img/bz.png">
+		</div>
+		<table id="hidden-line">
+			<tr>
+				<td>登录名</td>
+				<td>
+					<input type="text" placeholder="登录名" disabled="disabled" value="登录名不能修改">
+				</td>
+			</tr>
+			<tr>
+				<td>工号</td>
+				<td>
+					<input type="text" placeholder="工号" disabled="disabled" value="工号不能修改">
+				</td>
+			</tr>
+			<tr>
+				<td>姓名</td>
+				<td>
+					<input type="text" placeholder="姓名" value="aaa">
+				</td>
+			</tr>
+			<tr>
+				<td>照片</td>
+				<td>
+					<input type="file" value="上传"/>
+				</td>
+			</tr>
+			<tr>
+				<td>出生年月</td>
+				<td>
+					<input	type="text" placeholder="发布时间"
+							class="Wdate validate[require]"  
+				    		onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="2014-01-01">
+				</td>
+			</tr>
+			<tr>
+				<td>电话</td>
+				<td>
+					<input type="text" placeholder="电话" value="12312345678">
+				</td>
+			</tr>
+			<tr>
+				<td>邮箱</td>
+				<td>
+					<input type="text" placeholder="邮箱" value="123456789@qq.com">
+				</td>
+			</tr>
+			<tr>
+				<td>直接领导</td>
+				<td>
+					<input type="text" placeholder="直接领导" value="王小二">
+					<span class="btn" onclick="selectUser();" style="cursor: pointer;">选择</span>
+				</td>
+			</tr>
+			<tr>
+				<td>部门</td>
+				<td>
+					<select>
+						<option>--请选择部门--</option>
+						<option selected="selected">应用研发部</option>
+						<option>|-应用研发部1</option>
+						<option>|---应用研发部2</option>
+						<option>|---应用研发部3</option>
+						<option>|---应用研发部4</option>
+						<option>|---应用研发部5</option>s
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="submit" value="提交">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

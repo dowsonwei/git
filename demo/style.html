@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="dowson.js"></script>
+	<style type="text/css">
+		.button1{
+			width:100px;
+			height:30px;
+		}
+		.hover{
+			width:200px;
+			height:150px;
+		}
+	</style>
+</head>
+<body onload="getOnload()">
+	<div id="div1"></div>
+	<input type="button" id="bu1" class="button1" value="click" onmouseover="getOver()" onmouseout="getLeave()" onclick="getClick()"/>
+	<script type="text/javascript">
+		function getClick(){
+			var addp = document.createElement("p");
+			addp.appendChild(document.createTextNode("dowson is my name"));
+			$("div1").appendChild(addp);
+		}
+		function getOver(){
+			// alert($("bu1").className); 
+			$("bu1").className="hover";
+		}
+		function getLeave(){
+			$("bu1").className="button1";
+			// $("bu1").style.visibility="hidden";
+		}
+	</script>
+</body>
+</html>

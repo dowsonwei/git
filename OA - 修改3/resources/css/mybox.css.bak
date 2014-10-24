@@ -1,0 +1,44 @@
+
+.bigbox{
+	width:100%;
+	
+	float:left;
+}
+.mybox{
+	border:1px solid #D3D3D3;
+	float:left;
+	font-size:16px;
+	width:230px;
+	margin-left:18px;
+	margin-bottom:20px;
+}
+
+.mybox-title{
+	height:35px;
+	background-color:#D3D3D3;
+}
+
+.caption{
+	color:black;
+	float:left;
+	margin:10px 0 0 5px;
+}
+
+.tools{
+	float:right;
+	margin:10px 10px 0 0;
+}
+
+.collapse{
+	color:white;
+	text-decoration:none;
+}
+
+.box-body{
+	display:none;
+}
+
+.box-body input[type='number']{
+	width:60px;
+}
+

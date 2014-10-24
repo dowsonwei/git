@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>韦壮城个人简历</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="nojs">
+    <div>
+        <section id="information">
+            <h2>基本信息</h2>
+            <img src="photo.jpg" alt="韦壮城" />
+            <p><span>姓名：</span>韦壮城</p>
+            <p><span>性别：</span>男</p>
+            <p><span>学校：</span>华南农业大学</p>
+            <p><span>专业：</span>软件工程</p>
+            <p><span>出生年月：</span>1992年12月</p>
+            <p><span>移动电话：</span>18011860639</p>
+            <p><span>电子邮件：</span>weizhuangcheng@outlook.com</p>
+        </section>
+        <section id="skill">
+            <h2>技能介绍</h2>
+            <p><span>前端知识：</span>JavaScript、css3、HTML、Ajax、json、mvc</p>
+            <p><span>前端框架：</span>jquery、Bootstrap、AngularJS、</p>
+            <p><span>后台语言：</span>java</p>
+            <p><span>版本管理、文档和自动化部署：</span>git、svn</p>
+            <p><span>开发工具：</span>vim、sublime</p>
+            <p><span>略懂：</span>MySql、Hibernate、Servlet、flash、photoshop、CorelDraw</p>
+        </section>
+        <section id="experience">
+            <h2>项目经验</h2>
+            <h3><time>2014.6-2014.9</time>北京中软国际</h3>
+            <div class="project">
+                <h3>开发会议管理系统</h3>
+                <p>1、学习vim，打造属于我的编辑器，它明显提高我的工作效率</br>
+                    2、学习github，以前是用svn管理文档的，现在不用联网我便可以轻松管理自己的文档，虽然对github中的分支管理不熟练，但是迫切想找机会实践</br>
+                    3、学习结构层代码（XHTML）、样式层代码（CSS），基本运用Javascript 完成相关任务，并在开发中应用了jquery框架，最后我完成部分数据库设计和UI设计，并熟练地应用前端所需要的知识</br>
+                    4、重新温故了以前学习的数据库知识，并把它们运用到项目开发中
+                </p>
+                <h3>开发OA办公系统</h3>
+                <p>
+                1、在老师的要求下，全部使用html而不是我们熟悉的jsp进行开发，于是开始学习理解运用MVVM，学习运用Angular框架进行数据的双向动态绑定
+                ，省略了大量的DOM操作，加快了我们的开发进度</br>
+                2、由于项目开发的需要，应用了ztree树形插件，并修改了部分ztree源代码使其更好地适应我们的项目开发，同时，学习模范源代码的编写规范，使我的代码更加易懂</br>
+                3、最后我完成项目中的角色授权、文档授权、输入信息校验等模块
+                </p>
+            </div>
+        </section>
+        <section id="experiences">
+            <h2>相关工作经验</h2>
+            <h3><time>2011.7-2011.8</time>锐旗人力资源有限公司</h3>
+            <p>面对面解答应聘者的疑问</p>
+            <h3><time>2012.5-2013.5</time>广州清雪调研公司</h3>
+            <p>负责通过打电话的方式对移动的用户进行满意度调查</p>
+            <h3><time>2014.1-2014.2</time>广铁集团</h3>
+            <p>负责维持火车上的秩序和清洁</p>
+        </section>
+        <section id="evaluation">
+            <h2>自我评价</h2>
+            <div class = "evaluation" >我是一个喜欢运动的人，喜欢游泳、打羽毛球，偶尔想出去旅行，同时我也是一个能安静的人，喜欢看书，喜
+            欢通过书本扩展自己非技术方面的视野，经典名著是我的最爱。喜欢和志同道合的人共同完成挑战，享受大家一起快乐地玩耍</div>
+            <div class = "evaluation" >我喜欢运用js进行页面的交互，用过js完成了项目的UI设计，通过查找资料，学习新技术，比如MVVM、
+                Angular，更好更快的完成了项目，每经历一次洗礼，就会自己总结一份收获。</div>
+            <div class = "evaluation" >我也是一个喜欢挑战的人，看到别人写得很好，我就想着写得更好，特别是前端设计，本着这样的性格，我比其他
+            人花了更多的精力在前端设计中，但我的收获也是很明显的。自己的愿望是通过各种洗礼成为一个值得信赖的交互设计师</div>
+        </section>
+        <section id="certification">
+            <h2>技能证书</h2>
+            <p>获得国家励志奖学金</p>
+            <p>英语四级证书</p>
+        </section>
+    </div>
+    <footer>
+        <p>2012 &copy; <a href="http://forcefront.com/" title="forcefront.com">force:front</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

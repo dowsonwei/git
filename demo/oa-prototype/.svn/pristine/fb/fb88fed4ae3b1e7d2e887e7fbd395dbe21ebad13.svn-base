@@ -1,0 +1,163 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<style type="text/css">
+		div{
+			text-align: center;	
+		}
+		
+		fieldset{
+			width:75%;
+			margin: 30 auto;
+		}
+		
+		table{
+			margin: 0 auto;
+		}
+		
+		div#condition{
+			margin-top: 15px;
+		}
+		
+		span.interval{
+			margin-left: 20px;
+		}
+		
+		table,form{
+			width: 95%;
+		}
+	</style>
+	<script type="text/javascript">
+		// 提交表单
+		function sub(){
+			window.document.forms[0].submit();
+		}
+	</script>
+</head>
+<body>
+		<fieldset>
+			<legend>角色基本信息</legend>
+			<table id="hidden-line">
+				<tr>
+					<td>角色名称</td>
+					<td>
+						<b>部门管理员</b>
+					</td>
+				</tr>
+				<tr>
+					<td>角色描述</td>
+					<td>
+						<b>管理自己的部门</b>
+					</td>
+				</tr>
+				<tr>
+					<td>角色拥有的权限</td>
+					<td>
+						<b>用户管理、部门管理、用户管理、问卷管理</b>
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+		
+		<!-- 查询条件 -->
+		<div id="condition">
+			员工姓名 
+			<input style="width: 130px;height: 30px;" type="text" placeholder="姓名">
+			<span class="interval"></span>
+			部门
+			<select>
+				<option>请选择部门</option>
+				<option>|-财务部</option>
+				<option>|----技术部</option>
+			</select>
+			<span class="interval"></span>
+			岗位
+			<select>
+				<option>请选择岗位</option>
+				<option>程序员</option>
+				<option>美工</option>
+			</select>
+			<a href="#" class="btn">搜索</a>
+		</div>
+		
+		<!-- 员工列表 -->
+		<form action="role-manage.html" method="post">
+			<table>
+				<tr class="first">
+					<td style="width: 150px;">员工名称</td>
+					<td style="width: 100px;">员工编号</td>
+					<td style="width: 100px;">岗位</td>
+					<td style="width: 100px;">部门</td>
+					<td style="width: 100px;">拥有的角色</td>
+					<td style="width: 100px;">选择</td>
+				</tr>
+				<tr>
+					<td>皮卡丘</td>
+					<td>1000010</td>
+					<td>程序员</td>
+					<td>技术部</td>
+					<td>部门管理员</td>
+					<td>
+						<input type="checkbox"/>
+					</td>
+				</tr>
+				<tr>
+					<td>皮卡丘</td>
+					<td>1000010</td>
+					<td>程序员</td>
+					<td>后勤部</td>
+					<td>部门管理员</td>
+					<td>
+						<input type="checkbox"/>
+					</td>
+				</tr>
+				<tr>
+					<td>皮卡丘</td>
+					<td>1000010</td>
+					<td>程序员</td>
+					<td>财务部</td>
+					<td>部门管理员</td>
+					<td>
+						<input type="checkbox"/>
+					</td>
+				</tr>
+				<tr>
+					<td>皮卡丘</td>
+					<td>1000010</td>
+					<td>程序员</td>
+					<td>后勤部</td>
+					<td>部门管理员</td>
+					<td>
+						<input type="checkbox"/>
+					</td>
+				</tr>
+				<tr>
+					<td>皮卡丘</td>
+					<td>1000010</td>
+					<td>程序员</td>
+					<td>财务部</td>
+					<td>部门管理员</td>
+					<td>
+						<input type="checkbox"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+		
+		<!-- 分页 -->
+		<div>
+			<a href="" style="margin-right: 20px;">上一页</a>
+			<a href="">1</a>
+			<a href="">2</a>
+			<a href="">3</a>
+			<a href="" style="margin-left: 20px;">下一页</a>
+			<br />
+			<!-- 提交 -->
+			<input 	style="cursor: pointer;" type="button" 
+					class="btn" onclick="sub();" value="提交"/>
+		</div>
+</body>
+</html>

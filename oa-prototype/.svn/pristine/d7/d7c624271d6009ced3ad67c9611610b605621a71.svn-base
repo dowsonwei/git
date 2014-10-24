@@ -1,0 +1,209 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript" src="js/QSA-crt.js"></script>
+	<style type="text/css">
+		table.hide-line{
+			margin: 0 auto;
+		}
+		table.hide-line,table.hide-line tr,table.hide-line td{
+			border: none;
+		}
+		div#base{
+			margin:30px auto;
+			text-align: center;
+		}
+		div.quest{
+			text-align: center;
+		}
+		div#title{
+			text-align: center;
+		}
+		input.content{
+			width: 200px;
+		}
+		input.score{
+			width: 50px;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+		.delQsa{
+			color: blue;
+		}
+		.delQsa:hover{
+			color: red;
+			text-decoration: underline;
+		}
+		p{
+			text-align:center;
+			font-size: 20px;
+		}
+		span#score{
+			color: red;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+		<span id="top" name="top"></span>
+		<p>本次问卷总分为:<span id="score">0</span>分</p>
+		<div id="base">
+			<fieldset style="width: 700px;margin: 0 auto;">
+				<legend>问卷基本信息</legend>
+				<table class="hide-line">
+					<tr>
+						<td>答题人</td>
+						<td>
+							<input name="range" type="radio" checked="checked" onclick="sel('0');"/>部门
+							<input name="range" type="radio" onclick="sel('1');"/>角色
+							<select id="sel-dept">
+								<option>--请选择--</option>
+								<option>全体</option>
+								<option>应用研发部</option>
+								<option>|-应用研发部</option>
+								<option>|----应用研发部</option>
+								<option>|----应用研发部</option>
+								<option>|----应用研发部</option>
+								<option>|----应用研发部</option>
+							</select>
+							<select id="sel-role" style="display: none;">
+								<option>--请选择--</option>
+								<option>所有角色</option>
+								<option>部门管理员</option>
+								<option>系统管理员</option>
+							</select>
+							
+						</td>
+					</tr>
+					<tr>
+						<td>阅卷者</td>
+						<td>
+							<input name="range" type="radio" checked="checked" onclick="selAns('0');"/>部门
+							<input name="range" type="radio" onclick="selAns('1');"/>角色
+							<select id="sel-dept-1">
+								<option>--请选择--</option>
+								<option>全体</option>
+								<option>应用研发部</option>
+								<option>|-应用研发部</option>
+								<option>|----应用研发部</option>
+								<option>|----应用研发部</option>
+								<option>|----应用研发部</option>
+								<option>|----应用研发部</option>
+							</select>
+							<select id="sel-role-1" style="display: none;">
+								<option>--请选择--</option>
+								<option>所有角色</option>
+								<option>部门管理员</option>
+								<option>系统管理员</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>问卷标题</td>
+						<td>
+							<input type="text" placeholder="问卷标题"/>
+						</td>
+					</tr>
+					<tr>
+						<td>发布日期</td>
+						<td>
+							<input	type="text" placeholder="发布时间"
+							class="Wdate validate[require]"  
+				    		onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})">
+						</td>
+					</tr>
+					<tr>
+						<td>截止日期</td>
+						<td>
+							<input	type="text" placeholder="发布时间"
+							class="Wdate validate[require]"  
+				    		onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})">
+						</td>
+					</tr>
+					<tr>
+						<td>选择题目</td>
+						<td>
+							<input type="text"/>
+							<a href="QSA-manage-form-bank.html" class="btn">选择题目</a>
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+		</div>
+		<h3>---------------选择了题库题目后回显开始-------------------</h3>
+		<div id="back-quest">
+			<fieldset style="width: 700px;margin: 0 auto;">
+				<legend>题库题目</legend>
+				<legend style="text-align: right;">
+					<a href="javascript:void;" class="delQsa" onclick="delQuestion(this);">删除题目</a>
+				</legend>
+				<table id="bank" class="hide-line">
+					<tr>
+						<td>题目:</td>
+						<td>
+							你最喜欢的星座是什么???
+						</td>
+					</tr>
+					<tr>
+						<td>题目类型</td>
+						<td>
+							单选
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							a:白羊座白羊座白羊座白羊座白羊座
+							<input placeholder='得分' class='score' type='text' name='score' onblur="changeTotalScore();"/><br />
+							b:双鱼座双鱼座双鱼座双鱼座双鱼座
+							<input placeholder='得分' class='score' type='text' name='score' onblur="changeTotalScore();"/><br />
+							c:射手座射手座射手座射手座射手座
+							<input placeholder='得分' class='score' type='text' name='score' onblur="changeTotalScore();"/><br />
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+		</div>
+		<h3>---------------选择了题库题目后回显结束-------------------</h3>'
+		<!-- 以下是模板，用来clone题目 -->
+		<div id="moban" class="quest" style="display: none;margin-bottom: 15px;">
+			<fieldset style="width: 700px;margin: 0 auto;">
+				<legend>
+					问卷题目
+				</legend>
+				<legend style="text-align: right;">
+					<a href="javascript:void;" class="delQsa" onclick="delQuestion(this);">删除题目</a>
+				</legend>
+				<table class="hide-line">
+					<tr>
+						<td>题目:</td>
+						<td>
+							<input type="text" name="title"/>
+						</td>
+					</tr>
+					<tr>
+						<td>题目类型</td>
+						<td>
+							<input type="radio" name="selectStatus" value="0" checked/>单选
+							<input type="radio" name="selectStatus" value="1"/>多选
+						</td>
+					</tr>
+					<tr>
+						<td>创建选项输入框</td>
+						<td>
+							<input type="button" style="cursor: pointer;" class="btn" value="创建" onclick="createOption(this);"/>
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+		</div>
+		<div style="text-align: center;margin-top: 20px;">
+			<a href="QSA-manage-form.html#top" class="btn">返回顶部</a>
+			<a href="javascript:void;" onclick="createNewQuestion();" class="btn">创建题目</a>
+			<a href="QSA-manage.html" class="btn">完成</a>
+		</div>
+</body>
+</html>

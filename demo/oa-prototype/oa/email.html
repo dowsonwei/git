@@ -1,0 +1,65 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<script type="text/javascript">
+		function sel(type){
+			if(type == 0){ // 部门
+				$("#sel-dept").show();
+				$("#sel-role").hide();
+			}else if(type == 1){ // 角色
+				$("#sel-role").show();
+				$("#sel-dept").hide();
+			}
+		}
+	</script>
+</head>
+<body>
+	<form action="email-manage.html" method="post">
+		<table id="hidden-line">
+			<tr>
+				<td>收件人</td>
+				<td>
+					<input name="range" type="radio" checked="checked" onclick="sel('0');"/>部门
+					<input name="range" type="radio" onclick="sel('1');"/>角色
+					<select id="sel-dept">
+						<option>--请选择--</option>
+						<option>全体</option>
+						<option>应用研发部</option>
+						<option>|-应用研发部</option>
+						<option>|----应用研发部</option>
+						<option>|----应用研发部</option>
+						<option>|----应用研发部</option>
+						<option>|----应用研发部</option>
+					</select>
+					<select id="sel-role" style="display: none;">
+						<option>--请选择--</option>
+						<option>所有角色</option>
+						<option>部门管理员</option>
+						<option>系统管理员</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>主题</td>
+				<td>
+					<input type="text" placeholder="主题">
+				</td>
+			</tr>
+			<tr>
+				<td>内容</td>
+				<td>
+					<textarea placeholder="内容"></textarea>
+				</td>
+			</tr>
+			<tr style="text-align: center;">
+				<td colspan="2">
+					<input type="submit" value="提交" class="btn">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

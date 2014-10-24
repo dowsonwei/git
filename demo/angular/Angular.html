@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../js/angular.min.js"></script>
+</head>
+<body>
+	<div ng-controller="testC">
+		<h1>{{question.newtitle}}</h1>
+		我的:<a href="javascript:void(0);" ng-repeat="t in ans">{{t}}&nbsp;&nbsp;</a><br />
+		模板:<a href="javascript:void(0);" ng-repeat="t in templates">{{t}}&nbsp;&nbsp;</a><br />
+		题目:<input type="text" ng-model="question.name"/><br/>
+		分数:<input type="text" ng-model="question.fraction" fraction-num/><br/>
+		类型：	<select ng-model="question.type">
+					<option value="1" selected>单选</option>
+					<option value="2">多选</option>
+				</select>
+		选项:<button ng-click="addOption()">增加选项</button><br/>
+		<ul>
+			<li ng-repeat="o in question.options">
+				<b>{{$index+1}}.</b>
+				<input type="text" ng-model="o.content" value="o.content"/>
+				<a href="javascript:void(0);" ng-click="delOption($index)">删除</a>
+			</li>
+		</ul>
+		<hr>
+		<div>
+			
+			<h1>{{question.previewtitle}}</h1>
+			<b>[{{question.type|typeFilter}}]{{question.name}}</b>({{question.fraction}}分)
+			<ul>
+				<li ng-repeat="o in question.options">
+					<b>{{$index+1}}.</b>
+					<input type="radio" name="optcheck" ng-show="question.type==1"/>
+					<input type="checkbox" ng-show="question.type==2">
+					{{o.content}}
+				</li>
+			</ul>
+		</div>
+
+
+	</div>
+	<script type="text/javascript">
+		var app = angular.module('MyApp',[],function(){console.log("started")});
+		var questionModel = {
+			newtitle: "新建试题",
+			previewtitle: "预览试题",
+			name: "",
+			type: '1',
+			franction: "",
+			options: []
+		};
+		app.factory('tpls',function(){
+		    return ['tpl1','tpl2','tpl3','tpl4'];
+		});
+		app.factory("dowson",function(){
+			return ["dowson","wzc"];
+		});
+		app.controller('testC',function($scope,tpls,dowson){
+			$scope.question = questionModel;
+			$scope.templates = tpls;
+			$scope.ans = dowson;
+			$scope.addOption = function(){
+				var o = {content: ''};
+				// console.log("o " + o.content);
+				$scope.question.options.push(o);
+			};
+			$scope.delOption = function(index){
+				$scope.question.options.splice(index,1);
+			};
+		});
+		app.filter("typeFilter",function(){
+			var f = function(input){
+				return input == '1'?'单选':'多选';
+			}
+			return f;
+		})
+		app.directive('fractionNum',function(){
+			return {
+				link : function(scope,elements,attrs,controller){
+					elements[0].onkeyup = function(){
+						if(isNaN(this.value) || this.value<1 || this.value>10){
+							this.style.borderColor = 'red';
+						}
+						else {
+							this.style.borderColor = '';
+						}
+					};
+				}
+			};
+		});
+	</script>
+</body>
+</html>

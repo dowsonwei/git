@@ -1,0 +1,59 @@
+
+table.no-need-line{
+	border: none;
+}
+table.no-need-line tr{
+	border: none;
+}
+table.no-need-line td{
+	border: none;
+}
+div#content{
+	width:90%;
+	margin:20px auto;
+}
+div#doc-tree{
+	padding-left:100px;
+	float:left;
+	width:25%;
+}
+div#doc{
+	float:right;
+	width:60%;
+}
+div#doc table{
+	text-align: center;
+}
+
+table#nodeText{
+	margin: 0px;
+}
+/**********************************/
+#addChildNode ,#uploadFile{
+	position: absolute;
+	left:0px;
+	top:0px;
+	z-index: 3;
+	background: white;
+	margin: 0 auto;
+	background-color: #eee;
+}
+
+/** 添加子节点表格 */
+#addChildNode table,#uploadFile table{
+	text-align: center;
+	width: 500px;
+	height: 400px;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+	background-color: white;
+}
+
+/** 添加子节点下边框设置 */
+#addChildNode table,,#uploadFile table{
+	display: block;
+}
+
+#addChildNode table tr td ,#uploadFile table tr td{
+	border-bottom: 1px solid #ccc;
+}

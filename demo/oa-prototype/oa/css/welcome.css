@@ -1,0 +1,118 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	
+}
+
+body {
+	width: 960px;
+	font-size: 12px;
+	margin: 0 auto;
+	background: #F5F5F5;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+#technique {
+	width: 600px;
+	height: 450px;
+	border: 1px solid #ccc;
+	background: white;
+	float: left;
+	margin-left: 180px;
+}
+
+#technique div#list {
+	width: 600px;
+	height: 30px;
+}
+
+#technique div#list ul li {
+	width: 150px;
+	height: 35px;
+	float: left;
+}
+
+#technique div#list ul li a {
+	display: block;
+	width: 148px;
+	height: 33px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 33px;
+}
+
+#technique div.content {
+	width: 600px;
+	height: 318px;
+}
+
+#technique div.content ul {
+	width: 550px;
+	height: 280px;
+	margin: 20px auto;
+}
+
+#technique div.content ul li {
+	font-size: 14px;
+	width: 550px;
+	height: 35px;
+	line-height: 35px;
+	padding-left: 15px;
+	background: url("../images/technique_jiantou.jpg") no-repeat left center;
+}
+
+#technique div.content ul li a {
+	color: #333;
+}
+
+#technique div.content ul li a:hover {
+	color: #0081D0;
+	text-decoration: underline;
+}
+
+#technique div.content ul li span {
+	font-family: "Courier New";
+}
+
+#technique div.content ul li span.date {
+	color: #333;
+	border: none;
+	float: right;
+	height: 30px;
+}
+/* 预定义几个样式，方便切换 */
+
+/*
+		 * 切换列表效果
+		 */
+.aover {
+	background: url("images/technique_list_bg.jpg") no-repeat;
+	border: 1px solid #ccc;
+	border-bottom: none;
+	color: red;
+}
+
+.aout {
+	color: #333;
+	border: 1px solid #ccc;
+	background: #eee;
+}
+
+/*
+		 * 切换div
+		 */
+.closeDiv {
+	display: none;
+}
+
+.openDiv {
+	display: block;
+}

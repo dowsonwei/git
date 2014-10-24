@@ -1,0 +1,44 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+</head>
+<body>
+	<div class="page">
+		<table>
+			<tr class="first">
+				<td style="width: 150px;">邮件标题</td>
+				<td style="width: 400px;">邮件内容</td>
+				<td colspan="2">其他操作</td>
+			</tr>
+			<tr>
+				<td style="width: 150px;">我是标题</td>
+				<td style="width: 400px;">我是内容</td>
+				<td colspan="2">
+					<a href="email.html" class="btn">修改</a>
+					<a href="#" class="btn">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 150px;">我是标题</td>
+				<td style="width: 400px;">我是内容</td>
+				<td colspan="2">
+					<a href="email.html" class="btn">修改</a>
+					<a href="#" class="btn">删除</a>
+				</td>
+			</tr>
+			<tr class="last">
+				<td colspan="5">
+					<a href="email.html" class="btn">增加</a>
+				</td>
+			</tr>
+		</table>	
+		<a href="" style="margin-right: 20px;">上一页</a>
+		<a href="">1</a>
+		<a href="">2</a>
+		<a href="">3</a>
+		<a href="" style="margin-left: 20px;">下一页</a>
+	</div>
+</body>
+</html>

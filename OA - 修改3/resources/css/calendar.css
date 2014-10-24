@@ -1,0 +1,137 @@
+/* cms 首页活动搜索日期插件的样式 */
+#calendarDiv{
+	font-family: "微软雅黑", "黑体", "宋体", arial, sans-serif;
+	font-size:9px;
+	padding-bottom: 20px; 
+	width: 235px; 
+	padding-top: 1px; 
+	position: absolute; 
+	visibility:hidden;
+	background-color: #fff;
+	border:#317082 1px solid;
+} 
+#calendarDiv SPAN {
+	float:left;
+}
+#calendarDiv IMG {
+	float:left;
+}
+#calendarDiv .selectBox, #calendarDiv .selectBoxOver {
+	padding-right: 1px; 
+	padding-left: 2px; 
+	padding-bottom: 1px; 
+	cursor: pointer; 
+	line-height: 12px; 
+	padding-top: 1px;
+}
+#calendarDiv .selectBoxTime {
+	padding-right: 1px; 
+	padding-left: 2px; 
+	padding-bottom: 1px; 
+	cursor: pointer; 
+	line-height: 12px; 
+	padding-top: 1px;
+}
+#calendarDiv .selectBoxTimeOver {
+	padding-right: 1px; 
+	padding-left: 2px; 
+	padding-bottom: 1px; 
+	cursor: pointer; 
+	line-height: 12px; 
+	padding-top: 1px;
+}
+#calendarDiv TD {
+	font-size: 10px; 
+	margin: 0px; 
+	padding: 3px; 	
+}
+#calendarDiv .selectBox {
+	border: #e2ebed 1px solid; 
+	position: relative;
+	color:#fff;
+}
+#calendarDiv .selectBoxOver {
+	border: #fff 1px solid;
+	color: #fff;
+	position: relative; 
+	background-color: #317082;
+}
+#calendarDiv .selectBoxTime {
+	border: #317082 1px solid;
+	color: #317082; 
+	position: relative;
+}
+#calendarDiv .selectBoxTimeOver {
+	border: #216072 1px solid;  
+	color: #216072;  
+	position: relative;
+}
+#calendarDiv .topBar {
+	padding: 2px; 
+	height: 16px; 
+	background-color: #317082;
+}
+#calendarDiv .activeDay {
+	color: #ff0000
+}
+#calendarDiv .todaysDate {
+	width: 235px; 
+	height: 20px; 
+	line-height: 20px; 
+	position: absolute; 
+	padding: 0px;
+	bottom: 0px; 
+	text-align: center;
+	color: #fff;	
+	background-color: #317082;
+}
+#calendarDiv .todaysDate DIV {
+	float: left;
+}
+#calendarDiv .timeBar {
+	right: 0px; 
+	width: 72px; 
+	color: #fff; 
+	line-height: 17px; 
+	position: absolute; 
+	height: 17px; 
+	background-color: #e2ebed;
+}
+#calendarDiv .timeBar DIV {
+	float: left; margin-right: 5px;
+}
+#calendarDiv .monthYearPicker {
+	border: #aaaaaa 1px solid; 
+	display: none; 
+	z-index: 1000; 
+	left: 0px; 
+	color: #317082; 
+	position: absolute; 
+	top: 15px; 
+	background-color: #e2ebed;
+}
+#calendarDiv #monthSelect {
+	width: 60px;
+}
+#calendarDiv .monthYearPicker DIV {
+	clear: both; 
+	padding: 1px; 
+	float: none; 
+	margin: 1px;
+	cursor: pointer; 
+}
+#calendarDiv .monthYearActive {
+	color: #e2ebed; 
+	background-color: #317082;
+}
+#calendarDiv TD {
+	cursor:pointer;
+	text-align:right;
+}
+#calendarDiv .topBar IMG {
+	cursor:pointer;
+}
+#calendarDiv .topBar DIV {
+	float: left; 
+	margin-right: 1px;
+}

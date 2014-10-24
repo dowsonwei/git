@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="dowson.js"></script>
+</head>
+<body>
+	<div id="div1">
+		<p>dowson is my name</p>
+	</div>
+	<input type="button" id="input1" onclick="getClick()" value="click"/>
+	<script type="text/javascript">
+		function getClick(){
+			var node=$("div1").parentNode.innerHTML;
+			console.log($("div1").parentNode.innerHTML);
+			var start=node.indexOf("<div");
+			// alert(start);
+			var end=node.indexOf("</div>");
+			// alert(end);
+			alert(node.substring(start,end+6));
+		}
+	</script>
+</body>
+</html>

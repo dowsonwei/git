@@ -1,0 +1,127 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>	
+	<link rel="stylesheet" type="text/css" href="css/welcome.css">
+	<script type="text/javascript">
+		function changeList(node,num){
+			var collANodes = document.getElementsByName("alist");
+			
+			var div_id = "list_" + num;
+			var oNode = document.getElementById(div_id);
+			//设置a和div的样式
+			oNode.className = "content openDiv";
+			node.className = "aover";
+			for(var i=0;i<collANodes.length;i++){
+				if(i != num){
+					//除了当前鼠标悬停的a和对应的div外，其他都设置为原始状态
+					document.getElementById("list_"+i).className = "content closeDiv";
+					collANodes[i].className = "aout";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+		<!--列表开始-->
+	<div id="technique">
+		<div id="list">
+			<ul style="font-family: 'Microsoft YaYaHei','微软雅黑';">
+				<li><a href="###" name="alist" class="aover" onmouseover="changeList(this,0)">公司新闻</a></li>
+				<li><a href="###" name="alist" class="aout" onmouseover="changeList(this,1)">公司公告</a></li>
+				<li><a href="###" name="alist" class="aout" onmouseover="changeList(this,2)">部门新闻</a></li>
+				<li><a href="###" name="alist" class="aout" onmouseover="changeList(this,3)">部门公告</a></li>
+			</ul>
+		</div>
+		<!--div切换，第一个-->
+		<div  id="list_0" class="content" name="tech_cont">
+			<ul style="font-family: 'Microsoft YaYaHei','微软雅黑';">
+				<li>
+					<span class="date">2014-07-07</span>
+					<span>[<a href="read-news.html">公司新闻</a>]</span>&nbsp;&nbsp;
+					<a href="read-news-detail.html">公司新闻,公司新闻,公司新闻,公司新闻,</a>
+				</li>
+				<li>
+					<span class="date">2014-07-07</span>
+					<span>[<a href="read-news.html">公司新闻</a>]</span>&nbsp;&nbsp;
+					<a href="read-news-detail.html">公司新闻,公司新闻,公司新闻,公司新闻,</a>
+				</li>
+				<li>
+					<span class="date">2014-07-07</span>
+					<span>[<a href="read-news.html">公司新闻</a>]</span>&nbsp;&nbsp;
+					<a href="read-news-detail.html">公司新闻,公司新闻,公司新闻,公司新闻,</a>
+				</li>
+				<li>
+					<span class="date">2014-07-07</span>
+					<span>[<a href="read-news.html">公司新闻</a>]</span>&nbsp;&nbsp;
+					<a href="read-news-detail.html">公司新闻,公司新闻,公司新闻,公司新闻,</a>
+				</li>
+				<li>
+					<span class="date">2014-07-07</span>
+					<span>[<a href="read-news.html">公司新闻</a>]</span>&nbsp;&nbsp;
+					<a href="read-news-detail.html">公司新闻,公司新闻,公司新闻,公司新闻,</a>
+				</li>
+				<li>
+					<span class="date">2014-07-07</span>
+					<span>[<a href="read-news.html">公司新闻</a>]</span>&nbsp;&nbsp;
+					<a href="read-news-detail.html">公司新闻,公司新闻,公司新闻,公司新闻,</a>
+				</li>
+				<li>
+					<span class="date">2014-07-07</span>
+					<span>[<a href="read-news.html">公司新闻</a>]</span>&nbsp;&nbsp;
+					<a href="read-news-detail.html">公司新闻,公司新闻,公司新闻,公司新闻,</a>
+				</li>
+				<li>
+					<span class="date">2014-07-07</span>
+					<span>[<a href="read-news.html">公司新闻</a>]</span>&nbsp;&nbsp;
+					<a href="read-news-detail.html">公司新闻,公司新闻,公司新闻,公司新闻,</a>
+				</li>
+				<li>
+					<span class="date">2014-07-07</span>
+					<span>[<a href="read-news.html">公司新闻</a>]</span>&nbsp;&nbsp;
+					<a href="read-news-detail.html">公司新闻,公司新闻,公司新闻,公司新闻,</a>
+				</li>
+				<li>
+					<span class="date">2014-07-07</span>
+					<span>[<a href="read-news.html">公司新闻</a>]</span>&nbsp;&nbsp;
+					<a href="read-news-detail.html">公司新闻,公司新闻,公司新闻,公司新闻,</a>
+				</li>
+				<li style="text-align: right;">
+					<a href="read-news.html">更多&gt;&gt;</a>
+				</li>
+			</ul>
+		</div>
+		<!--div切换，第二个-->
+		<div id="list_1" class="content closeDiv" name="tech_cont">
+			<ul style="font-family: 'Microsoft YaYaHei','微软雅黑';">
+				<li>
+					<span class="date">2014-07-07</span>
+					<span>[<a href="read-news.html">公司公告</a>]</span>&nbsp;&nbsp;
+					<a href="read-news-detail.html">公司公告,公司公告,公司公告,公司公告,公司公告,</a>
+				</li>
+			</ul>
+		</div>
+		<!--div切换，第三个-->
+		<div id="list_2" class="content closeDiv" name="tech_cont">
+			<ul style="font-family: 'Microsoft YaYaHei','微软雅黑';">
+				<li>
+					<span class="date">2014-07-07</span>
+					<span>[<a href="read-news.html">部门新闻</a>]</span>&nbsp;&nbsp;
+					<a href="read-news-detail.html">部门新闻,部门新闻,部门新闻,部门新闻,部门新闻</a>
+				</li>
+			</ul>
+		</div>
+		<!--div切换，第四个-->
+		<div id="list_3" class="content closeDiv" name="tech_cont">
+			<ul style="font-family: 'Microsoft YaYaHei','微软雅黑';">
+				<li>
+					<span class="date">2014-07-07</span>
+					<span>[<a href="read-news.html">部门公告</a>]</span>&nbsp;&nbsp;
+					<a href="read-news-detail.html">部门公告,部门公告,部门公告,</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+</body>
+</html>

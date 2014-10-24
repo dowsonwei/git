@@ -1,0 +1,93 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<style type="text/css">
+	.search input{
+		height:30px;
+		margin-top: 40px;
+	}
+	.search span{
+		margin-left: 30px;
+	}
+	a.user-detail{
+		color: blue;
+	}
+	a.user-detail:hover{
+		color:red;
+		text-decoration: underline;
+	}
+	</style>
+</head>
+<body>
+	<div class="search">
+		<span style="margin-left: 100px;"></span>
+		员工姓名 <input style="width: 130px;display: inline;" type="text" placeholder="姓名">
+		<span></span>
+		岗位<select>
+			<option>请选择岗位</option>
+			<option>程序员</option>
+			<option>美工</option>
+		</select>
+		<span></span>
+		部门<select>
+			<option>请选择部门</option>
+			<option>|-财务部</option>
+			<option>|----技术部</option>
+		</select>
+		<span></span>
+		<a href="" class="btn">搜索</a>
+	</div>
+	<div class="page">
+		<table>
+			<tr class="first">
+				<td style="width: 100px;">员工名称</td>
+				<td style="width: 100px;">员工编号</td>
+				<td style="width: 100px;">电话</td>
+				<td style="width: 100px;">岗位</td>
+				<td style="width: 100px;">部门</td>
+				<td colspan="3">其他操作</td>
+			</tr>
+			<tr>
+				<td>
+					<a class="user-detail" href="employee-manage-detail.html">
+						皮卡丘
+					</a>
+				</td>
+				<td>1000010</td>
+				<td>123456789</td>
+				<td>美工</td>
+				<td>部门111</td>
+				<td class="right"><a href="employee-manage-form.html" class="btn">修改</a></td>
+				<td class="both"><a href="#" class="btn">删除</a></td>
+				<td class="left"><a href="#" class="btn">重置密码</a></td>
+			</tr>
+			<tr>
+				<td>
+					<a class="user-detail" href="employee-manage-detail.html">
+						皮卡丘
+					</a>
+				</td>
+				<td>123456789</td>
+				<td>21</td>
+				<td>程序员</td>
+				<td>部门111</td>
+				<td class="right"><a href="employee-manage-form.html" class="btn">修改</a></td>
+				<td class="both"><a href="#" class="btn">删除</a></td>
+				<td class="left"><a href="#" class="btn">重置密码</a></td>
+			</tr>
+			<tr class="last">
+				<td colspan="8">
+					<a href="employee-manage-form.html" class="btn">增加</a>
+				</td>
+			</tr>
+		</table>	
+		<a href="" style="margin-right: 20px;">上一页</a>
+		<a href="">1</a>
+		<a href="">2</a>
+		<a href="">3</a>
+		<a href="" style="margin-left: 20px;">下一页</a>
+	</div>
+</body>
+</html>

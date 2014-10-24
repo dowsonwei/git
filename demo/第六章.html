@@ -1,0 +1,16 @@
+//构造函数
+function Person(name,age,job){
+	this.name = name;
+	this.age = age;
+	this.job = job;
+	this.sayname = function(){
+		console.log(this.name);
+	};
+}
+
+Person("dowson",26,"student");
+window.sayname();
+
+var o = new Object();
+Person.call(o,"wzc",25,"fjsdofijo");
+o.sayname();

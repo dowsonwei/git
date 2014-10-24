@@ -1,0 +1,75 @@
+<!doctype html>
+<html ng-app="MyApp" ng-controller="PhoneListCtrl">
+<head>
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/controller.js"></script>
+  <title ng-bind-template="name:{{query}}">my name</title>
+</head>
+<body>
+
+
+	<div>
+	    1+1={{1+1}}
+	</div>
+	   
+	<script type="text/javascript" charset="utf-8">
+		var app = angular.module('MyApp',[],function(){
+			console.log('started');
+		});
+	</script>
+
+	<!-- //第4章双向绑定 -->
+
+	Search: <input ng-model="query">
+	Sort by:
+	<select ng-model="orderProp">
+	  <option value="name">Alphabetical</option>
+	  <option value="age">Newest</option>
+	</select>
+
+
+	<ul class="phones">
+	  <li ng-repeat="phone in phones | filter:query | orderBy:orderProp">
+	    {{phone.name}}
+	    <p>{{phone.snippet}}</p>
+	  </li>
+	</ul>
+
+	<br/><br/>
+	<!-- //第三章迭代器	 -->	
+	<!-- 为什么标题没有变成a开头呢 -->
+	<div class="container-fluid">
+	  	<div class="row-fluid">
+		    <div class="span2">
+		      <!--Sidebar content-->
+			  	<p ng-bind-template="name:{{query}}">a</p>
+		      	Search: <input ng-model="query">
+
+		    </div>
+		    <div class="span10">
+		      <!--Body content-->
+		      	<ul class="phones">
+			        <li ng-repeat="phone in phones | filter:query">
+			          {{phone.name}}
+			        <p>{{phone.snippet}}</p>
+			        </li>
+		      	</ul>
+	    	</div>
+	  	</div>
+	</div>
+
+
+	<!-- 第二章 -->
+	<ul>
+	    <li ng-repeat="phone in phones">
+	      {{phone.name}}
+	    <p>{{phone.snippet}}</p>
+	    </li>
+	</ul>
+	<p>Total number of phones: {{phones.length}}</p>
+	<table>
+		<tr><th>row number</th></tr>
+		<tr ng-repeat = "i in [0,1,2,3,4,5,6,7,8,9]"><td>{{i+1}}</td></tr>
+	</table>
+</body>
+</html>

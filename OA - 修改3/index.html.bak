@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		
+		<title>首页</title>
+		
+		<!--                       CSS                       -->
+	  
+		<!-- Reset Stylesheet -->
+		<link rel="stylesheet" href="resources/css/reset.css" type="text/css" media="screen" />
+	  
+		<!-- Main Stylesheet -->
+		<link rel="stylesheet" href="resources/css/style.css" type="text/css" media="screen" />
+		
+		<!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
+		<link rel="stylesheet" href="resources/css/invalid.css" type="text/css" media="screen" />	
+		
+		<!-- Colour Schemes
+	  
+		Default colour scheme is green. Uncomment prefered stylesheet to use it.
+		
+		<link rel="stylesheet" href="resources/css/blue.css" type="text/css" media="screen" />
+		
+		<link rel="stylesheet" href="resources/css/red.css" type="text/css" media="screen" />  
+	 
+		-->
+		
+		<!-- Internet Explorer Fixes Stylesheet -->
+		
+		<!--[if lte IE 7]>
+			<link rel="stylesheet" href="resources/css/ie.css" type="text/css" media="screen" />
+		<![endif]-->
+		
+		<!--                       Javascripts                       -->
+  
+		<!-- jQuery -->
+		<script type="text/javascript" src="resources/scripts/jquery-1.3.2.min.js"></script>
+		
+		<!-- jQuery Configuration -->
+		<script type="text/javascript" src="resources/scripts/simpla.jquery.configuration.js"></script>
+		
+		<!-- Facebox jQuery Plugin -->
+		<script type="text/javascript" src="resources/scripts/facebox.js"></script>
+		
+		<!-- jQuery WYSIWYG Plugin -->
+		<script type="text/javascript" src="resources/scripts/jquery.wysiwyg.js"></script>
+		
+		<!-- jQuery Datepicker Plugin -->
+		<script type="text/javascript" src="resources/scripts/jquery.datePicker.js"></script>
+		<script type="text/javascript" src="resources/scripts/jquery.date.js"></script>
+		<!--[if IE]><script type="text/javascript" src="resources/scripts/jquery.bgiframe.js"></script><![endif]-->
+
+		
+		<!-- Internet Explorer .png-fix -->
+		
+		<!--[if IE 6]>
+			<script type="text/javascript" src="resources/scripts/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript">
+				DD_belatedPNG.fix('.png_bg, img, li');
+			</script>
+		<![endif]-->
+
+		<script type="text/javascript">
+			function getCome(){
+				$("#report").html("签到");
+			}
+			function getLeave(){
+				$("#report").html("签离");
+			}
+			
+		</script>
+		
+	</head>
+  
+	<body><div id="body-wrapper"> <!-- Wrapper for the radial gradient background -->
+		
+		<div id="sidebar"><div id="sidebar-wrapper"> <!-- Sidebar with logo and menu -->
+			
+			
+		  
+			<!-- Logo (221px wide) -->
+			<a href="#"><img id="logo" src="resources/images/logo1.png" alt="Simpla Admin logo" /></a>
+		  
+			<!-- Sidebar Profile links -->
+			<div id="profile-links">
+				您好, <a href="#" title="Edit your profile">John Doe</a>
+				
+				<a href="PersonalPwdEdit.html" target="right" >[修改密码]</a>&nbsp;|&nbsp;<a href="#" title="Sign Out">退出</a>
+				<br />
+				请上下班打卡:<a href="#messages" rel="modal" onclick="getCome()">上班&nbsp;|&nbsp;<a href="#messages" rel="modal" onclick="getLeave()">下班
+			</div>        
+			
+			<ul id="main-nav">  <!-- Accordion Menu -->
+
+				<li>
+					<a href="#" class="nav-top-item current">
+						考勤管理
+					</a>
+					<ul>
+						<li><a href="PersonalDute.html" target="right">个人考勤记录</a></li>
+						<li><a href="StaffDute.html" target="right">下属考勤记录</a></li>
+					</ul>
+				</li>
+
+				<li>
+					<a href="#" class="nav-top-item">
+						节假日管理
+					</a>
+					<ul>
+						<li><a href="CalenderEdit.html" target="right">上班时间调整</a></li>
+						<li><a href="CalenderCheck.html" target="right">查看调整时间</a></li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#" class="nav-top-item ">
+						请假管理
+					</a>
+					<ul>
+						<!--
+						<li><a href="PersonalEdit.html" target="right">个人资料修改</a></li>
+						-->
+						<li><a href="StaffAskForLeave.html"target="right" >请假申请</a></li>
+						<li><a href="PersonalAskForLeaveMessage.html" target="right">请假记录</a></li>
+					</ul>
+				</li>
+
+				<li>
+					<a href="#" class="nav-top-item">
+						报销管理
+					</a>
+					<ul>
+						<li><a href="AddFree.html" target="right" >报销申请</a></li>
+						<li><a href="PersonalFreeList.html" target="right">报销记录</a></li>
+					</ul>
+				</li>
+
+				<li>
+					<a href="#" class="nav-top-item">
+						出差管理
+					</a>
+					<ul>
+						<li><a href="StaffAskForTrip.html" target="right">出差申请</a></li>
+						<li><a href="PersonalOnTrip.html" target="right">出差记录</a></li>
+
+					</ul>
+				</li>
+				
+				<li> 
+					<a href="#" class="nav-top-item"> <!-- Add the class "current" to current menu item -->
+					部门管理
+					</a>
+					<ul>
+						<li><a  href="DeptManage.html" target="right">组织架构</a></li> 
+						<li><a  href="DepartmentLook.html" target="right">所有部门</a></li> 
+						<li><a href="DepartmentAdd.html" target="right">增加部门</a></li>
+					</ul>
+				</li>
+					
+				<li> 
+					<a href="#" class="nav-top-item"> <!-- Add the class "current" to current menu item -->
+					岗位管理
+					</a>
+					<ul>
+						<li><a href="PostLook.html" target="right">所有岗位</a></li> <!-- Add class "current" to sub menu items also -->
+						<li><a href="PostAdd.html" target="right">增加岗位</a></li>
+						
+					</ul>
+				</li>
+
+				<li>
+					<a href="#" class="nav-top-item" target="right">
+						人员管理
+					</a>
+					<ul>
+						<li><a href="StaffLook.html" target="right">所有人员</a></li>
+						<li><a href="StaffAdd.html" target="right">增加人员</a></li>
+					</ul>
+				</li>
+				
+				
+				<li>
+					<a href="#" class="nav-top-item">
+						报销科目管理
+					</a>
+					<ul>
+						<li><a href="AddFeeType.html" target="right">增加报销科目</a></li>
+						<li><a href="ManageFeeType.html" target="right">所有报销科目</a></li>
+						
+					</ul>
+				</li>
+				
+				<li>
+					
+					<a href="#" class="nav-top-item">
+						审批管理
+					</a>
+						<ul>
+						<li><a href="AllAskForLeave.html" target="right">审批请假</a></li>
+						<li><a href="DealOnTrip.html" target="right">审批出差</a></li>
+						<li><a href="AllAskForFree.html" target="right">审批报销</a></li>
+					</ul>
+				</li>
+
+			</ul> <!-- End #main-nav -->
+			
+			<div id="messages" style="display: none"> <!-- Messages are shown when a link with these attributes are clicked: href="#messages" rel="modal"  -->
+				
+				<h3 id="report"></h3>
+			 
+				
+				
+			</div> <!-- End #messages -->
+			
+		</div></div> <!-- End #sidebar -->
+		
+		<div id="main-content" > <!-- Main Content Section with everything -->
+			
+			
+			<iframe name="right" src="UserMainPage.html" style="width:100%;height:610px;" />
+
+			
+		</div> <!-- End #main-content -->
+		
+	</div></body>
+  
+
+<!-- Download From www.exet.tk-->
+</html>

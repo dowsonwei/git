@@ -1,0 +1,83 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" href="js/zTreeStyle/zTreeStyle.css" type="text/css" />
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ztree-2.5.js"></script>
+	<script type="text/javascript" src="js/deptTree.js"></script>
+	<style type="text/css">
+		table,table tr,table tr td{
+			border: none;
+			border-bottom: 1px solid #ccc;
+		}
+		table#nodeText{
+			width: 500px;
+		}
+		td.first-td{
+			width: 150px;
+			height: 60px;
+			line-height: 60px;
+		}
+		div#content{
+			width:90%;
+			margin:40px auto;
+		}
+		div#doc-tree{
+			padding-left:100px;
+			float:left;
+			width:25%;
+		}
+		div#doc{
+			float:right;
+			width:60%;
+		}
+		div#doc table{
+			text-align: center;
+		}
+		
+		table#nodeText{
+			margin: 0px;
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="content">
+		<div id="doc-tree">
+			<ul id="tree" class="tree"></ul>
+		</div>
+		<div id="doc" class="page">
+			<table id="nodeText">
+				<tr>
+					<td class="first-td">部门名称</td>
+					<td id="deptname"></td>
+				</tr>
+				<tr>
+					<td class="first-td">部门负责人</td>
+					<td id="deptmanager"></td>
+				</tr>
+				<tr>
+					<td class="first-td">部门描述</td>
+					<td id="deptdesc"></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<a id="moveUp" href="#" class="btn">上移</a>
+						<a id="moveDown" href="#" class="btn">下移</a>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<a href="department-manage-form.html" class="btn">增加子部门</a>
+						<a href="department-manage-form.html" class="btn">修改</a>
+						<a onclick="javascript:stopDept(this);" href="#" class="btn">停用</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<a id="comAddDept" href="department-manage-form.html" class="btn">增加子部门</a>
+	</div>
+</body>
+</html>

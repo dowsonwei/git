@@ -1,0 +1,103 @@
+body {
+	font-family: "Microsoft Yahei";
+	font-size: 14px;
+	margin: 0;
+	color: #333;
+}
+.header {
+	color: white;
+	font-size: 30px;
+	line-height: 100px;
+}
+.sidebar {
+	width: 300px;
+	text-align: right;
+	color: #333;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	position: absolute;
+}
+
+.sidebar div div{
+	cursor: pointer;	
+}
+
+.header {
+	height: 100px;
+	background: #000;
+}
+.level1 {
+	text-align:center;
+	height: 40px;
+	overflow: hidden;
+	transition: height 0.5s ease-in;
+}
+.level1.expand {
+	height: auto;
+}
+.level1-title {
+	height: 40px;
+	line-height: 40px;
+	padding-right: 20px;
+	font-size: 18px;
+}
+.level2 {
+	height: 30px;
+	line-height: 30px;
+	padding-right: 40px;
+}
+.level1-title:hover, .level2:hover {
+	background: rgb(56, 108, 103);
+	color: white;
+}
+.level2.active {
+	background: rgb(56, 108, 103);
+	color: white;
+}
+.content {
+	margin-left: 300px;
+	box-shadow: -2px -2px 5px #aaa;
+	height: 800px;
+	margin-top: 20px;
+}
+iframe {
+	height: 800px;
+	width: 100%;
+	border: 0;
+}
+
+/** Ìí¼Ó»¶Ó­Äú£¬ÍË³ö°´Å¥ */
+div.level1-title{
+	border: 1px solid #999;
+	background-color: #eee;
+}
+
+span#wel{
+	font-size: 18px;
+	position: absolute;
+	left: 0px;
+	top: 25px;
+	text-indent: 30px;
+}
+
+div.header{
+	font-size: 30px;	
+}
+
+span#sysTitle{
+	display:block;
+	text-indent: 200px;
+}
+
+span#exit{
+	position: absolute;
+	right: 15px;
+	top: 0px;
+}
+
+span#exit input{
+	width: 80px;
+	height: 30px;
+	border: 1px solid white;
+	cursor: pointer;
+}

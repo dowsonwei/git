@@ -1,0 +1,139 @@
+var zTree;
+
+var setting = {
+		isSimpleData: true,
+		treeNodeKey: "id",
+		treeNodeParentKey: "pId",
+		showLine: true,
+		root:{ 
+				isRoot:true,
+				nodes:[]
+		},
+		callback : {
+				click: selectTreeNode
+		}
+
+};
+
+// 点击事件
+/**
+ * 
+ * @param {} event  onClick 事件返回的标准 event 对象
+ * @param {} treeId  treeObjId
+ * @param {} treeNode 被点击的节点 JSON 数据对象
+ */ 
+function selectTreeNode(event, treeId, treeNodeJson){
+		$(".node").remove();
+		var treeNodeId = treeNodeJson.id;
+		//var treeNodePid = treeNode.pId;
+		var name = treeNodeJson.name;
+		var trNode,tdNode1,tdNode2,tdNode3;
+		// 获得所有子节点
+		var childJson = zTree.getNodesByParam("pId", treeNodeId, null);
+		if(childJson.length == 0){ // 叶子结点
+				$("#add").css("display","none");
+				$("#upload").css("display","none");
+				// 在last之前添加一行,添加文件结点
+				trNode = $("<tr class='node'></tr>");
+				tdNode1 = $("<td>"+name+"</td>");
+				if(treeNodeJson["isParent"]){ // 目录结点
+						tdNode2 = $("<td>目录</td>");
+						$("#add").css("display","inline");
+						$("#upload").css("display","inline");
+						tdNode3 = $("<td>" +
+										"<a href='#' class='btn'>删除</a>" +
+										"</td>");
+				}else{
+						tdNode2 = $("<td>文件</td>");
+						tdNode3 = $("<td>" +
+										"<a href='#' class='btn'>下载</a>&nbsp;" +
+										"<a href='#' class='btn'>删除</a>" +
+										"</td>");
+				}
+				trNode.append(tdNode1);
+				trNode.append(tdNode2);
+				trNode.append(tdNode3);
+				trNode.insertBefore(".last");
+		}else{
+				$("#add").css("display","inline");
+				$("#upload").css("display","inline");
+				for(var index in childJson){
+						// 在last之前添加一行,添加文件结点
+						trNode = $("<tr class='node'></tr>");
+						tdNode1 = $("<td>"+childJson[index]["name"]+"</td>");
+						if(childJson[index]["isParent"]){ 
+								tdNode2 = $("<td>目录</td>");
+								tdNode3 = $("<td>" +
+												"<a href='#' class='btn'>删除</a>" +
+												"</td>");
+						}else{
+								tdNode2 = $("<td>文件</td>");
+								tdNode3 = $("<td>" +
+												"<a href='#' class='btn'>下载</a>&nbsp;" +
+												"<a href='#' class='btn'>删除</a>" +
+												"</td>");
+						}
+						trNode.append(tdNode1);
+						trNode.append(tdNode2);
+						trNode.append(tdNode3);
+						trNode.insertBefore(".last");
+						//alert(childJson[index]["name"]);
+				}
+		}
+}
+
+zNodes =[
+{ id:"abc",pId:0,name:"公司网站目录管理",open:true,url:"www.baic.com"},
+		/* 目录管理子节点 */
+{ id:2,pId:"abc",name:"技术部",isParent:true,url:"www.ABC.com"},
+{ id:3,pId:"abc",name:"财务部",isParent:true,url:"www.baic.com"},
+{ id:4,pId:"abc",name:"后勤部",isParent:true},
+{ id:5,pId:"abc",name:"人力资源部",isParent:true},
+
+{ id:22,pId:2,name:"会议资料",open:true,isParent:true},
+{ id:23,pId:2,name:"人事资料",open:true,isParent:true},
+{ id:24,pId:2,name:"开发资料",open:true,isParent:true},
+
+{ id:25,pId:22,name:"会议1资料"},
+{ id:26,pId:22,name:"会议2资料"},
+{ id:27,pId:22,name:"会议3资料"},
+{ id:28,pId:22,name:"会议重要资料"},
+
+{ id:29,pId:28,name:"重要资料1"},
+{ id:30,pId:28,name:"重要资料2"},
+
+{ id:31,pId:23,name:"人事资料1"}
+];
+
+
+function setCheck() {
+		var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+			py = "";
+		sy = "";
+		pn = "";
+		sn = "";
+		type = { "Y":py + sy, "N":pn + sn};
+		zTree.setting.check.chkboxType = type;
+}
+
+
+$(document).ready(function(){
+		var	width = document.body.clientWidth;
+		// 建立tree
+		zTree = $("#tree").zTree(setting, zNodes);
+		// 用户详细设置
+		setCheck();
+		$("#py").bind("change",setCheck);
+		$("#sy").bind("change",setCheck);
+		$("#pn").bind("change",setCheck);
+		$("#sn").bind("change",setCheck);
+		
+		$("#addChildNode").css("width",width);
+		$("#addChildNode").fadeTo(0,0.9);
+		$("#addChildNode").css("display","none");
+
+		$("#uploadFile").css("width",width);
+		$("#uploadFile").fadeTo(0,0.9);
+		$("#uploadFile").css("display","none");
+
+});

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="dowson.js"></script>
+</head>
+<body>
+	<input type="text" id="input1" onchange="changeSpan()" />
+	<span id="span1"></span>
+	<script type="text/javascript">
+		function changeSpan(){
+			var text=$("input1").value;
+			console.log(text);
+			var regular=/^\d{2}\/\d{2}\/(\d{2}|\d{4})$/;
+			console.log(regular.test(text));
+			if(regular.test(text)){
+				$("span1").innerHTML="符合";
+			}
+			else{
+				$("span1").innerHTML="不符合";
+			}
+		}
+	</script>
+</body>
+</html>

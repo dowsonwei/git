@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>日记</title>
+	<script type="text/javascript" src="dowson.js"></script>
+	<script type="text/javascript">
+		//Blog object constructor
+		function Blog(body,date){
+			this.body=body;
+			this.date = date;
+		}
+		Blog.prototype.toHTML = function(highlight){
+				var blogText = "";
+				blogText += highlight ? "<p>" : "<p style='background-color:#EEEEEE'>";
+				blogText +=  "<strong>" + (this.date.getMonth()+1) + "/" + this.date.getDay() + "/" + this.date.getFullYear() + "</strong><br />"  + this.body + "<br />" + this.signature; + "</p>"
+				return blogText;
+		}
+		Blog.prototype.signature = "by dowson";
+		Blog.blogSort = function(blog1,blog2){
+			return blog2.date - blog1.date;
+		}
+		//Global array of blog entries
+		var blog = [new Blog("Got the news,baby",new Date("10/31/2009")),
+					new Blog("dowson is my name",new Date("12/08/2010")),
+					new Blog("how are you",new Date("10/31/2009")),
+					new Blog("I am fine",new Date("10/31/2009"))];
+		//show the list of blog entries			
+		function  showBlog(numEntries){
+			//Adjust the number of entries to show the full blog,if necessary
+			if(!numEntries)numEntries = blog.length;
+			//show the blog entries
+			var i = 0 , blogText = "";
+			//sort the blog order by date
+			blog.sort(Blog.blogSort);
+			while(i<blog.length&&i<numEntries){
+				//use a gray background for every other blog entries
+				blogText += blog[i].toHTML(i%2);
+				i++;
+			}
+			document.getElementById("blog").innerHTML = blogText;
+		}
+		//search the blog contain the text
+		function searchBlog(){
+			//get the search String
+			var searchText = $("searchNode").value.toLowerCase();
+			console.log(searchText);
+			//find the Blog
+			var i = 0,flag = 1, tempText = "";
+			//don't me ,you have't input searchtext
+			if(searchText != ""){
+				for(;i<blog.length;i++){
+					var content = blog[i].body.toLowerCase();
+					if(content.indexOf(searchText)!=-1){
+						tempText += blog[i].toHTML(i%2);
+						flag = 0;
+					}
+				}
+				$("search").innerHTML = tempText;
+				//can't find the blog that contain the search text
+				if(flag){
+					alert("Not found");
+				}
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<body onload="showBlog(2)" >
+		<div>
+			<div id="blog"></div>
+			<input type="button" value="click me" onclick="showBlog(4)" /><br />
+			<input type="button" value="search text" onclick="searchBlog()"/>
+			<input type="text" id="searchNode" />
+			<div id="search"></div>
+		</div>
+	</body>
+</body>
+</html>

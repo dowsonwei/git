@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>OA</title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<script type="text/javascript">
+		function exit(){
+			window.confirm("你确定要退出吗?");
+		}
+	</script>
+</head>
+<body>
+	<div class="header">
+		<span id="sysTitle">OA  STAFF AFFAIRS</span>
+		<span id="wel">欢迎您:王小二</span>
+		<span id="exit">
+			<input type="button" class="btn" value="退出" onclick="exit();"/>
+		</span>
+	</div>
+	<div class="sidebar">
+		<div class="user-manage level1">
+			<div class="level1-title">基础信息管理</div>
+			<!-- 
+			<div class="main level2 current" data-name="welcome">主页</div>
+			 -->
+			<div class="employee level2" data-name="employee-manage">员工信息管理</div>
+			
+			<div class="department level2" data-name="department-manage">部门信息管理</div>
+			<div class="role level2" data-name="role-manage">角色信息管理</div>
+			<div class="job level2" data-name="job-manage">岗位信息管理</div>
+			
+		</div>
+		<div class="department-manage level1">
+			<div class="level1-title">我的部门</div>
+		    <div class="news level2" data-name="news">发布部门新闻、公告管理</div> 
+			<div class="department-document level2" data-name="department-document">部门文档目录</div>
+			<div class="department-document-pri level2" data-name="department-document-pri">部门文档目录授权</div>
+		</div>
+		<div class="user-center level1">
+			<div class="level1-title">个人中心</div>
+			<div class="read-news level2" data-name="read-news">查看新闻、公告</div>
+			<div class="QSA-writen level2" data-name="QSA-writen">我填写的问卷</div>
+			<div class="account level2" data-name="account">修改个人信息</div>
+			<div class="account-pwd level2" data-name="account-pwd">修改密码</div>
+			<div class="QSA-released level2" data-name="QSA-released">我发布的问卷</div>
+		</div>
+		<div class="system-manage level1">
+			<div class="level1-title">系统管理</div>
+			<div class="company-news level2" data-name="company-news">发布新闻以及公告</div>
+			<div class="QSA-bank level2" data-name="QSA-bank">题库管理</div>
+			<div class="QSA-manage level2" data-name="QSA-manage">调查问卷管理</div>
+			<div class="QSA-result level2" data-name="QSA-answer">个人问卷回答情况</div>
+			<div class="email level2" data-name="email-manage">邮件管理</div>
+			<div class="company-document level2" data-name="company-document">建立公司网站目录文档</div>
+			<a href="email.html" target="abc">email</a>
+		</div>
+	</div>
+
+	<div class="content">
+		<iframe name="abc" src="welcome.html">
+		  <p>Your browser does not support iframes.</p>
+		</iframe>
+	</div>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript">
+	$('.level2').on('click', function (e) {
+		var tar = $(e.target)
+		$('iframe').attr('src', tar.data('name') + '.html');
+		$('.active').removeClass('active');
+		tar.addClass('active');
+	});
+	$('.level1-title').on('click', function () {
+		$('.expand').removeClass('expand');
+		$(this).parent().toggleClass('expand');
+	});
+	</script>
+</body>
+</html>

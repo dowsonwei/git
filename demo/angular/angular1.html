@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../js/angular.min.js"></script>
+</head>
+<body ng-app="MyApp">
+	<div ng-controller="question" ng-style="style">
+		{{question.name}}		
+	</div>
+	<script type="text/javascript">
+		var app = angular.module("MyApp",[],function(){
+			console.log("started");
+		});
+		var questionModel = {
+			name : "dowson",
+			age : 25
+		};
+		app.controller("question",function($scope){
+			$scope.question = questionModel;
+			$scope.style = {color:'red'};
+		});
+	</script>
+</body>
+</html>

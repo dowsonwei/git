@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		
+		<title>Simpla Admin</title>
+		
+		<!--                       CSS                       -->
+	  
+		<!-- Reset Stylesheet -->
+		<link rel="stylesheet" href="resources/css/reset.css" type="text/css" media="screen" />
+	  
+		<!-- Main Stylesheet -->
+		<link rel="stylesheet" href="resources/css/iframeStyle.css" type="text/css" media="screen" />
+		
+		<!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
+		<link rel="stylesheet" href="resources/css/invalid.css" type="text/css" media="screen" />	
+		
+		<link type="text/css" rel="stylesheet" href="resources/css/mybox.css" />
+		<!-- Colour Schemes
+	  
+		Default colour scheme is green. Uncomment prefered stylesheet to use it.
+		
+		<link rel="stylesheet" href="resources/css/blue.css" type="text/css" media="screen" />
+		
+		<link rel="stylesheet" href="resources/css/red.css" type="text/css" media="screen" />  
+	 
+		-->
+		
+		<!-- Internet Explorer Fixes Stylesheet -->
+		
+		<!--[if lte IE 7]>
+			<link rel="stylesheet" href="resources/css/ie.css" type="text/css" media="screen" />
+		<![endif]-->
+		
+		<!--                       Javascripts                       -->
+  
+		<!-- jQuery -->
+		<script type="text/javascript" src="resources/scripts/jquery-1.3.2.min.js"></script>
+		
+		<!-- jQuery Configuration -->
+		<script type="text/javascript" src="resources/scripts/simpla.jquery.configuration.js"></script>
+		
+		<!-- Facebox jQuery Plugin -->
+		<script type="text/javascript" src="resources/scripts/facebox.js"></script>
+		
+		<!-- jQuery WYSIWYG Plugin -->
+		<script type="text/javascript" src="resources/scripts/jquery.wysiwyg.js"></script>
+		
+		<!-- jQuery Datepicker Plugin -->
+		<script type="text/javascript" src="resources/scripts/jquery.datePicker.js"></script>
+		<script type="text/javascript" src="resources/scripts/jquery.date.js"></script>
+		<!--[if IE]><script type="text/javascript" src="resources/scripts/jquery.bgiframe.js"></script><![endif]-->
+
+		
+		<!-- Internet Explorer .png-fix -->
+		
+		<!--[if IE 6]>
+			<script type="text/javascript" src="resources/scripts/DD_belatedPNG_0.0.7a.js"></script>
+			<script type="text/javascript">
+				DD_belatedPNG.fix('.png_bg, img, li');
+			</script>
+		<![endif]-->
+		
+	</head>
+  
+	<body>
+		
+		<div id="main-content"> <!-- Main Content Section with everything -->
+			
+			<noscript> <!-- Show a notification if the user has disabled javascript -->
+				<div class="notification error png_bg">
+					<div>
+						Javascript is disabled or is not supported by your browser. Please <a href="http://browsehappy.com/" title="Upgrade to a better browser">upgrade</a> your browser or <a href="http://www.google.com/support/bin/answer.py?answer=23852" title="Enable Javascript in your browser">enable</a> Javascript to navigate the interface properly.
+					Download From <a href="http://www.exet.tk">exet.tk</a></div>
+				</div>
+			</noscript>
+			
+			<!-- Page Head -->
+			
+			
+			<div class="clear"></div> <!-- End .clear -->
+			
+			<div class="content-box"><!-- Start Content Box -->
+				
+				<div class="content-box-header">
+					
+					<h3>报销记录详情</h3>
+					
+					<div class="clear"></div>
+					
+				</div> <!-- End .content-box-header -->
+				
+				<div class="content-box-content">
+					
+					
+					<div class="tab-content default-tab" id="tab2">
+					
+						<form action="#" method="post">
+							
+							<fieldset> <!-- Set class to "column-left" or "column-right" on fieldsets to divide the form into columns -->
+
+								<p>
+									<label>
+									申请人：
+										<input value="黄海波" class="text-input mimi-input" type="text" id="small-input" name="small-input" readonly />&nbsp;
+
+									员工编号：
+										<input value="10086" class="text-input mimi-input" type="text" id="small-input" name="small-input" readonly />&nbsp;
+										
+									所属部门：
+										<input value="秘书部" class="text-input mimi-input" type="text" id="small-input" name="small-input" readonly />&nbsp;
+
+									直属领导：
+										<input value="汤姆" class="text-input mimi-input" type="text" id="small-input" name="small-input"	readonly />&nbsp;
+										
+									</label>
+								</p>
+
+								<p>
+									<label>申请时间</label>
+										
+												<label><input class="text-input small-input" type="text" id="small-input" name="small-input" value="2014-10-15" readonly/></label>			 
+								</p>
+
+
+							<div class="bigbox">
+								<div class="mybox">
+									<div class="mybox-title">
+										<div class="caption">
+											<i class="icon-cogs"></i>
+											差旅费&nbsp;&nbsp;
+											<span style="color:blue;">(小计:<span class="count">50</span>)</span>
+										</div>
+										<div class="tools">
+											<a href="javascript:;" id="collapse" class="collapse">∧</a>
+										</div>
+									</div>
+									<div class="box-body" id="box-body">
+										<table >
+											<thead>
+												<tr>
+													<th>#</th>
+													<th>科目</th>
+													<th>金额</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>交通费:</td>
+													<td><input readonly type="number" value="10"/></td>									
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>出租车费:</td>
+													<td><input readonly type="number" value="10"/></td>									
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>住宿费:</td>
+													<td><input readonly type="number" value="10"/></td>									
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>差旅补助:</td>
+													<td><input readonly type="number" value="20"/></td>									
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+								<div class="mybox">
+									<div class="mybox-title">
+										<div class="caption">
+											<i class="icon-cogs"></i>
+											差旅费&nbsp;&nbsp;
+											<span style="color:blue;">(小计:<span class="count">50</span>)</span>
+										</div>
+										<div class="tools">
+											<a href="javascript:;" id="collapse" class="collapse">∧</a>
+										</div>
+									</div>
+									<div class="box-body" id="box-body">
+										<table >
+											<thead>
+												<tr>
+													<th>#</th>
+													<th>科目</th>
+													<th>金额</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>交通费:</td>
+													<td><input readonly type="number" value="10"/></td>									
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>出租车费:</td>
+													<td><input readonly type="number" value="10"/></td>									
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>住宿费:</td>
+													<td><input readonly type="number" value="10"/></td>									
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>差旅补助:</td>
+													<td><input readonly type="number" value="20"/></td>									
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+
+								<div class="mybox">
+									<div class="mybox-title">
+										<div class="caption">
+											<i class="icon-cogs"></i>
+											办公费&nbsp;&nbsp;
+											<span style="color:blue;">(小计:<span class="count">60</span>)</span>
+										</div>
+										<div class="tools">
+											<a href="javascript:;" id="collapse" class="collapse">∧</a>
+										</div>
+									</div>
+									<div class="box-body" id="box-body">
+										<table class="table table-hover">
+											<thead>
+												<tr>
+													<th>#</th>
+													<th>科目</th>
+													<th>金额</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>办公用品:</td>
+													<td><input readonly type="number" value="20"/></td>									
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>低值易耗品:</td>
+													<td><input readonly type="number" value="10"/></td>									
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>图书资料费:</td>
+													<td><input readonly type="number" value="10"/></td>									
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>网络费用:</td>
+													<td><input readonly type="number" value="10"/></td>									
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>移动电话费:</td>
+													<td><input readonly type="number" value="10"/></td>									
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>其他办公费用:</td>
+													<td><input readonly type="number" value="0"/></td>									
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+								<div class="mybox">
+									<div class="mybox-title">
+										<div class="caption">
+											<i class="icon-cogs"></i>
+											差旅费&nbsp;&nbsp;
+											<span style="color:blue;">(小计:<span class="count">50</span>)</span>
+										</div>
+										<div class="tools">
+											<a href="javascript:;" id="collapse" class="collapse">∧</a>
+										</div>
+									</div>
+									<div class="box-body" id="box-body">
+										<table >
+											<thead>
+												<tr>
+													<th>#</th>
+													<th>科目</th>
+													<th>金额</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>交通费:</td>
+													<td><input readonly type="number" value="10"/></td>									
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>出租车费:</td>
+													<td><input readonly type="number" value="10"/></td>									
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>住宿费:</td>
+													<td><input readonly type="number" value="10"/></td>									
+												</tr>
+												<tr>
+													<td>1</td>
+													<td>差旅补助:</td>
+													<td><input readonly type="number" value="20"/></td>									
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<!-- end of bigbox -->
+							<div class="clear"></div><!-- End .clear -->
+							
+							<p>
+								<label style="font-size:16px;">报销金额总计：<span id="sumCount" style="color:blue;">210</span>&nbsp;元</label>
+							</p>
+
+							<hr>
+
+								<p>
+									<label>直接领导审批结果</label>
+									<input value="通过" readonly class="text-input mimi-input" type="text" name="small-input" />
+								</p>
+
+								<p>
+									<label>直接领导审批意见</label>
+										<textarea readonly id="textarea" name="textfield" cols="79" rows="3">情况属实</textarea>		
+								</p>
+								
+								<p>
+									<label>二级领导审批结果（有二级领导审批显示此项）</label>
+									<input value="通过" readonly class="text-input mimi-input" type="text" name="small-input" />
+								</p>
+								
+								<p>
+									<label>二级领导审批意见（有二级领导审批显示此项）</label>
+										<textarea readonly id="textarea" name="textfield" cols="79" rows="3">情况属实</textarea>		
+								</p>
+
+								<p>
+									<input class="button" type="button" value="返回" onclick="javascript:history.back(-1)"/>
+								</p>
+								
+							</fieldset>
+							
+							<div class="clear"></div><!-- End .clear -->
+							
+						</form>
+						
+					</div> <!-- End #tab2 -->        
+					
+				</div> <!-- End .content-box-content -->
+				
+			</div> <!-- End .content-box -->
+			
+			
+			<div class="clear"></div>
+
+		</div> <!-- End #main-content -->
+<script type="text/javascript" >
+	$(function(){
+		$(".collapse").click(function(){
+			
+			$(this).parents(".mybox").children(".box-body").slideToggle();
+			if($(this).text()=="∧"){
+				$(this).text("∨");
+			}else{
+				$(this).text("∧");
+			}
+		});	
+	});
+
+</script>
+		
+</body>
+</html>

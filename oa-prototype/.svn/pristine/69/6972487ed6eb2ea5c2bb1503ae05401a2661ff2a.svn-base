@@ -1,0 +1,111 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<style type="text/css">
+		span.score{
+			margin-left: 40px;
+			color: blue;
+		}
+		span.selectedItem{
+			color: red;
+		}
+		label {
+			padding-left: 20px;
+		}
+		p#title{
+			font-size: 20px;
+		}
+		#total{
+			font-size: 30px;
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<p id="title" style="text-align: center;">本次问卷总得分为:<span id="total">50</span></p>
+		<div class="question">
+			<p>1：这里是题目1，这里是题目1这里是题目1这里是题目1</p>
+			<label>
+				<span class="selectedItem">A：啊啊啊</span>
+				<span class="score">5分</span>
+			</label>
+			<label>
+				B：哦哦哦
+				<span class="score">4分</span>
+			</label>
+			<label>
+				C：嘿嘿嘿
+				<span class="score">2分</span>
+			</label>
+			<label>
+				D：。。。。。。
+				<span class="score">1分</span>
+			</label>
+		</div>
+		<br />
+		<div class="question">
+			<p>2：这里是题目1，这里是题目1这里是题目1这里是题目1</p>
+			<label>
+				<span class="selectedItem">A：啊啊啊</span>
+				<span class="score">5分</span>
+			</label>
+			<label>
+				B：哦哦哦
+				<span class="score">5分</span>
+			</label>
+			<label>
+				C：嘿嘿嘿
+				<span class="score">5分</span>
+			</label>
+			<label>
+				D：。。。。。。
+				<span class="score">5分</span>
+			</label>
+		</div>
+		<br />
+		<div class="question">
+			<p>3：这里是题目1，这里是题目1这里是题目1这里是题目1</p>
+			<label>
+				<span class="selectedItem">A：啊啊啊</span>
+				<span class="score">5分</span>
+			</label>
+			<label>
+				B：哦哦哦
+				<span class="score">5分</span>
+			</label>
+			<label>
+				C：嘿嘿嘿
+				<span class="score">5分</span>
+			</label>
+			<label>
+				D：。。。。。。
+				<span class="score">5分</span>
+			</label>
+		</div>
+		<br />
+		<div class="question">
+			<p>4：这里是题目1，这里是题目1这里是题目1这里是题目1</p>
+			<label>
+				<span class="selectedItem">A：啊啊啊</span>
+				<span class="score">5分</span>
+			</label>
+			<label>
+				B：哦哦哦
+				<span class="score">5分</span>
+			</label>
+			<label>
+				C：嘿嘿嘿
+				<span class="score">5分</span>
+			</label>
+			<label>
+				D：。。。。。。
+				<span class="score">5分</span>
+			</label>
+		</div>
+		<input type="button" style="cursor: pointer;" onclick="window.history.go(-1);" value="返回">
+	</form>
+</body>
+</html>

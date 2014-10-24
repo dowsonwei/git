@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title></title>
+</head>
+<body onload = "begin()">
+<div id="countNum" style="width:30px;height:30px;border:solid"></div>
+<script> 
+window.onload = function begin(){		
+		var num = 0;
+		var max = 10;
+		function incrementNum(){
+				num ++;
+				if(num<max){
+						document.getElementById("countNum").innerHTML = num;
+						setTimeout(incrementNum,1000);
+				}
+				else {
+						console.log("done");
+				}
+		}
+		setTimeout(incrementNum,1000);
+}		
+</script>
+</body>
+</html>

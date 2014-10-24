@@ -1,0 +1,31 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+	<form action="javascript:void" method="post">
+		<table id="hidden-line">
+			<tr>
+				<td>密码</td>
+				<td>
+					<input type="password" placeholder="密码">
+				</td>
+			</tr>
+			<tr>
+				<td>确认密码</td>
+				<td>
+					<input type="password" placeholder="确认密码">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="submit" value="确定">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/QSA-bank-crt.js"></script>
+	<style type="text/css">
+		table.hide-line{
+			margin: 0 auto;
+		}
+		table.hide-line,table.hide-line tr,table.hide-line td{
+			border: none;
+		}
+	</style>
+</head>
+<body>
+		<fieldset style="width: 700px;margin: 30px auto;">
+			<legend>修改题目</legend>
+			<table id="tab_1" class="hide-line">
+				<tr>
+					<td>题目:</td>
+					<td>
+						<input type="text" name="title" value="调查员工对公司的满意度"/>
+					</td>
+				</tr>
+				<tr>
+					<td>题目类型</td>
+					<td>单选</td>
+				</tr>
+				<tr>
+					<td>选项</td>
+					<td>
+						<input type="text" value="a,非常满意"/>
+					</td>
+				</tr>
+				<tr>
+					<td>选项</td>
+					<td>
+						<input type="text" value="b,一般"/>
+					</td>
+				</tr>
+				<tr>
+					<td>选项</td>
+					<td>
+						<input type="text" value="c,不满意"/>
+					</td>
+				</tr>
+				<tr>
+					<td>选项</td>
+					<td>
+						<input type="text" value="d,其他"/>
+					</td>
+				</tr>
+				<tr>
+					<td>添加选项输入框</td>
+					<td>
+						<input type="button" style="cursor: pointer;" class="btn" value="创建" onclick="createOption();"/>
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+		<div style="text-align: center;">
+			<a href="QSA-bank.html" class="btn">完成</a>
+		</div>
+</body>
+</html>

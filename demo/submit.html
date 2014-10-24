@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="index.html" method="post" onsubmit="return check()">
+		<input type="text" name="test" id="test">
+		<input type="submit" value="提交">
+	</form>
+	<script type="text/javascript">
+		function check(){
+			if(document.getElementById("test").value == ""){
+				alert("不能为空");
+				return false;
+			}
+		}
+//用来验证submit中return的用法，当函数返回false时，则不提交表单，当没有返回值时，表单会提交
+	</script>
+</body>
+</html>

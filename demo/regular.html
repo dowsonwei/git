@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="dowson.js"></script>
+</head>
+<body onload="getOnload()" onresize="sizeChange()">
+	<input type="text" id="input1" onchange="getChange()">检查文字是否符合 
+	<input type="text" id="input2" style="display:block">
+	<div id="div1" style="background-color:yellow;width:100px;height:100px"></div>
+	<script type="text/javascript">
+		
+		// setInterval("alert('dowson');",500);
+		// setInterval("alert('dowson');",3000);
+		// alert(document.body.clientWidth);
+		// alert(document.body.clientHeight);
+		
+		function getOnload(){
+			document.getElementById("div1").style.height=((document.documentElement.clientHeight-100)*0.9)+"px";
+			// var date=new Date();
+			// console.log(date.getDate());
+			// console.log(date.getDay());
+			// console.log(date.getMonth()+1);
+			// console.log(date.getFullYear());
+			// console.log(date.toLocaleTimeString());
+			// console.log(date.toLocaleDateString());
+			
+
+		}
+
+		function sizeChange(){
+			// alert("dowson");
+			document.getElementById("div1").style.height=((document.documentElement.clientHeight-100)*0.9)+"px";
+		}
+
+
+		function getChange(){
+			var inputWord=document.getElementById("input1").value;
+			var num=parseInt(inputWord);
+			var flag=1;
+			if(isNaN(inputWord)){
+				var partw=/^\d+\s*dozen\s*$/;
+				if(isNaN(num)){
+					flag=0;
+				}else if(partw.test(inputWord)){
+					num*=1000;
+				}
+				else{
+					flag=0;
+				}
+			}
+			if(flag)document.getElementById("input2").value="$  "+num;
+			else	document.getElementById("input2").value="输入有误";
+			// setTimeout("alert('定时器到了哦!!!');",3000);
+		}
+
+	</script>
+</body>
+</html>

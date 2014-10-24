@@ -1,0 +1,162 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript">
+		function selectUser(){
+			window.location.href = "employee-manage-select.html";
+		}
+
+		function _go(){
+			// var collDest = $("#dest");
+			var collSrcSel = $("#src :selected");
+			var len = collSrcSel.length;
+			for(var i=len-1;i>=0;i--){
+				$(collSrcSel[i]).appendTo("#dest");
+			}
+		}
+		
+		function _back(){
+			var collDestSel = $("#dest :selected");
+			var len = collDestSel.length;
+			for(var i=len-1;i>=0;i--){
+				$(collDestSel[i]).appendTo("#src");
+			}
+		}
+	</script>
+	<style type="text/css">
+		div#pic{
+			position: absolute;
+			left: 20px;
+		}
+		
+		div#pic img{
+			width: 220px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<form action="employee-manage.html" method="post">
+		<div id="pic">
+			<img alt="" src="img/bz.png">
+		</div>
+		<table id="hidden-line">
+			<tr>
+				<td>工号</td>
+				<td>
+					<input value="添加员工时去掉disable" type="text" placeholder="工号" disabled="disabled">
+				</td>
+			</tr>
+			<tr>
+				<td>登录名</td>
+				<td>
+					<input value="添加员工时去掉disable" type="text" placeholder="登录名"  disabled="disabled">
+					
+				</td>
+			</tr>
+			<tr>
+				<td>姓名</td>
+				<td>
+					<input type="text" placeholder="姓名">
+				</td>
+			</tr>
+			<tr>
+				<td>照片</td>
+				<td>
+					<input type="file" value="上传"/>
+				</td>
+			</tr>
+			<tr>
+				<td>出生年月</td>
+				<td>
+					<input	type="text" placeholder="出生年月"
+							class="Wdate validate[require]"  
+				    		onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+				</td>
+			</tr>
+			<tr>
+				<td>电话</td>
+				<td>
+					<input type="text" placeholder="电话">
+				</td>
+			</tr>
+			<tr>
+				<td>邮箱</td>
+				<td>
+					<input type="text" placeholder="邮箱">
+				</td>
+			</tr>
+			<tr>
+				<td>直接领导</td>
+				<td>
+					<input type="text" placeholder="直接领导">
+					<span class="btn" onclick="selectUser();" style="cursor: pointer;">选择</span>
+				</td>
+			</tr>
+			<tr>
+				<td>部门</td>
+				<td>
+					<select>
+						<option>--请选择部门--</option>
+						<option selected="selected">应用研发部</option>
+						<option>|-应用研发部1</option>
+						<option>|---应用研发部2</option>
+						<option>|---应用研发部3</option>
+						<option>|---应用研发部4</option>
+						<option>|---应用研发部5</option>s
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>岗位</td>
+				<td>
+					<select>
+						<option>--请选择岗位--</option>
+						<option selected="selected">程序员</option>
+						<option>美工</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table style="margin: 0px;padding: 0px;">
+						<tr>
+							<td style="width: 130px;">
+								<span>未选择角色</span>
+								<select style="width: 120px;" id="src" multiple="multiple" size="10">
+									<option>系统管理员</option>
+									<option>部门管理员</option>
+									<option>信息管理员</option>
+									<option>资源管理员</option>
+									<option>财务管理员</option>
+									<option>新闻管理员</option>
+									<option>公告管理员</option>
+								</select>
+							</td>
+							<td>
+								<button type="button" onclick="_go();">&gt;&gt;</button><br />
+								<button type="button" onclick="_back();">&lt;&lt;</button>
+							</td>
+							<td style="width: 130px;">
+								<span>已选择角色</span>
+								<select style="width: 120px;" id="dest" multiple="multiple" size="10">
+								</select>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="submit" value="提交">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
