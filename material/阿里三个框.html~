@@ -16,7 +16,9 @@
                 width: 200px;
             }
             .item:nth-child(2),.item:nth-child(3){
-                width:((100%)-200px)/2;
+                -webkit-box-flex:1;
+                 -moz-box-flex:1; 
+                 box-flex:1;
             }
         </style>
     </head>
