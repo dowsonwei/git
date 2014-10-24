@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="styles/layoutit.css" rel="stylesheet" />
+	<link rel="stylesheet" href="styles/iconfont.css">
+	<style type="text/css">
+        .rightBtn{
+        	float:right;
+        	clear:both;
+        }
+        .leftBtn{
+        	float:left;
+        	clear:both;
+        }
+        .needText{
+            display:inline;
+            width:75%;
+        }
+        .selectDate{
+            margin-left:10px
+        }
+    </style>
+</head>
+<body>
+
+	
+	<div class="container" id="target">
+		<!-- 搜索开始 -->
+		<div class="form-inline" style="margin-left:130px">
+            <div class="form-group">
+                <input type="date" id="birthday" class="form-control" >
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">查询</button>
+            </div>
+            <br />
+            <br />
+        </div>
+        <!-- 搜索结束 -->
+		<div class="row">
+			<div class="demo ui-sortable">
+				<div class="lyrow ui-draggable" style="display: block;">
+					<div class="view">
+						<div class="row clearfix">
+							<div class="col-md-12">
+                                <strong>2014-09-04</strong>
+							</div>
+							<div class="solveBtn rightBtn" style="margin-bottom:10px">
+                                    <button type="button" class="btn btn-primary addBtn newtemp">添加</button>
+                                    <button type="button" class="btn btn-primary delBtn newtemp">删除</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+
+        <button type="button" class="btn btn-primary rightBtn newBtn" style="margin-right:100px;margin-top:20px;">添加</button>
+
+		<div style="float:right;clear:both;margin-right:120px;">
+			<ul class="pagination pagination-sm">
+		        <li title="上一页"><a href="#">‹</a></li>
+		        <li title="当前页" class="active"><a href="#">3</a></li>
+		        <li title="下一页"><a href="#">›</a></li>
+		    </ul>
+		</div>
+	</div>
+
+	
+
+	<script src="scripts/jquery-2.1.1.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="scripts/AllData.js"></script>
+	<script src="js/workSchedule.js"></script>
+</body>
+</html>

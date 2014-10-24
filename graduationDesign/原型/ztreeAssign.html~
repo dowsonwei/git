@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<TITLE> ZTREE DEMO - beforeEditName / beforeRemove / onRemove / beforeRename / onRename</TITLE>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="styles/demoZtree.css" type="text/css">
+	<link rel="stylesheet" href="styles/zTreeStyle/zTreeStyle.css" type="text/css">
+	<link rel="stylesheet" href="styles/base.css" type="text/css">
+	<style type="text/css">
+.ztree li span.button.add {margin-left:2px; margin-right: -1px; background-position:-144px 0; vertical-align:top; *vertical-align:middle}
+	</style>
+</HEAD>
+
+<BODY>
+    <div class="content_wrap">
+        <div class="zTreeDemoBackground left">
+            <ul id="treeDemo" class="ztree"></ul>
+        </div>
+        <div class="right">
+            <table>
+                <tr>
+                    <th>名称</th>
+                    <th>负责人</th>
+                    <th>时间</th>
+                    <th>起始日期</th>
+                    <th>截止日期</th>
+                </tr>
+                <tr class="last">
+                </tr>
+            </table>
+            <button type="submit" class="btn btn-primary edit" style="margin-top:10px;">编辑</button>
+        </div>
+    </div>
+	<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+	<script src="scripts/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ztree.core-3.5.js"></script>
+	<script type="text/javascript" src="js/jquery.ztree.exedit-3.5.js"></script>
+	<script type="text/javascript" src="js/ztreeAssign.js"></script>
+</BODY>
+</HTML>

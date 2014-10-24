@@ -1,0 +1,17 @@
+table{
+    border:solid 1px gray;
+    border-collapse:collapse;
+    text-align:center;
+    margin-top:10px;
+    width:800px;
+}
+td{
+    border:solid 1px #ddd;
+    padding:10px;
+}
+th{
+    font-weight:bolder;
+    border:solid 1px #ddd;
+    padding:10px;
+    text-align:center;
+}

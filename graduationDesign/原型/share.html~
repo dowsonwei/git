@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="styles/layoutit.css" rel="stylesheet" />
+	<link rel="stylesheet" href="styles/iconfont.css">
+	<style type="text/css">
+        .rightBtn{
+        	float:right;
+        	clear:both;
+        }
+        .leftBtn{
+        	float:left;
+        	clear:both;
+        }
+        .del{
+			float:right;
+			clear:both;
+			color:gray;
+        }
+        a:hover{
+        	text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+	
+	<div class="container" id="target">
+		<div class="row">
+			<div class="demo ui-sortable">
+				<div class="lyrow ui-draggable" style="display: block;">
+					<div class="view">
+						<div class="row clearfix">
+							<div class="col-md-12 column ui-sortable">
+                                <textarea class='col-md-12' style = 'font-size:72;height:70px;' ></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+        <button type="button" class="btn btn-primary share" style="margin-left:100px;">发表</button>
+
+		<div class="row">
+			<div class="demo ui-sortable">
+				<div class="lyrow ui-draggable" style="display: block;">
+					<div class="view">
+						<div class="row clearfix">
+							<div class="col-md-12">
+								<span>韦壮城</span>&nbsp;&nbsp;&nbsp;
+								<span>2014年9月18日 上午10:25:07</span>
+							</div>
+							<div class="col-md-12 column ui-sortable">
+								完成原型设计<br/>
+                                <a href="#" class="comment first selected">
+                                    <i class="iconfont">&#xe650</i>
+                                <a>
+                                <a href="#"><i class="iconfont dissupport">&#xe66d</i></a>
+                                <span>张三</span>
+                                <span>李四</span>
+                                <span>王五</span>
+                                <div>
+                                    <span>
+                                        dowson is my name
+                                    </span>
+                                    <a href="#" class="comment second">
+                                        <i class = "iconfont">&#xe61c</i>
+                                    </a>
+                                    <div>
+                                        <span style="margin-left:50px">
+                                            dowson is my name
+                                        </span>
+                                        <a href="#" class="comment three">
+                                            <i class = "iconfont">&#xe61c</i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div style="margin-top:5px">
+                                    <input type="text" class="col-md-9 message" />
+                                    <button type="button" class="submitMessage " style="margin-left:10px;">评论</button>
+                                <div>;
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="demo ui-sortable">
+				<div class="lyrow ui-draggable" style="display: block;">
+					<div class="view">
+						<div class="row clearfix">
+							<div class="col-md-12">
+								<span>韦壮城</span>&nbsp;&nbsp;&nbsp;
+								<span>2014年9月18日 上午10:25:07</span>
+							</div>
+							<div class="col-md-12 column ui-sortable">
+								完成原型设计<br/>
+                                <a href="#" class="comment first selected">
+                                    <i class="iconfont">&#xe650</i>
+                                <a>
+                                <a href="#"><i class="iconfont dissupport">&#xe66d</i></a>
+                                <span>张三</span>
+                                <span>李四</span>
+                                <span>王五</span>
+                                <div>
+                                    <span>
+                                        dowson is my name
+                                    </span>
+                                    <a href="#" class="comment second">
+                                        <i class = "iconfont">&#xe61c</i>
+                                    </a>
+                                    <div>
+                                        <span style="margin-left:50px">
+                                            dowson is my name
+                                        </span>
+                                        <a href="#" class="comment three">
+                                            <i class = "iconfont">&#xe61c</i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div style="margin-top:5px">
+                                    <input type="text" class="col-md-9 message" />
+                                    <button type="button" class="submitMessage " style="margin-left:10px;">评论</button>
+                                <div>;
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="scripts/jquery-2.1.1.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="scripts/AllData.js"></script>
+	<script src="js/share.js"></script>
+</body>
+</html>

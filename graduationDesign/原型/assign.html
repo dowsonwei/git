@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="styles/iconfont.css">
+	<link href="styles/layoutit.css" rel="stylesheet" />
+	
+	<style type="text/css">
+        .rightBtn{
+        	float:right;
+        	clear:both;
+        }
+        .leftBtn{
+        	float:left;
+        	clear:both;
+        }
+        hr{
+        	border:solid 1px #F5F5F5;
+        }
+        .del{
+			float:right;
+			clear:both;
+			color:gray;
+
+        }
+        a:hover{
+        	text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+	<div class="container">
+		<!-- 搜索开始 -->
+		<div class="form-inline" style="margin-left:130px">
+            <div class="form-group">
+                <input type="text" placeholder="项目名称" class="form-control">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">查询</button>
+            </div>
+
+            <!-- 标题开始 -->
+            <h3><strong>项目进度管理系统</strong></h3>
+            <!-- 标题结束 -->
+        </div>
+        <!-- 搜索结束 -->
+		<div class="row">
+			<div class="demo ui-sortable">
+				<div class="lyrow ui-draggable" style="display: block;">
+					<div class="view">
+						<div class="row clearfix">
+							<div class="col-md-4 column ui-sortable">
+								<div class="col-md-12">
+									<strong>用户需求</strong>
+								</div>
+								<hr/>
+
+								<div class="col-md-12">
+									<p>
+										<i class="iconfont">&#xf01b1</i>
+										<span>完成需求分析</span>
+										<a href="#" class="del"><i class="iconfont">&#xf0020</i></a>
+									</p>
+									<a href="#"><i class="iconfont">&#xe6f8</i> </a>
+									<div class="small">张三 李四</div>
+									<hr/>
+								</div>
+								
+
+								<div class="col-md-12">
+									<p>
+										<i class="iconfont">&#xf01b1</i>
+										<span>完成原型</span>
+										<a href="#" class="del"><i class="iconfont">&#xf0020</i></a>
+									</p>
+									<a href="#"><i class="iconfont">&#xe6f8</i> </a>
+									<div class="small">王五 赵六</div>
+									<hr/>
+								</div>
+								
+
+								<a href="#" class="add"><i class="iconfont">&#xe632</i>添加需求</a>
+
+							</div>
+							<div class="col-md-4 column ui-sortable">
+								<div class="col-md-12">
+									<strong>解决中</strong>
+								</div>
+								<hr/>
+
+								<div class="col-md-12">
+									<p>
+										<i class="iconfont">&#xf01b1</i>
+										<span>完成需求分析</span>
+										<a href="#" class="del"><i class="iconfont">&#xf0020</i></a>
+									</p>
+									<a href="#"><i class="iconfont">&#xe6f8</i> </a>
+									<div class="small">张三 李四</div>
+									<hr/>
+								</div>
+								
+
+								<div class="col-md-12">
+									<p>
+										<i class="iconfont">&#xf01b1</i>
+										<span>完成原型</span>
+										<a href="#" class="del"><i class="iconfont">&#xf0020</i></a>
+									</p>
+									<a href="#"><i class="iconfont">&#xe6f8</i> </a>
+									<div class="small">王五 赵六</div>
+									<hr/>
+								</div>
+
+								<a href="#" class="add"><i class="iconfont">&#xe632</i>添加解决中</a>
+							</div>
+							<div class="col-md-4 column ui-sortable">
+								<div class="col-md-12">
+									<strong>问题解决&通知用户</strong>
+								</div>
+								<hr/>
+
+
+								<div class="col-md-12">
+									<p>
+										<i class="iconfont">&#xf01b1</i>
+										<span>完成需求分析</span>
+										<a href="#" class="del"><i class="iconfont">&#xf0020</i></a>
+									</p>
+									<a href="#"><i class="iconfont">&#xe6f8</i> </a>
+									<div class="small">张三 李四</div>
+									<hr/>
+								</div>
+								
+
+								<div class="col-md-12">
+									<p>
+										<i class="iconfont">&#xf01b1</i>
+										<span>完成原型</span>
+										<a href="#" class="del"><i class="iconfont">&#xf0020</i></a>
+									</p>
+									<a href="#"><i class="iconfont">&#xe6f8</i> </a>
+									<div class="small">王五 赵六</div>
+									<hr/>
+								</div>
+								
+								<a href="#" class="add"><i class="iconfont">&#xe632</i>添加问题</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+
+	<script src="scripts/jquery-2.1.1.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="scripts/AllData.js"></script>
+	<script src="js/assign.js"></script>
+</body>
+</html>
+
