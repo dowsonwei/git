@@ -2,36 +2,79 @@
     <head>
         <meta charset="utf-8">
         <style>
-            .box{
-                width:100%;
-                display:-webkit-box;
-                display:-moz-box;
-                display:box;
-                background:green;
-                -webkit-box-orient:vertical;
-                -moz-box-orient:vertical;
-                box-orient:vertical;
-                height:100px;
+            table{
+                border:none;
+                border-collapse:collapse;
+                width:50%;
             }
-            .item:first-child{
-                background:red;
-                -webkit-box-flex:10;
-                -moz-box-flex:3;
-                box-flex:3;
+            td{
+                border:solid 1px #000;
             }
-            .item:nth-child(2),.item:nth-child(3){
-                background:purple;
-                -webkit-box-flex:1;
-                -moz-box-flex:1;
-                box-flex:1;
+            th{
+                border:solid 1px #000;
             }
         </style>
     </head>
     <body>
-        <div class="box">
-            <div class="item">clomun 1</div>
-            <div class="item">clomun 2</div>
-            <div class="item">clomun 3</div>
-        </div>
+    <table>
+        <caption>
+            杭州西湖三日游
+        </caption>
+        <thead>
+            <tr>
+                <th>
+                    编号
+                </th>
+                <th>
+                    姓名
+                </th>
+                <th>
+                    联系电话
+                </th>
+                <th>
+                    地址
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    dowson
+                </td>
+                <td>
+                    2222222
+                </td>
+                <td>
+                    guagnzhou
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    dowson
+                </td>
+                <td>
+                    2222222
+                </td>
+                <td>
+                    guagnzhou
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="2">
+                    领队签字：
+                </td>
+                <th colspan="2">
+                </td>
+            </tr>
+        </tfoot>
+    </table>
     </body>
 </html>
