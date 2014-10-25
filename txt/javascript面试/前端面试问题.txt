@@ -18,7 +18,32 @@
     }
 }
 ###JS相关问题{
-    
+    ##原型继承、组合继承{
+        原型继承{
+            通过调用Object.create（）实现了原型式继承，
+            但是也有缺点就是一旦person的构造函数中有引用类型的属性，
+                通过继承，student的原型中就有了一个引用类型的属性，这个属性会被所有student的实例共享，而这就是我们应该避免的。
+        }
+        组合继承{
+            通过原型链在原型上定义方法实现了函数复用，又通过借调构造函数保证每个实例都有自己的属性。
+            但是缺点就是无论什么情况下都会调用两次person的构造函数，
+                第一次调用是new一个person的实例然后赋值给student的原型，
+                第二次是在调用student的构造函数时会又一次调用它。
+        }
+        优化办法{
+            function object(o){
+                function F(){}
+                F.prototype=o;
+                return new F();
+            }
+            function inheritPrototype(student,person){
+                var prototype=object(person.prototype);
+                prototype.constructor=student;
+                student.prototype=prototype;
+            }
+            inheritPrototype(Student,Person);
+        }
+    }    
     ##跨域访问{
         域A的页面JS直接调用本域下的Proxy程序，proxy程序负责将请求发送给域B下的链接并获取到数据，最后再通过Proxy将数据返回给页面JS使用
             这种方案经过了中间Proxy，所以延迟可能稍微大一点，并且会加重本域服务器的负荷，开发工作量也稍微大一点。
