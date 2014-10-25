@@ -2,18 +2,10 @@
     <head>
         <meta charset="utf-8">
         <style>
-            table{
-                border:none;
-                border-collapse:collapse;
-                width:50%;
-            }
-            td{
-                border:solid 1px #000;
-            }
         </style>
     </head>
     <body>
-    <table>
+    <table  frame="box" rules="rows" width="100%" style="text-align:left">
         <caption>
             杭州西湖三日游
         </caption>
