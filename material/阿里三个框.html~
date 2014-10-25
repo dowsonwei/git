@@ -1,10 +1,39 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="utf-8">
+        <style>
+            .box{
+                width:100%;
+                display:-webkit-box;
+                display:-moz-box;
+                display:box;
+                background:green;
+                -webkit-box-orient:vertical;
+                -moz-box-orient:vertical;
+                box-orient:vertical;
+                height:100px;
+            }
+            .item:first-child{
+                height:100px;
+                background:red;
+                -webkit-box-flex:10;
+                -moz-box-flex:3;
+                box-flex:3;
+            }
+            .item:nth-child(2),.item:nth-child(3){
+                height:100px;
+                background:purple;
+                -webkit-box-flex:1;
+                -moz-box-flex:1;
+                box-flex:1;
+            }
+        </style>
     </head>
     <body>
-        <script type="text/javascript">
-            document.body.innerHTML='<p><pre>test<br/></pre></p>';
-        </script>
+        <div class="box">
+            <div class="item">clomun 1</div>
+            <div class="item">clomun 2</div>
+            <div class="item">clomun 3</div>
+        </div>
     </body>
 </html>

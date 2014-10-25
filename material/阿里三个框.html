@@ -2,34 +2,36 @@
     <head>
         <meta charset="utf-8">
         <style>
-            .A{
-                position:relative;
-                width:500px;
-                height:500px;
-                background:green;
-
+            .box{
+                width:100%;
                 display:-webkit-box;
-                -webkit-box-pack:center;
-                -webkit-box-align:center;
-
                 display:-moz-box;
-                -moz-box-pack:center;
-                -moz-box-align:center;
-
                 display:box;
-                box-pack:center;
-                box-align:center;
+                background:green;
+                -webkit-box-orient:vertical;
+                -moz-box-orient:vertical;
+                box-orient:vertical;
+                height:100px;
             }
-            .B{
-                width:300px;
-                height:300px;
-                background:blue;
+            .item:first-child{
+                background:red;
+                -webkit-box-flex:10;
+                -moz-box-flex:3;
+                box-flex:3;
+            }
+            .item:nth-child(2),.item:nth-child(3){
+                background:purple;
+                -webkit-box-flex:1;
+                -moz-box-flex:1;
+                box-flex:1;
             }
         </style>
     </head>
     <body>
-        <div class="A">
-                <div class="B"></div>
+        <div class="box">
+            <div class="item">clomun 1</div>
+            <div class="item">clomun 2</div>
+            <div class="item">clomun 3</div>
         </div>
     </body>
 </html>
