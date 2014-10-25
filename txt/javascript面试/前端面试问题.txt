@@ -8,6 +8,22 @@
     ##遇到最大的问题{
     }
     ##html5css3{
+        html5{
+            支持Html5的浏览器包括Firefox（火狐浏览器），IE9及其更高版本，Chrome（谷歌浏览器），Safari，Opera等
+            其他浏览要素提供了新的功能，如<audio>和<video>标记
+            自适应网页设计
+
+            Canvas 对象,给浏览器带来直接在上面绘制矢量图的能力，这意味着用户可以脱离Flash 和Silverlight，
+            HTML5的优点主要在于，这个技术可以进行跨平台的使用。
+            将内嵌一个本地的SQL 数据库，以加速交互式搜索，缓存以及索引功能。
+        }
+        css3{
+            border-radius:能产生类似圆角矩形的效果
+            text-shadow:文字投影
+            opacity:直接控制不透明度，用0到1之间的数来表示
+            动画属性：变形(transform)、转换(transition)和动画(animation)
+            更多的CSS选择器，可以实现更简单但是更强大的功能，比如:nth-child()等
+        }
     }
     ##兼容问题{
     }
@@ -18,6 +34,10 @@
     }
 }
 ###JS相关问题{
+    ##this{
+    }    
+    ##ajax{
+    }
     ##原型继承、组合继承{
         原型继承{
             通过调用Object.create（）实现了原型式继承，
