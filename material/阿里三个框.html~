@@ -5,65 +5,6 @@
         </style>
     </head>
     <body>
-    <table  frame="box" rules="rows" width="100%" style="text-align:left">
-        <caption>
-            杭州西湖三日游
-        </caption>
-        <thead>
-            <tr>
-                <th>
-                    编号
-                </th>
-                <th>
-                    姓名
-                </th>
-                <th>
-                    联系电话
-                </th>
-                <th>
-                    地址
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    1
-                </td>
-                <td>
-                    dowson
-                </td>
-                <td>
-                    2222222
-                </td>
-                <td>
-                    guagnzhou
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    1
-                </td>
-                <td>
-                    dowson
-                </td>
-                <td>
-                    2222222
-                </td>
-                <td>
-                    guagnzhou
-                </td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th colspan="2">
-                    领队签字：
-                </td>
-                <th colspan="2">
-                </td>
-            </tr>
-        </tfoot>
-    </table>
+        <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'').replace(/..../g,'$& ')" />
     </body>
 </html>
