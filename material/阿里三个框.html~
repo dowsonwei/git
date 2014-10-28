@@ -2,9 +2,16 @@
     <head>
         <meta charset="utf-8">
         <style>
+            span,div{background-color:#F60;margin-bottom:5px;margin-left:5px;height:50Px;}
         </style>
     </head>
     <body>
-        <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'').replace(/..../g,'$& ')" />
+        <span style="display:block;">加了block属性</span>
+        <span style="display:block;">加了block属性</span>
+        <span style="display:block;">加了block属性</span>
+         
+        <span>没加block属性</span>
+        <span>没加block属性</span>
+        <span>没加block属性</span>
     </body>
 </html>

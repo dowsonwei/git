@@ -490,8 +490,21 @@
     }
 }
 ###CSS相关问题{
-    ##display有哪些值，又是指什么呢
-    ##position有哪些值，又是指什么呢
+    ##display{
+        block：块级元素，占据一定矩形空间，宽度默认占满父元素，可以通过设置高度、宽度、内外边距等属性，来调整的这个矩形的样子；
+        inline：行内元素，自己的独立空间，它是依附于其他块级元素存在的，因此，对行内元素设置高度、宽度、内外边距等属性，都是无效的。
+        inline-block:行内的块级元素，它拥有块级元素的特点，可以设置长宽，可以设置margin和padding值，但它却不是独占一行的，它的宽带并不占满父元素，而是和行内元素一样，可以和其他行内元素排在同一行里
+    }
+    ##position{
+        position:absolute和float会隐式地改变display类型，
+            不论之前什么类型的元素（display:none除外），只要设置了position:absolute、float:left或float:right中任意一个，
+            都会让元素以display:inline-block的方式显示。就算我们显示地设置display:inline或者display:block，也仍然无效
+        absolute:生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。
+        fixed:生成绝对定位的元素，相对于浏览器窗口进行定位。
+        relative:生成相对定位的元素，相对于其正常位置进行定位。
+        static:默认值。没有定位，元素出现在正常的流中
+        inherit:规定应该从父元素继承 position 属性的值。
+    }
     ##描述css reset的作用和用途。
     ##描述下浮动和它的工作原理。
     ##清除浮动的方法有那些，分别适用于什么情形。
