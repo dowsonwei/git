@@ -1,0 +1,450 @@
+###JS相关问题{
+    ##this{
+    }    
+    ##ajax{
+    }
+    ##原型继承、组合继承{
+        原型继承{
+            通过调用Object.create（）实现了原型式继承，
+            但是也有缺点就是一旦person的构造函数中有引用类型的属性，
+                通过继承，student的原型中就有了一个引用类型的属性，这个属性会被所有student的实例共享，而这就是我们应该避免的。
+        }
+        组合继承{
+            通过原型链在原型上定义方法实现了函数复用，又通过借调构造函数保证每个实例都有自己的属性。
+            但是缺点就是无论什么情况下都会调用两次person的构造函数，
+                第一次调用是new一个person的实例然后赋值给student的原型，
+                第二次是在调用student的构造函数时会又一次调用它。
+        }
+        优化办法{
+            function object(o){
+                function F(){}
+                F.prototype=o;
+                return new F();
+            }
+            function inheritPrototype(student,person){
+                var prototype=object(person.prototype);
+                prototype.constructor=student;
+                student.prototype=prototype;
+            }
+            inheritPrototype(Student,Person);
+        }
+    }    
+    ##跨域访问{
+        域A的页面JS直接调用本域下的Proxy程序，proxy程序负责将请求发送给域B下的链接并获取到数据，最后再通过Proxy将数据返回给页面JS使用
+            这种方案经过了中间Proxy，所以延迟可能稍微大一点，并且会加重本域服务器的负荷，开发工作量也稍微大一点。
+        通过Script标签: 在域A页面http://Jipiao.taobao.com/test.htm 的head中写一个空的Script标签：
+            不过它对返回的数据格式要求有点严格，只能是Json格式数据,
+        隐藏iframe、共享domain: 
+            设置document.domain只能设置为自己的父域，而不是能设置为其他域,只适用在具有同一个父域下的跨域请求上，并且要求其他域得配合开发，即需要设置document.domain。
+    }
+    ##请指出浏览器特性检测，特性推断和浏览器UA字符串嗅探的区别？
+    ##请解释JSONP的工作原理，以及它为什么不是真正的AJAX。
+    ##你使用过JavaScript的模板系统吗？
+    ##如有使用做，请谈谈你都使用过那些类似库文件。比如Mustache.js,Handlebars等等。
+    ##请解释一下JavaScript的同源策略。
+    ##请解释一下事件代理。
+    ##描述一种JavaScript memoization(避免重复运算)的策略。
+    ##什么是三元条件语句？
+    ##函数的参数元是什么？
+    dl和dt的区别{
+    }
+    4、undefined'变量和'undeclared'变量分别指什么？{
+        undefined是Js语言类型，而undeclared却是一种Js语法错误吧
+        
+        JavaScript语言也定义了一个全局变量，它的值是 undefined，这个变量也被称为undefined。但是这个变量不是一个常量，也不是一个关键字。
+        为了避免可能对 undefined 值的改变，一个常用的技巧是使用一个传递到匿名包装器的额外参数。
+        var undefined = 123; 
+        (function(something, foo, undefined) { 
+        // 局部作用域里的 undefined 变量重新获得了 `undefined` 值 
+        })('Hello World', 42);
+    }
+    5、闭包是什么，如何使用它，为什么要使用它？{
+        闭包是什么{
+            所谓“闭包”，指的是一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。
+        }
+        当函数a的内部函数b被函数a外的一个变量引用的时候，就创建了一个闭包
+        function a(){
+             var i=0;
+             function b(){
+                 alert(++i);
+             }
+             return b;
+        }
+        var c = a();
+        c();
+
+        %%a返回函数b的引用给c，又函数b的作用域链包含了对函数a的活动对象的引用，也就是说b可以访问到a中定义的所有变量和函数。
+        函数从定义到执行的过程{
+            执行环境(excution context)、活动对象(call object)、作用域(scope)、作用域链(scope chain)
+            1、当定义函数a的时候，js解释器会将函数a的作用域链(scope chain)设置为定义a时a所在的“环境”，
+                如果a是一个全局函数，则scope chain中只有window对象。
+            2、当函数a执行的时候，a会进入相应的执行环境(excution context)。
+            3、在创建执行环境的过程中，首先会为a添加一个scope属性，即a的作用域，其值就为第1步中的scope chain。即a.scope=a的作用域链。
+            4、然后执行环境会创建一个活动对象(call object)。活动对象也是一个拥有属性的对象，但它不具有原型而且不能通过JavaScript代码直接访问。
+                创建完活动对象后，把活动对象添加到a的作用域链的最顶端。此时a的作用域链包含了两个对象：a的活动对象和window对象。
+            5、下一步是在活动对象上添加一个arguments属性，它保存着调用函数a时所传递的参数。
+            6、最后把所有函数a的形参和内部的函数b的引用也添加到a的活动对象上。在这一步中，
+                完成了函数b的的定义，因此如同第3步，函数b的作用域链被设置为b所被定义的环境，即a的作用域。
+        }
+        闭包的应用场景{
+            1、保护函数内的变量安全。以最开始的例子为例，函数a中i只有函数b才能访问，而无法通过其他途径访问到，因此保护了i的安全性。
+            2、在内存中维持一个变量。依然如前例，由于闭包，函数a中i的一直存在于内存中，因此每次执行c()，都会给i自加1。
+        }
+    }
+    6、作用域与作用域链{
+        作用域:控制着变量与函数的可见性和生命周期
+        作用域链:会被创建此函数的作用域中可访问的数据对象填充
+        运行期上下文:定义了函数执行时的环境,每个运行期上下文都有自己的作用域链，用于标识符解析,
+                    当运行期上下文被创建时，而它的作用域链初始化为当前运行函数的[[Scope]]所包含的对象,这些对象合起来称为“活动对象”
+        优化：一个好的经验法则是：如果一个跨作用域的对象被引用了一次以上，则先把它存储到局部变量里再使用{
+            function changeColor(){
+                document.getElementById("btnChange").onclick=function(){
+                    document.getElementById("targetCanvas").style.backgroundColor="red";
+                };
+            }
+            优化后：
+                function changeColor(){
+                    var doc=document;
+                    doc.getElementById("btnChange").onclick=function(){
+                        doc.getElementById("targetCanvas").style.backgroundColor="red";
+                    };
+                }
+        }
+        改变作用域链：一般情况下，在运行期上下文运行的过程中，其作用域链只会被 with 语句和 catch 语句影响。
+            当try代码块中发生错误时，执行过程会跳转到catch语句，然后把异常对象推入一个可变对象并置于作用域的头部。
+            在catch代码块内部，函数的所有局部变量将会被放在第二个作用域链对象中
+                一个很好的模式是将错误委托给一个函数处理
+                好处：  1、这样你可以更加灵活和统一的处理错误
+                        2、只执行一条语句，且没有局部变量的访问，作用域链的临时改变就不会影响代码性能了
+            优化比较：{
+                try{
+                    doSomething();
+                }catch(ex){
+                    alert(ex.message); //作用域链在此处改变
+                }
+                优化后：
+                try{
+                    doSomething();
+                }catch(ex){
+                    handleError(ex); //委托给处理器方法
+                }
+            }
+    }
+    7、Javascript中的变量查找机制{
+        当在函数b中访问一个变量的时候，搜索顺序是先搜索自身的活动对象，如果存在则返回，如果不存在将继续搜索函数a的活动对象，依 次查找，直到找到为止。 
+        如果整个作用域链上都无法找到，则返回undefined。
+        如果函数b存在prototype原型对象，则在查找完自身的活动对象 后先查找自身的原型对象，再继续查找。这就是Javascript中的变量查找机制。
+    }
+    9、请举出一个匿名函数的典型用例？{
+        undefined、闭包函数中也有用上
+    }
+    9、请解释什么是Javascript的模块模式，并举出实用实例。{
+        单例模式：在javascript中，是以对象字面量的方式来创建单例对象的，也就是以花括号包裹起来的键值对的JSON形式来创建的
+        模块模式：私有变量和私有函数只有单例对象本身的特权（公有）方法可以访问到，其他外部的任何对象都不可以。
+        var singleton = function(){
+            var privateVarible = 10;
+            var privateFunction(){
+                return false;
+            };
+            return {
+                publicVarible : true,
+                publicFunction : function(){
+                    privateVarible ++;
+                    return privateFunction();
+                };
+            };
+        }
+        使用点表示法或者方括号语法来调用单例对象的公有成员
+        alert(singleton.publicVarible);
+        alert(singleton[publicVarible]);
+    }
+    ##javascript中的命名空间{
+        http://www.cnblogs.com/dolphinX/p/3269145.html
+        立即执行函数
+        (function(){
+            var _ns=function(){
+            
+            }
+            _ns.prototype.alert=function(){
+                console.log('test');
+            }
+            window.NS=new _NS();
+        })();
+    }
+    12、请指出Javascript宿主对象和内置对象的区别？{
+        内部对象{
+            js中的内部对象包括Array、Boolean、Date、Function、Global、Math、Number、Object、RegExp、String以及各种错误类对象，
+                包括Error、EvalError、RangeError、ReferenceError、SyntaxError和TypeError。
+            %%其中Global和Math这两个对象又被称为“内置对象”，这两个对象在脚本程序初始化时被创建，不必实例化这两个对象。
+        }
+        宿主对象{
+            宿主对象就是执行JS脚本的环境提供的对象。对于嵌入到网页中的JS来说，其宿主对象就是浏览器提供的对象，所以又称为浏览器对象，
+                如IE、Firefox等浏览器提供的对象。不同的浏览器提供的宿主对象可能不同，
+                即使提供的对象相同，其实现方式也大相径庭！这会带来浏览器兼容问题，增加开发难度。
+        }
+    }
+    13、指出下列代码的区别：{
+        function Person(){} 
+        var person = Person() 
+        var person = new Person() 
+        
+        function f(a){
+                        this.x=a;
+                        //return this;
+                    }
+            var a=new f(1);
+            alert(a.x);
+            var b=f(1);
+            alert(b.x);//看到不new时 这里报错,然后给f()加上return 以后,和 写new一样了.
+            //区别就是一个自动return this,一个不自动return
+            //有new的话，返回的是一个对象，没有new返回的是一个函数，因此不可以像上面一样.x访问函数里面的值
+        新创建对象的原型是从当前时刻函数的prototype属性获取的
+            （这意味着同一个构造函数创建的两个创建对象的原型可以不同是因为函数的prototype属性也可以不同）。
+    }
+    ##'.call'和'.apply'的区别是什么{ 
+        call, apply都属于Function.prototype的一个方法,它是JavaScript引擎内在实现的,
+            因为属于Function.prototype,所以每个Function对象实例,也就是每个方法都有call, apply属性
+        call, apply方法区别是,从第二个参数起, call方法参数将依次传递给借用的方法作参数,
+                                            而apply直接将这些参数放到一个数组中再传递, 最后借用方法的参数列表是一样的.
+    }
+    ##请解释'Funciton.prototype.bind'的作用？{
+        上下文scope
+        能够在你想在代码中使用.bind()（如果需要的话）时派上用场，并且帮助你更好地驾驭改变this值所带来的好处。
+    }
+    ##你如何优化自己的代码？{
+            1、包含的长变量名、注释、空格和换行等多余字符{
+                对于布尔型的值true和false、true都可以用1来代替,而false可以用0来代替。对于true节省了3个字节、而false则节省了4个字节
+                很多条件非的判断就判断某个变量是否为"undefined"、"null"、或者"false",逻辑非操作符"!"也可以有
+                    if(myValue != false)    if(!myValue)
+            }
+            2、合理声明变量{
+                局部变量的速度要比全局变量的访问速度更快，因为全局变量其实是全局对象的成员，而局部变量是放在函数的栈当中的。全局变量在作用域链的末端，而局部变量在作用域前端
+                全局变量只有在浏览器关闭才释放。而JavaScript也有局部变量、通常在function中执行完毕就会立即被释放。
+                因此在函数体中要尽可能使用var关键字来声明变量：
+            }
+            3、使用内置函数缩短编译时间
+            4、合理书写if语句{
+                在用if语句和多个else语句时、一定要把最有可能的情况放在第一个、然后是可能性第二的
+            }
+            5、最少语句数量{
+                最少语句数量    
+                    var     temp,
+                            wzc;
+            }
+            6、节约使用DOM{
+                var oUl = document.getElementById("ulItem");  
+                        for(var i=0;i<10;i++){  
+                            var oLi = document.createElement("li");  
+                            oUl.appendChild(oLi);  
+                            oLi.appendChild(document.createTextNode("Item "+i));  
+                        }  
+                 以上代码在循环中调用oUl.appendChild(oLi)、每次执行这条语句后、浏览器就会重新渲染页面、
+                 其次给列表添加文本节点oLi.appendChild(document.createTextNode("Item "+i))、这也会造成页面被重新渲染。
+                 因此每次运行都会造成两次重新渲染页面、共20次。
+               改进版： 
+                var oUl = document.getElementById("ulItem");  
+                        var oTemp = document.createDocumentFragment();  
+                        for(var i=0;i<10;i++){  
+                            var oLi = document.createElement("li");  
+                            oLi.appendChild(document.createTextNode("Item "+i));  
+                            oTemp.appendChild(oLi);  
+                        }  
+                        oUl.appendChild(oTemp);  
+            }
+            7、如果要与数组的长度作比较，应该事先把数组的length属性放入一个局部变量中，减少查询次数。{
+                举例，假设arr是一个数组，最佳的遍历元素方式为：
+                for(var i=0, len = arr.length;i
+                或者，如果无所谓顺序的话：
+                for(var i=arr.length;i>0;i--){...}
+            }
+    }
+    ##在什么时候你会使用'document.write()'？{
+        document.write也多用于加载js广告
+        在载入页面后，浏览器输出流自动关闭。
+           在此之后，任何一个对当前页面进行操作的document.write()方法将打开—个新的输出流,它将清除当前页面内容(包括源文档的任何变量或值)。 
+           在延时脚本的最后一个document.write()方法后面，必须确保含有document.close()方法
+        ##用createElement("script"）的方式加载，调用函数就会报错，用document.write就不报错?
+            createElement 对 FF Opera 而言 load 方法是阻塞的 故alert($)能输出，而对IE Chrome Safria 而言 是非阻塞的 所以就会报错
+            document.write的方式，对所有浏览器而言都是阻塞的 即同步的 所以alert($)会输出正确结果
+        如果外部调用的JavaScript中再次调用document.write来写入另一个调用外部JavaScript的<script>标记，
+            则第二次调用的外部JavaScript不会被执行
+    }
+    ##请尽可能详尽的解释AJAX的工作原理。{
+        var http_request = false;
+        //IE 浏览器中创建
+        http_request = new ActiveXObject("Msxml2.XMLHTTP");//旧版ie
+        http_request = new ActiveXObject("Microsoft.XMLHTTP");//新版ie
+        //Netscope浏览器中创建
+        http_request = new XMLHttpRequest();
+            在微软最新的　IE7.0版本浏览器中也已经支持了XMLHttpRequest,
+            也就是说在IE7.0中同时支持以及上二种创建方式
+        onreadystatechange:指定当readyState属性改变时的事件处理句柄，属性只写。
+            如上：http_request.onreadystatechange = processRequest;processRequest作为事件处理函数，
+                并在processRequest函数体内在readyState状态为4时开始执行。
+        readyState：返回当前请求的状态，属性只读。
+            这些状态用长度为４的整形数据表示，其属性的状态含义如下：
+            0：未初始化（对象已经建立，但是未初始化，即尚未调用open方法创建http请求）
+            1：初始化（对象已经建立，但是未调用send方法发送http请求）
+            2：发送数据（send方法已经被调用，但是当前的状态以及http头未知）
+            3：数据传送中（已经接收部分数据，因为响应及http头不全，这时通过response系统方法获取部分数据会出现错误）
+            4：传送完成（数据完毕，此时可以通过response系统方法获取完整的回应数据）
+        responseBody:将回应信息正文以unsigned byte 数组形式返回，属性只读。
+        responseText:以字符串的形式返回服务器响应信息，属性只读。
+        responseXML:将响应信息格式化为XML Document对象返回，属性只读。传回来的数据不一定是xml类型
+        status:返回当前HTTP请求的状态码，属性只读。
+            如：404＝“文件未找到”，200＝“成功”，304=“则资源没有改变，可以直接在缓存中加载”
+        xhr.open("get/post",url,"true/false");      //其中第三个参数是异步或者同步的
+        xhr.send(null);
+        xhr.abort();    //停止触发事件，不再允许访问任何与响应有关的对象属性，
+                        在终止请求之后，对xhr对象进行解引用操作，由于内存原因，不建议重用xhr对象
+    }
+    ##请解释变量声明提升。{
+        重载{
+            <script type="text/javascript">
+                fn();       //wzc   先执行了fn定义，加之函数重载
+                function fn(){
+                    alert("dowson");
+                }
+                function fn(){
+                    alert("wzc");
+                }
+            </script>
+        }
+        声明式函数和赋值式函数{
+            <script type="text/javascript">
+                fn();       //wzc   先执行了fn定义，加之函数重载
+                function fn(){
+                    alert("dowson");
+                }
+                var fn = function(){
+                    alert("wzc");
+                }
+            </script>
+        }
+        变量的声明提升{
+            <script type="text/javascript">
+                alert(str);     //undefined
+                var str = "dowson";
+            </script>
+        }        
+        step 1.  读入第一个代码块。
+    　　step 2.  做语法分析，有错则报语法错误（比如括号不匹配等），并跳转到step5。
+    　　step 3.  对var变量和function定义做“预编译处理”（永远不会报错的，因为只解析正确的声明）。
+    　　step 4.  执行代码段，有错则报错（比如变量未定义）。
+    　　step 5.  如果还有下一个代码段，则读入下一个代码段，重复step2。
+    　　step 6. 结束。
+    }
+    ##请描述下事件冒泡机制。{
+        当一个元素上的事件被触发的时候，比如说鼠标点击了一个按钮，同样的事件将会在那个元素的所有祖先元素中被触发。这一过程被称为事件冒泡
+    }
+    event对象{
+        DOM{
+            event.bubbles:表明事件是否冒泡
+            event.defaultPrevented：取消一般情况
+            event.stopPropagation():取消进一步冒泡或捕获
+            event.currentTarget == this   //指当前的对象
+            event.target == document.getElementById(); //点击的对象
+        }
+        IE{
+            event.cancleBubble():跟DOM中的stopPropagation
+            event.returnValue：  跟DOM中的preventDefault
+            event.srcElement:    跟DOM中的Target
+        }
+        //事件对象event的一个用法
+        var handle = function(event){
+            switch(event.type){
+                case "click": clickFn();break;
+                case "mouseover": mouseoverFn();break;
+                case "mouseout": mouseoutFn();break;
+            }
+        }
+    }
+    内存和性能{
+        每个函数都是对象，都会占用内存
+        事件处理程序越多导致DOM访问次数更加多
+        事件委托{
+            因为有事件冒泡
+            在document对象设置添加事件处理程序
+                不用等到load，只要页面上面有这个元素，它便可以触发相应的功能
+                事件处理程序少，DOM引用更少
+                占用内存少，性能更加好
+        }
+    }
+    ##什么是"use strict"?使用它的好处和坏处分别是什么？{
+        启用JavaScript严格模式,它能帮你发现代码中未曾注意到的错误。
+        use strict{
+            去除WITH关键词
+            防止意外为全局变量赋值
+            函数中的THIS不再默认指向全局
+            防止重名
+            安全的 EVAL()
+            对只读属性修改时抛出异常
+        }
+    }
+    ##"attribute"和"property"的区别是什么？{
+        常见的attribute节点都有与之对应的property属性
+        自定义的attribute节点，或者自定义property，两者就没有关系
+        attribute节点都是在HTML代码中可见的，而property只是一个普通的名值对属性。
+    }
+    ##为什么扩展JavaScript内置对象的利弊？{
+        好处是调用方便，坏处是内置对象已有改动，它的适用性就得重新考虑，看prototypeJS失败的原因就知道了
+    }
+    ##请指出document load和document ready的区别。{
+        域名解析-加载html-加载js和css-加载图片等其他信息
+        Dom Ready是在dom加载完成后就可以直接对dom进行操作，
+            比如一张图片只要<img>标签完成，不用等这个图片加载完成，就可以设置图片的宽高的属性或样式等；
+        Dom Load是在整个document文档（包括了加载图片等其他信息）加载完成后就可以直接对dom进行操作，
+            比如一张图片要等这个图标加载完成之后才能设置图片的宽高的属性或样式等；
+    }
+    ##你如何获取浏览器URL中查询字符串中的参数。{
+        //获取url问号后面的所有内容
+        function getQueryStringArgs(){
+            var qs = (document.location.search.length > 0) ? document.location.search.substring(1) : "",
+                args = {},
+                items = qs.length ? qs.split("&") : [],
+                item = null,
+                name = null,
+                value = null,
+                i = 0,
+                len = items.length;
+
+                for(i = 0; i < len; i++){
+                    item = items[i].split("=");
+                    name = decodeURIComponent(item[0]);
+                    value = decodeURIComponent(item[1]);
+                    if(name.length){
+                        args[name] = value;
+                    }
+                }
+            return args; 
+        }
+    }
+    ##请描述一下JavaScript的继承模式。{
+        继承模式一：原型链
+        继承模式二：借用构造函数（也叫伪造对象或经典继承）
+        继承模式三：组合继承（也叫伪经典继承）
+        继承模式四：原型式继承
+        继承模式五：寄生式继承
+        继承模式六：寄生组合式继承
+    }
+    ##如何实现下列代码：{
+        [1,2,3,4,5].duplicator(); // [1,2,3,4,5,1,2,3,4,5] 
+    }
+    ##JS代码示例：{
+        ~~3.14 
+        问题：上面的语句的返回值是什么？ 答案：3
+        "i'm a lasagna hog".split("").reverse().join(""); 
+        问题：上面的语句的返回值是什么？ 答案："goh angasal a m'i"
+        ( window.foo || ( window.foo = "bar" ) ); 
+        问题：window.foo的值是什么？ 答案："bar" 只有window.foo为假时的才是上面答案，否则就是它本身的值。
+        var foo = "Hello"; (function() { var bar = " World"; alert(foo + bar); })(); alert(foo + bar); 
+        问题：上面两个alert的结果是什么？ 答案: "Hello World" & ReferenceError: bar is not defined
+        var foo = []; 
+        foo.push(1); 
+        foo.push(2); 
+        问题：foo.length的值是什么？ 答案：'2'
+        var foo = {}; 
+        foo.bar = 'hello'; 
+        问题：foo.length的值是什么？ **答案: undefined
+    }
+}
