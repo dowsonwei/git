@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>js实现3D球面标签云 </title>
+<link rel="stylesheet" type="text/css" href="miaov_style.css" />
+<script type="text/javascript" src="miaov.js"></script>
+</head>
+
+<body>
+<div id="div1">
+	<a href="#">JS课程</a>
+	<a href="#">CSS3</a>
+	<a href="#">HTML5</a>
+	<a href="#">Ajax</a>
+	<a href="#">数据库</a>
+	<a href="#">数据结构</a>
+	<a href="#">汇编语言</a>
+	<a href="#">操作系统</a>
+	<a href="#">java</a>
+	<a href="#">Angular</a>
+	<a href="#">mvvm</a>
+	<a href="#">jQuery</a>
+	<a href="#">javascript</a>
+	<a href="#">Bootstrap</a>
+	<a href="#">github</a>
+	<a href="#">vim</a>
+	<a href="#">sublime</a>
+	<a href="#">Hibernate</a>
+	<a href="#">Servlet</a>
+</div>
+</body>
+</html>

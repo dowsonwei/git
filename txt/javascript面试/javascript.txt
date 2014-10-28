@@ -30,6 +30,8 @@
         }
     }    
     ##跨域访问{
+        window.name iframe
+        jsonp
         域A的页面JS直接调用本域下的Proxy程序，proxy程序负责将请求发送给域B下的链接并获取到数据，最后再通过Proxy将数据返回给页面JS使用
             这种方案经过了中间Proxy，所以延迟可能稍微大一点，并且会加重本域服务器的负荷，开发工作量也稍微大一点。
         通过Script标签: 在域A页面http://Jipiao.taobao.com/test.htm 的head中写一个空的Script标签：
