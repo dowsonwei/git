@@ -1,0 +1,480 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background: url(../image/bg.png);
+}
+ol, ul,li{
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a{
+	text-decoration: none;
+	color: #333;
+}
+a:hover{
+	text-decoration: underline;
+	color: #111;
+}
+
+body{
+	font-family: "微软雅黑";
+	font-size: 16px;
+}
+
+
+
+
+
+
+/*common style*/
+.clearfix { zoom:1;}
+.clearfix:after{
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+/* float left && float rigth*/
+.f-left{
+	float: left;
+}
+.f-right{
+	float: right;
+}
+.pic-link{
+	display: block;
+}
+.pic-link img{
+	width: 100%;
+	display: inline-block;
+}
+/*common style-----end*/
+
+/*layout  start*/
+#header,#footer,#content{
+	width: 980px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #fff;
+}
+/*layout  end*/
+
+/*header  start*/
+.topbar{
+	font-size: 0.8em;
+	padding:3px;
+	background-color: #f1f0f0;
+	border-bottom: 1px solid  #dcdcdc;
+}
+.links{
+	text-align: right;	
+}
+.topbar .welcome {
+	padding-left: 5px;
+}
+.link{
+	display: inline-block;
+	line-height: 18px;
+	font-weight: bold;
+	color: #111;
+	padding-right: 10px;
+}
+
+.header-content{
+}
+.hc-logo{
+	width: 200px;
+	margin: 5px;
+}
+.hc-info{
+	width: 250px;
+	margin: 5px;
+	line-height: 30px;	
+	text-align: center;
+	margin-top: 40px;
+}
+.hc-info h2{
+	font-size: 18px;
+}
+.hc-info h3{
+	font-size: 14px;
+}
+
+.hc-control{
+	margin-left: 10px;
+}
+.hc-control>div{
+	display: inline-block;
+}
+.hc-control .btns{
+	margin-top: 60px;
+}
+.hc-control .btns button{
+	display: block;
+	margin-bottom: 5px;
+	border: none;
+
+}
+.hc-control .btns button.selected{
+	background-color: #0D3E86;	
+	color: #fff;
+}
+
+.hc-control .search{
+	margin-left: 30px;
+	vertical-align: top;
+	margin-top: 62px;
+}
+.hc-control .search select{
+	height: 30px;
+    font-size: 15px;
+}
+.hc-control .search .btn{
+	border: none;
+
+	width: 60px;
+	height: 30px;
+	background-color: #45B696;
+	border-radius: 2px;
+	color: #fff;
+	font-size: 15px;
+	font-weight: bold;
+}
+.search .btn:hover{
+	background-color: #239474;
+}
+.hc-control .search input{
+	width: 250px;
+	height: 25px;
+}
+
+.nav-wrapper {
+	padding:2px 0;
+	display: block;
+    background-color:#71AAFF repeat-x;
+}
+
+.nav-wrapper li{
+	float: left;
+	width: 	11.1111%;
+	text-align: center;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box;
+	border-right: 1px solid #ddd;
+	background: #71AAFF;
+
+}
+.nav-wrapper li:hover{
+    background:url(../image/button.png) no-repeat;
+}
+.nav-wrapper li.selected{
+    background:url(../image/button.png) no-repeat;
+}
+.nav-wrapper li a{
+	text-decoration: none;
+	color: #fff;
+	display: block;
+	line-height: 40px;
+}
+/*header  end*/
+
+
+/*content  start*/
+#content{
+	padding-top: 10px;
+}
+#aside{
+	width: 230px;
+	padding: 4px 8px;
+}
+
+.number-box{
+	border: 1px solid #C598CE;
+	border-radius: 3px;
+	margin-top: 10px;
+	padding: 1px;
+}
+.nb-header{
+	text-align: center;
+	line-height: 30px;
+	background-color: #3D75C9;
+	color: #fff;
+
+}
+.nb-header i{
+    margin-right: 20px;
+}
+.nb-numbers{
+    background-color: #E9F3FE;
+	padding: 10px 4px;
+}
+.nb-numbers .number{
+	border-bottom: 1px dashed #999;
+}
+.number .numberName{
+	color: #4F64D1;
+	font-size: 15px;
+	font-weight: bold;
+}
+.number .numberCost{
+	font-size: 12px;
+	margin-left: 5px;
+}
+.number .numberBuyBtn{
+	border: none;
+	background-color: #71AAFF;
+	color: #fff;
+    background: url(../image/buttonBuy_bg.png);
+	box-shadow: 1px 1px 1px #999;
+	line-height: 20px;
+	margin-left: 10px;
+    margin-top:2px;
+    margin-bottom:2px;
+	width: 45px;
+}
+
+.numberBuyBtn:hover{
+    background: url(../image/buttonBuyHover_bg.png);
+	box-shadow: 3px 1px 1px #999;
+}
+
+.right-content{
+	border: 1px solid #C598CE;
+	margin-top: 14px;
+	width: 725px;
+	min-height: 830px;
+}
+.content-header{
+    background-color:#E9F3FE;
+	padding: 7px;
+	border-bottom: 1px solid #999;
+}
+.ch-title,.ch-info{
+	line-height: 20px;
+	text-align: center;
+}
+.ch-title{
+	font-weight: bold;
+	font-size: 17px;
+}
+.ch-info{
+	font-size: 13px;
+	color: #666;
+}
+/*content  end*/
+
+/*foot  start*/
+/*右浮动*/
+.right{
+    float:right;
+}
+/*左浮动*/
+.left{
+    float: left;
+}
+/*取消浮动*/
+.clearfix{
+    clear:both;
+}
+
+/*按钮的属性*/
+button{
+	background-color: #71AAFF;
+    outline: none;
+    color: #ffffff;
+}
+button:hover{
+    color: #3D75C9;
+}
+button:active{
+    color: #0D3E86;
+}
+/*a属性*/
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: blue;
+}
+
+
+/*底栏*/
+#footer{
+}
+/*底部*/
+.foot{
+	background-color: #71AAFF;
+    width: 980px;
+    height: 108px;
+    margin: 0 auto;
+}
+/*左边的图片*/
+.picture{
+    float: left;
+	height:80%;
+	width:100px;
+    margin: 4px;
+    padding:4px 0;
+    border-radius: 4px;
+}
+img{
+    width:100%;
+    height:100%;
+}
+/*中间的按钮系列*/
+.introduce{
+    float: left;
+    width: 65%;
+    margin-top: 10px;
+}
+
+/*购物指南*/
+.shopGuide{
+    float: left;
+    width: 20%;
+    height: 80%;
+    margin-left: 1%;
+    margin-right: 4%;
+}
+/*付款方式*/
+.payType{
+    float: left;
+    width: 20%;
+    height: 80%;
+    margin-right: 4%;
+}
+/*物流方式*/
+.logisticsMode{
+    float: left;
+    width: 20%;
+    height: 80%;
+    margin-right: 4%;
+}
+/*帮助中心*/
+.help{
+    float: left;
+    width: 20%;
+    height: 80%;
+    margin-right: 5%;
+}
+/*咨询热线*/
+.phoneNumber{
+    float: left;
+    width: 22%;
+    text-align: center;
+    margin-top: 5px;
+    line-height:1.5;
+}
+.phoneNumber>p{
+    color: #ffffff;
+    float: left;
+}
+.phoneNumber>p:nth-child(3){
+    margin-left: 103px;
+}
+.title>button{
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    width: 100%;
+    padding: 4px;
+}
+.textMain>button{
+    border: none;
+    width: 100%;
+    margin-bottom: 4px;
+    padding: 4px;
+}
+
+/*友情链接*/
+.friendLink{
+	background-color: #71AAFF;
+    width: 980px;
+    border-top: solid #C598CE 1px;
+    margin: 0px auto;
+}   
+
+/*友情链接按钮*/
+.friend>button{
+    font-color: #ffffff;
+    border: none;
+    border-left:1px gray solid;
+    border-right:1px gray solid;
+    padding: 4px 40px;
+    margin: 5px 0px 5px 6px;
+}
+
+/*查看全部*/
+.lookAll button{
+    font-color: #ffffff;
+    background: url(../image/buttonBuyHover_bg.png);
+    border:none;
+    border-radius: 4px;
+    padding: 4px 40px;
+    margin: 5px 6px 5px 0px;
+}
+
+/*新号码*/
+.newNumber{
+    border-top: solid #C598CE 1px;
+    margin: 0 auto;
+    width: 980px;
+    height: 30px;
+    line-height: 2;
+}
+.newNumber>a:first-child{
+    margin-left: 10px;
+}
+/*关于我们*/
+.about{
+    margin: 0 auto;
+    text-align: center;
+    border-top: solid #C598CE 1px;
+    border-bottom: solid #C598CE 1px;
+    width: 980px;
+    height: 30px;
+    line-height: 2;
+}
+.about strong{
+    font-weight:1px;
+    font-size: smaller;
+}
+/*foot  end*/
